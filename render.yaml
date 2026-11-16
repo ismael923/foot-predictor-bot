@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: foot-predictor-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_all.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATA_SOURCE
+        value: API
+      - key: FEED_API_URL
+        value: https://1xbet.com/fr
+      - key: MIN_ODDS
+        value: "1.25"
+      - key: MIN_CONFIDENCE
+        value: "0.50"
+      - key: MIN_VALUE
+        value: "1.02"

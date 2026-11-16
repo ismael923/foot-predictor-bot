@@ -1,0 +1,44 @@
+{
+  "id": 770161562,
+  "liga": {
+    "id": 2627439,
+    "name": "FC24. Penalty"
+  },
+  "nonStarted": true,
+  "statusLineStr": "Match de test local",
+  "timer": {
+    "timeRun": false,
+    "timeSec": 120
+  },
+  "scores": {
+    "scoreOpp1": 0,
+    "scoreOpp2": 0,
+    "fullScore": {
+      "S1": 0,
+      "S2": 0
+    }
+  },
+  "eventGroups": [
+    {
+      "groupId": 19,
+      "events": [
+        [
+          { "type": 11273, "parameter": 4, "cf": 2.1 },
+          { "type": 11274, "parameter": 4, "cf": 1.9 },
+          { "type": 11273, "parameter": 5, "cf": 1.75 },
+          { "type": 11274, "parameter": 5, "cf": 2.15 }
+        ]
+      ]
+    },
+    {
+      "groupId": 136,
+      "events": [
+        [
+          { "type": 731, "cf": 11.5, "eventParams": { "params": ["4", "3"] } },
+          { "type": 731, "cf": 10.2, "eventParams": { "params": ["5", "4"] } },
+          { "type": 731, "cf": 13.0, "eventParams": { "params": ["4", "2"] } }
+        ]
+      ]
+    }
+  ]
+}
