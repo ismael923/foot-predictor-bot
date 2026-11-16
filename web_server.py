@@ -88,7 +88,7 @@ def get_latest_prediction() -> dict[str, Any] | None:
         return d
 
 
-def get_predictions_history(limit: int = 40) -> list[dict[str, Any]]:
+def get_predictions_history(limit: int = 100) -> list[dict[str, Any]]:
     with get_db_connection() as conn:
         cursor = conn.cursor()
         cursor.execute("""
@@ -122,7 +122,7 @@ async def api_stats(request: web.Request) -> web.Response:
 
 
 async def api_history(request: web.Request) -> web.Response:
-    limit = int(request.query.get("limit", 50))
+    limit = int(request.query.get("limit", 100))
     history = get_predictions_history(limit)
     return web.json_response(history)
 
@@ -452,11 +452,148 @@ INDEX_HTML = """<!DOCTYPE html>
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .section-header h2 {
             font-size: 1.15rem;
             font-weight: 600;
+        }
+
+        /* CONTRÔLES D'ONGLETS POUR SÉPARATION GAGNÉS / PERDUS */
+        .history-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .tab-btn.tab-won.active {
+            background: #059669;
+            border-color: #10b981;
+            box-shadow: 0 0 15px var(--accent-green-glow);
+        }
+
+        .tab-btn.tab-lost.active {
+            background: #dc2626;
+            border-color: #ef4444;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.35);
+        }
+
+        .dual-tables-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 1050px) {
+            .dual-tables-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .split-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .split-card-won {
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .split-card-lost {
+            border-top: 3px solid var(--accent-red);
+        }
+
+        .split-card-pending {
+            border-top: 3px solid var(--accent-yellow);
+        }
+
+        .split-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .split-header h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-count {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .badge-count-won {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .badge-count-lost {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .badge-count-pending {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--accent-yellow);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .gain-pos {
+            color: var(--accent-green);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        .gain-neg {
+            color: var(--accent-red);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
         }
 
         .table-responsive {
@@ -467,21 +604,21 @@ INDEX_HTML = """<!DOCTYPE html>
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         th {
-            padding: 12px 14px;
+            padding: 10px 12px;
             color: var(--text-muted);
             font-weight: 500;
             border-bottom: 1px solid var(--border);
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             letter-spacing: 0.5px;
         }
 
         td {
-            padding: 14px;
+            padding: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             vertical-align: middle;
         }
@@ -491,9 +628,9 @@ INDEX_HTML = """<!DOCTYPE html>
         }
 
         .badge-status {
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
@@ -520,7 +657,7 @@ INDEX_HTML = """<!DOCTYPE html>
 
         .time-tag {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-family: 'JetBrains Mono', monospace;
         }
 
@@ -601,10 +738,100 @@ INDEX_HTML = """<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- HISTORY TABLE -->
-    <div class="history-section">
+    <!-- HISTORY CONTROLS & DUAL TABLES -->
+    <div class="history-controls">
+        <h2 style="font-size: 1.2rem; font-weight: 700;">Historique des Pronostics</h2>
+        <div class="history-tabs">
+            <button class="tab-btn active" id="btnTabDual" onclick="setTab('dual')">✨ Vue Séparée (Gagnés / Perdus)</button>
+            <button class="tab-btn tab-won" id="btnTabWon" onclick="setTab('won')">🟢 Matchs Gagnés (<span id="countWon">0</span>)</button>
+            <button class="tab-btn tab-lost" id="btnTabLost" onclick="setTab('lost')">🔴 Matchs Perdus (<span id="countLost">0</span>)</button>
+            <button class="tab-btn" id="btnTabPending" onclick="setTab('pending')">⏳ En Cours (<span id="countPending">0</span>)</button>
+            <button class="tab-btn" id="btnTabAll" onclick="setTab('all')">📋 Tout l'Historique</button>
+        </div>
+    </div>
+
+    <!-- PENDING SECTION (EN COURS) -->
+    <div class="split-card split-card-pending" id="pendingSection" style="display: none;">
+        <div class="split-header">
+            <h3>⏳ Pronostics Actuellement en Cours <span class="badge-count badge-count-pending" id="pendingBadge">0 match(s)</span></h3>
+        </div>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Heure</th>
+                        <th>Match</th>
+                        <th>Type de pari</th>
+                        <th>Cote</th>
+                        <th>Confiance</th>
+                        <th>Score actuel</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody id="pendingTableBody">
+                    <tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">Aucun match en cours actuellement.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- VUE SÉPARÉE (2 COLONNES) -->
+    <div class="dual-tables-grid" id="dualGrid">
+        <!-- BLOC GAGNÉS -->
+        <div class="split-card split-card-won" id="cardWon">
+            <div class="split-header">
+                <h3>🟢 Matchs Gagnés <span class="badge-count badge-count-won" id="wonBadge">0</span></h3>
+                <span class="gain-pos" id="wonProfitTotal">+0.00u net</span>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Heure</th>
+                            <th>Match</th>
+                            <th>Pari Gagnant</th>
+                            <th>Cote</th>
+                            <th>Score</th>
+                            <th>Gain</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wonTableBody">
+                        <tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 25px;">Chargement des victoires...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- BLOC PERDUS -->
+        <div class="split-card split-card-lost" id="cardLost">
+            <div class="split-header">
+                <h3>🔴 Matchs Perdus <span class="badge-count badge-count-lost" id="lostBadge">0</span></h3>
+                <span class="gain-neg" id="lostTotalCount">0 défaites</span>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Heure</th>
+                            <th>Match</th>
+                            <th>Pari Tenté</th>
+                            <th>Cote</th>
+                            <th>Score</th>
+                            <th>Résultat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lostTableBody">
+                        <tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 25px;">Chargement des pertes...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE HISTORIQUE UNIQUE (POUR ONGLETS "TOUT" ET "EN COURS") -->
+    <div class="history-section" id="allSection" style="display: none;">
         <div class="section-header">
-            <h2>Historique en Direct des Pronostics</h2>
+            <h2 id="allSectionTitle">Tous les Pronostics</h2>
             <span style="font-size: 0.8rem; color: var(--text-muted);">Actualisé automatiquement</span>
         </div>
         <div class="table-responsive">
@@ -620,7 +847,7 @@ INDEX_HTML = """<!DOCTYPE html>
                         <th>Résultat</th>
                     </tr>
                 </thead>
-                <tbody id="historyTableBody">
+                <tbody id="allTableBody">
                     <tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 30px;">Chargement de l'historique...</td></tr>
                 </tbody>
             </table>
@@ -634,6 +861,66 @@ INDEX_HTML = """<!DOCTYPE html>
     <script>
         let soundEnabled = true;
         let lastPredictionId = null;
+        let activeTab = 'dual';
+        let latestRows = [];
+
+        function setTab(tab) {
+            activeTab = tab;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            const btnMap = {
+                'dual': 'btnTabDual',
+                'won': 'btnTabWon',
+                'lost': 'btnTabLost',
+                'pending': 'btnTabPending',
+                'all': 'btnTabAll'
+            };
+            const activeBtn = document.getElementById(btnMap[tab]);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            const dualGrid = document.getElementById('dualGrid');
+            const cardWon = document.getElementById('cardWon');
+            const cardLost = document.getElementById('cardLost');
+            const allSection = document.getElementById('allSection');
+            const pendingSection = document.getElementById('pendingSection');
+            const allSectionTitle = document.getElementById('allSectionTitle');
+
+            if (tab === 'dual') {
+                dualGrid.style.display = 'grid';
+                dualGrid.style.gridTemplateColumns = window.innerWidth <= 1050 ? '1fr' : '1fr 1fr';
+                cardWon.style.display = 'flex';
+                cardLost.style.display = 'flex';
+                allSection.style.display = 'none';
+            } else if (tab === 'won') {
+                dualGrid.style.display = 'grid';
+                dualGrid.style.gridTemplateColumns = '1fr';
+                cardWon.style.display = 'flex';
+                cardLost.style.display = 'none';
+                allSection.style.display = 'none';
+            } else if (tab === 'lost') {
+                dualGrid.style.display = 'grid';
+                dualGrid.style.gridTemplateColumns = '1fr';
+                cardWon.style.display = 'none';
+                cardLost.style.display = 'flex';
+                allSection.style.display = 'none';
+            } else if (tab === 'pending') {
+                dualGrid.style.display = 'none';
+                allSection.style.display = 'flex';
+                allSectionTitle.innerText = '⏳ Matchs en Attente / En Cours';
+                renderAllTable(latestRows.filter(r => r.prediction_status !== 'WON' && r.prediction_status !== 'LOST'));
+            } else if (tab === 'all') {
+                dualGrid.style.display = 'none';
+                allSection.style.display = 'flex';
+                allSectionTitle.innerText = "📋 Tout l'Historique des Matchs";
+                renderAllTable(latestRows);
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            if (activeTab === 'dual') {
+                document.getElementById('dualGrid').style.gridTemplateColumns = window.innerWidth <= 1050 ? '1fr' : '1fr 1fr';
+            }
+        });
 
         // Audio synthétisé pour éviter tout fichier audio externe
         function playAlertSound() {
@@ -643,8 +930,8 @@ INDEX_HTML = """<!DOCTYPE html>
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.type = 'sine';
-                osc.frequency.setValueAtTime(587.33, ctx.currentTime); // Re5
-                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1); // La5
+                osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1);
                 gain.gain.setValueAtTime(0.15, ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
                 osc.connect(gain);
@@ -705,53 +992,149 @@ INDEX_HTML = """<!DOCTYPE html>
             }
         }
 
+        function renderRowScore(r) {
+            if (r.final_score1 !== null && r.final_score2 !== null) {
+                return `<strong>${r.final_score1} - ${r.final_score2}</strong>`;
+            }
+            if (r.m_score1 !== null && r.m_score2 !== null) {
+                return `${r.m_score1} - ${r.m_score2}`;
+            }
+            return '<span style="color:var(--text-muted)">--</span>';
+        }
+
+        function renderAllTable(rows) {
+            const tbody = document.getElementById('allTableBody');
+            if (!rows.length) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 25px;">Aucun match trouvé pour ce filtre.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = rows.map(r => {
+                let statusBadge = '<span class="badge-status status-pending">⏳ EN COURS</span>';
+                if (r.prediction_status === 'WON') statusBadge = '<span class="badge-status status-won">🟢 GAGNÉ</span>';
+                if (r.prediction_status === 'LOST') statusBadge = '<span class="badge-status status-lost">🔴 PERDU</span>';
+                const time = (r.sent_at || '').split(' ')[1] || r.sent_at || '--:--';
+
+                return `
+                    <tr>
+                        <td class="time-tag">${time}</td>
+                        <td><strong>${r.team1 || 'Eq1'}</strong> vs <strong>${r.team2 || 'Eq2'}</strong> <span style="color:var(--text-muted);font-size:0.75rem;">(#${r.match_number || ''})</span></td>
+                        <td>${r.market_label}</td>
+                        <td class="odds-cell">@${r.odds}</td>
+                        <td>${r.confidence_pct}%</td>
+                        <td>${renderRowScore(r)}</td>
+                        <td>${statusBadge}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
         async function fetchHistory() {
             try {
-                const res = await fetch('/api/history?limit=30');
+                const res = await fetch('/api/history?limit=100');
                 if (!res.ok) return;
                 const rows = await res.json();
+                latestRows = rows;
                 
-                const tbody = document.getElementById('historyTableBody');
-                if (!rows.length) {
-                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted); padding: 20px;">Aucun historique disponible.</td></tr>';
-                    return;
+                const wonRows = rows.filter(r => r.prediction_status === 'WON');
+                const lostRows = rows.filter(r => r.prediction_status === 'LOST');
+                const pendingRows = rows.filter(r => r.prediction_status !== 'WON' && r.prediction_status !== 'LOST');
+
+                // Mettre à jour les compteurs
+                document.getElementById('countWon').innerText = wonRows.length;
+                document.getElementById('countLost').innerText = lostRows.length;
+                document.getElementById('countPending').innerText = pendingRows.length;
+                document.getElementById('wonBadge').innerText = wonRows.length + ' match(s)';
+                document.getElementById('lostBadge').innerText = lostRows.length + ' match(s)';
+                document.getElementById('lostTotalCount').innerText = `${lostRows.length} défaites`;
+
+                // Calcul du gain net cumulé sur les gagnés
+                let wonProfit = wonRows.reduce((acc, r) => acc + (parseFloat(r.odds) - 1.0), 0);
+                document.getElementById('wonProfitTotal').innerText = '+' + wonProfit.toFixed(2) + 'u net';
+
+                // Gestion de la section En Cours
+                const pendingSection = document.getElementById('pendingSection');
+                if (pendingRows.length > 0 && activeTab === 'dual') {
+                    pendingSection.style.display = 'flex';
+                    document.getElementById('pendingBadge').innerText = pendingRows.length + ' match(s)';
+                    document.getElementById('pendingTableBody').innerHTML = pendingRows.map(r => {
+                        const time = (r.sent_at || '').split(' ')[1] || r.sent_at || '--:--';
+                        return `
+                            <tr>
+                                <td class="time-tag">${time}</td>
+                                <td><strong>${r.team1 || 'Eq1'}</strong> vs <strong>${r.team2 || 'Eq2'}</strong> <span style="color:var(--text-muted);font-size:0.75rem;">(#${r.match_number || ''})</span></td>
+                                <td>${r.market_label}</td>
+                                <td class="odds-cell">@${r.odds}</td>
+                                <td>${r.confidence_pct}%</td>
+                                <td>${renderRowScore(r)}</td>
+                                <td><span class="badge-status status-pending">⏳ EN ATTENTE</span></td>
+                            </tr>
+                        `;
+                    }).join('');
+                } else if (activeTab === 'dual') {
+                    pendingSection.style.display = 'none';
                 }
 
-                tbody.innerHTML = rows.map(r => {
-                    let statusBadge = '<span class="badge-status status-pending">⏳ EN COURS</span>';
-                    if (r.prediction_status === 'WON') statusBadge = '<span class="badge-status status-won">🟢 GAGNÉ</span>';
-                    if (r.prediction_status === 'LOST') statusBadge = '<span class="badge-status status-lost">🔴 PERDU</span>';
-                    
-                    const score = (r.final_score1 !== null && r.final_score2 !== null) 
-                        ? `<strong>${r.final_score1} - ${r.final_score2}</strong>` 
-                        : (r.m_score1 !== null && r.m_score2 !== null ? `${r.m_score1} - ${r.m_score2}` : '<span style="color:var(--text-muted)">--</span>');
+                // 🟢 Tableau des GAGNÉS
+                const wonTbody = document.getElementById('wonTableBody');
+                if (!wonRows.length) {
+                    wonTbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 25px;">Aucune victoire récente.</td></tr>';
+                } else {
+                    wonTbody.innerHTML = wonRows.map(r => {
+                        const time = (r.sent_at || '').split(' ')[1] || r.sent_at || '--:--';
+                        const profit = (parseFloat(r.odds) - 1.0).toFixed(2);
+                        return `
+                            <tr>
+                                <td class="time-tag">${time}</td>
+                                <td><strong>${r.team1 || 'Eq1'}</strong> vs <strong>${r.team2 || 'Eq2'}</strong> <span style="color:var(--text-muted);font-size:0.75rem;">(#${r.match_number || ''})</span></td>
+                                <td>${r.market_label}</td>
+                                <td class="odds-cell">@${r.odds}</td>
+                                <td>${renderRowScore(r)}</td>
+                                <td><span class="gain-pos">+${profit}u</span></td>
+                            </tr>
+                        `;
+                    }).join('');
+                }
 
-                    const time = (r.sent_at || '').split(' ')[1] || r.sent_at || '--:--';
+                // 🔴 Tableau des PERDUS
+                const lostTbody = document.getElementById('lostTableBody');
+                if (!lostRows.length) {
+                    lostTbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: var(--text-muted); padding: 25px;">Aucune défaite récente.</td></tr>';
+                } else {
+                    lostTbody.innerHTML = lostRows.map(r => {
+                        const time = (r.sent_at || '').split(' ')[1] || r.sent_at || '--:--';
+                        return `
+                            <tr>
+                                <td class="time-tag">${time}</td>
+                                <td><strong>${r.team1 || 'Eq1'}</strong> vs <strong>${r.team2 || 'Eq2'}</strong> <span style="color:var(--text-muted);font-size:0.75rem;">(#${r.match_number || ''})</span></td>
+                                <td>${r.market_label}</td>
+                                <td class="odds-cell">@${r.odds}</td>
+                                <td>${renderRowScore(r)}</td>
+                                <td><span class="gain-neg">-1.00u</span></td>
+                            </tr>
+                        `;
+                    }).join('');
+                }
 
-                    return `
-                        <tr>
-                            <td class="time-tag">${time}</td>
-                            <td><strong>${r.team1 || 'Eq1'}</strong> vs <strong>${r.team2 || 'Eq2'}</strong> <span style="color:var(--text-muted);font-size:0.75rem;">(#${r.match_number || ''})</span></td>
-                            <td>${r.market_label}</td>
-                            <td class="odds-cell">@${r.odds}</td>
-                            <td>${r.confidence_pct}%</td>
-                            <td>${score}</td>
-                            <td>${statusBadge}</td>
-                        </tr>
-                    `;
-                }).join('');
+                // Mise à jour de la table "Tout" si actuellement active
+                if (activeTab === 'all' || activeTab === 'pending') {
+                    if (activeTab === 'pending') {
+                        renderAllTable(pendingRows);
+                    } else {
+                        renderAllTable(rows);
+                    }
+                }
             } catch (err) {
                 console.error("Erreur historique:", err);
             }
         }
 
-        // Rafraîchissement automatique toutes les 4 secondes
+        // Rafraîchissement automatique toutes les 3 secondes
         fetchDashboard();
         fetchHistory();
         setInterval(() => {
             fetchDashboard();
             fetchHistory();
-        }, 4000);
+        }, 3000);
     </script>
 </body>
 </html>
