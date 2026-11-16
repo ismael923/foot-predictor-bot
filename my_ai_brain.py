@@ -103,6 +103,103 @@ def regulation_score(score1, score2, went_to_sudden_death=None):
     return score1, score2, score1 + score2
 
 
+# ════════════════════════════════════════════════════════════════════════════════
+# 🧠 SUITE DE CALCULS QUANTITATIFS PROFESSIONNELS (TRADING & PREDICTIONS AVANCÉES)
+# ════════════════════════════════════════════════════════════════════════════════
+
+def kelly_criterion(odds: float, probability: float, fraction: float = 0.5) -> float:
+    """Critère de Kelly optimal calibré (Ed Thorp / Fractional Kelly).
+    
+    Calcule le pourcentage optimal du capital à engager sur un pari :
+    f* = (b*p - q) / b avec b = odds - 1, p = proba, q = 1 - p.
+    Par sécurité financière professionnelle, applique par défaut le Half-Kelly (0.5)
+    plafonné à 10% maximum du bankroll.
+    """
+    if odds <= 1.0 or probability <= 0.0 or probability >= 1.0:
+        return 0.0
+    b = odds - 1.0
+    q = 1.0 - probability
+    f_star = (b * probability - q) / b
+    if f_star <= 0.0:
+        return 0.0
+    return round(max(0.0, min(0.10, f_star * fraction)), 4)
+
+
+def shannon_entropy(probabilities: list[float]) -> float:
+    """Entropie de Shannon (Théorie mathématique de l'information).
+    
+    Mesure le niveau d'incertitude dans la distribution des cotes d'un match :
+    H(X) = - sum(p * log2(p)).
+    H proche de 0 = consensus très net et prédictibilité maximale.
+    H élevé = match hautement volatil et imprévisible.
+    """
+    valid_p = [p for p in probabilities if p > 0.0]
+    total = sum(valid_p)
+    if total <= 0.0:
+        return 0.0
+    normalized = [p / total for p in valid_p]
+    return round(-sum(p * math.log2(p) for p in normalized), 4)
+
+
+def dixon_coles_tau(x: int, y: int, lambda_x: float, lambda_y: float, rho: float = -0.11) -> float:
+    """Facteur de corrélation Dixon & Coles (1997) pour scores exacts liés.
+    
+    Corrige l'indépendance naïve de Poisson pour les scores d'affrontements directs.
+    """
+    if x == 0 and y == 0:
+        return max(0.0, 1.0 - lambda_x * lambda_y * rho)
+    elif x == 0 and y == 1:
+        return max(0.0, 1.0 + lambda_x * rho)
+    elif x == 1 and y == 0:
+        return max(0.0, 1.0 + lambda_y * rho)
+    elif x == 1 and y == 1:
+        return max(0.0, 1.0 - rho)
+    return 1.0
+
+
+def z_score_anomaly(current_odds: float, historical_odds: list[float]) -> float:
+    """Z-Score de détection statistique d'anomalie de cote (chute anormale en direct).
+    
+    Z = (mean - current_odds) / std_dev.
+    Z > 2.0 = anomalie de liquidité confirmée (p-value < 0.05).
+    """
+    if not historical_odds or len(historical_odds) < 3:
+        return 0.0
+    mean = sum(historical_odds) / len(historical_odds)
+    variance = sum((x - mean) ** 2 for x in historical_odds) / len(historical_odds)
+    std_dev = math.sqrt(variance)
+    if std_dev < 1e-6:
+        return 0.0
+    return round((mean - current_odds) / std_dev, 2)
+
+
+def sharpe_ratio(returns: list[float], risk_free_rate: float = 0.0) -> float:
+    """Ratio de Sharpe du portefeuille de pronostics (rentabilité vs volatilité)."""
+    if not returns or len(returns) < 5:
+        return 0.0
+    mean_return = sum(returns) / len(returns)
+    variance = sum((r - mean_return) ** 2 for r in returns) / len(returns)
+    std_dev = math.sqrt(variance)
+    if std_dev < 1e-6:
+        return 0.0
+    return round((mean_return - risk_free_rate) / std_dev, 2)
+
+
+def maximum_drawdown(capital_curve: list[float]) -> float:
+    """Maximum Drawdown (MDD) : plus forte baisse observée du capital en %."""
+    if not capital_curve or len(capital_curve) < 2:
+        return 0.0
+    peak = capital_curve[0]
+    max_dd = 0.0
+    for value in capital_curve:
+        if value > peak:
+            peak = value
+        dd = (peak - value) / peak if peak > 0 else 0.0
+        if dd > max_dd:
+            max_dd = dd
+    return round(max_dd * 100.0, 2)
+
+
 class TerminatAI:
     """Train compact probability calibrations from completed SQLite matches."""
 
@@ -1253,6 +1350,57 @@ class TerminatAI:
                 + best_market,
             ]
         )
+
+    def calculate_kelly_stake(self, odds: float, probability: float, fraction: float = 0.5) -> float:
+        """Pourcentage optimal du bankroll à miser selon le critère de Kelly calibré."""
+        return kelly_criterion(odds, probability, fraction)
+
+    def calculate_match_entropy(self, probabilities: list[float]) -> float:
+        """Niveau d'incertitude et de chaos de Shannon sur les cotes du match."""
+        return shannon_entropy(probabilities)
+
+    def detect_odds_anomaly(self, current_odds: float, historical_odds: list[float]) -> float:
+        """Détection de rupture anormale (Z-score) sur une cote live."""
+        return z_score_anomaly(current_odds, historical_odds)
+
+    def autonomous_internet_diagnostics(self) -> dict[str, Any]:
+        """Diagnostic autonome de connectivité Internet, latence des flux et miroirs."""
+        import time
+        from urllib.request import Request, urlopen
+        from urllib.parse import urlsplit
+
+        feed_url = os.getenv("FEED_API_URL", "https://1xbet.com/fr")
+        parsed = urlsplit(feed_url)
+        target_host = f"{parsed.scheme}://{parsed.netloc}"
+
+        diagnostics: dict[str, Any] = {
+            "timestamp": time.time(),
+            "target_host": target_host,
+            "feed_reachable": False,
+            "latency_ms": None,
+            "telegram_reachable": False,
+        }
+
+        # Test du flux bookmaker
+        start = time.perf_counter()
+        try:
+            req = Request(target_host, headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(req, timeout=5) as res:
+                if res.status < 500:
+                    diagnostics["feed_reachable"] = True
+                    diagnostics["latency_ms"] = round((time.perf_counter() - start) * 1000, 1)
+        except Exception as e:
+            diagnostics["feed_error"] = str(e)
+
+        # Test Telegram API
+        try:
+            t_req = Request("https://api.telegram.org", headers={"User-Agent": "Mozilla/5.0"})
+            with urlopen(t_req, timeout=5) as t_res:
+                diagnostics["telegram_reachable"] = t_res.status < 500
+        except Exception:
+            diagnostics["telegram_reachable"] = False
+
+        return diagnostics
 
     def _markov_probability(self, game_id=None):
         connection = sqlite3.connect(self.db_path, timeout=5)
