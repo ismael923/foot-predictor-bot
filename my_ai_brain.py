@@ -2809,10 +2809,23 @@ class TerminatAI:
         except Exception:
             pass
 
-        # Classement par rentabilité réelle (value) et diversification forcée :
+        # Classement par ESPÉRANCE MATHÉMATIQUE (Value réelle) et RENTABILITÉ HISTORIQUE (ROI) :
+        # On ne multiplie plus par le pourcentage brut "conf", ce qui évitait au bot de privilégier
+        # aveuglément les petites cotes à 85% au détriment des cotes rentables à forte Value.
         def _selection_score(item):
             val = item.get("value", 1.0)
             conf = item.get("confidence_pct", 50.0) / 100.0
+            odds = item.get("odds", 2.0)
+            roi = item.get("historical_roi_pct")
+            
+            # Bonus de rentabilité historique réelle constatée en base
+            roi_factor = 1.0
+            if isinstance(roi, (int, float)):
+                if roi > 0:
+                    roi_factor = 1.0 + min(0.30, roi / 100.0)
+                elif roi < -5.0:
+                    roi_factor = 0.85
+
             is_win = item.get("group_id") == 1
             is_tot = item.get("group_id") in (17, 19)
             mtype = item.get("market_type")
@@ -2824,7 +2837,6 @@ class TerminatAI:
 
             # ROTATION DYNAMIQUE UNIVERSELLE :
             # Aucun type de marché ne doit être envoyé en boucle.
-            # Si un marché a été envoyé récemment, on favorise les autres options rentables (BTTS, Totaux, 1X2, Impair).
             item_type_key = (
                 "extra_penalties" if mtype == "Pénalités supplémentaires"
                 else "even_odd" if mtype == "Total pair / impair"
@@ -2834,9 +2846,12 @@ class TerminatAI:
             )
             type_count = recent_sent_types[:3].count(item_type_key)
             if type_count >= 1:
-                market_weight *= (0.60 ** type_count)  # -40% au premier doublon, -64% au deuxième
+                market_weight *= (0.60 ** type_count)
 
-            return (val * conf * market_weight, val, -item.get("odds", 2.0))
+            # Priorité absolue : Espérance mathématique × ROI prouvé × Diversification
+            # (val = cote * probabilité, donc il intègre déjà la probabilité sans écraser les cotes intéressantes)
+            pure_value_score = val * market_weight * roi_factor
+            return (pure_value_score, val, conf, odds)
 
         decision_candidates.sort(key=_selection_score, reverse=True)
         decision = decision_candidates[0] if (decision_candidates and phase_eligible) else None
