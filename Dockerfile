@@ -14,8 +14,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Port par défaut pour le Web
-ENV PORT=8080
-EXPOSE 8080
+# Droits d'écriture pour l'utilisateur 1000 (requis par Hugging Face Spaces)
+RUN useradd -m -u 1000 user && chown -R user:user /app
+USER user
+
+# Port 7860 par défaut pour Hugging Face Spaces (ou PORT d'environnement)
+ENV PORT=7860
+EXPOSE 7860
 
 CMD ["python", "run_all.py"]
