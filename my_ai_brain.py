@@ -2768,17 +2768,24 @@ class TerminatAI:
             and (unfiltered or item["odds"] >= self.MIN_ODDS)
         ]
         if decision_candidates:
-            best_raw_confidence = max(
-                raw_confidence_by_key.get(
-                    item["market_key"], item["confidence_pct"] / 100.0
+            raw_conf_values: list[float] = [
+                float(
+                    raw_confidence_by_key.get(
+                        item["market_key"], item["confidence_pct"] / 100.0
+                    )
+                    or 0.0
                 )
                 for item in decision_candidates
-            )
+            ]
+            best_raw_confidence = max(raw_conf_values) if raw_conf_values else 0.0
             decision_candidates = [
                 item
                 for item in decision_candidates
-                if raw_confidence_by_key.get(
-                    item["market_key"], item["confidence_pct"] / 100.0
+                if float(
+                    raw_confidence_by_key.get(
+                        item["market_key"], item["confidence_pct"] / 100.0
+                    )
+                    or 0.0
                 )
                 >= best_raw_confidence - self.MAX_EDGE_OVER_MARKET
             ]
