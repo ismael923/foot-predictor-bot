@@ -80,6 +80,34 @@ FeedRequestError = FeedAccessError
 class MatchHistoryRepository:
     """Persist match history, sent tickets, outcomes, and cycle statistics."""
 
+    class _TrackedConnection:
+        def __init__(self, connection: sqlite3.Connection, registry: set[sqlite3.Connection]) -> None:
+            self._connection = connection
+            self._registry = registry
+
+        def __getattr__(self, name: str) -> Any:
+            return getattr(self._connection, name)
+
+        def __enter__(self) -> "MatchHistoryRepository._TrackedConnection":
+            return self
+
+        def __exit__(self, exc_type, exc, tb) -> None:
+            try:
+                if exc_type is None:
+                    self._connection.commit()
+                else:
+                    self._connection.rollback()
+            finally:
+                self.close()
+
+        def close(self) -> None:
+            if self._connection is None:
+                return
+            connection = self._connection
+            self._connection = None
+            self._registry.discard(connection)
+            connection.close()
+
     def __init__(
         self,
         db_path: str | Path | None = None,
@@ -87,12 +115,38 @@ class MatchHistoryRepository:
         initialize: bool = True,
     ) -> None:
         self.db_path = HISTORY_DB_PATH if db_path is None else Path(db_path)
+        self._open_connections: set[sqlite3.Connection] = set()
         if initialize:
             self._initialize()
 
+    def _connect(self, *args: Any, **kwargs: Any) -> "MatchHistoryRepository._TrackedConnection":
+        connection = sqlite3.connect(*args, **kwargs)
+        self._open_connections.add(connection)
+        return self._TrackedConnection(connection, self._open_connections)
+
+    def __enter__(self) -> "MatchHistoryRepository":
+        return self
+
+    def __exit__(self, exc_type, exc, tb) -> None:
+        self.close()
+
+    def close(self) -> None:
+        while self._open_connections:
+            connection = self._open_connections.pop()
+            try:
+                connection.close()
+            except Exception:
+                pass
+
+    def __del__(self) -> None:
+        try:
+            self.close()
+        except Exception:
+            pass
+
     def _initialize(self) -> None:
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        with closing(sqlite3.connect(self.db_path)) as connection, connection:
+        with closing(self._connect(self.db_path)) as connection, connection:
             connection.execute(
                 """
                 CREATE TABLE IF NOT EXISTS matches_history (
@@ -388,7 +442,7 @@ class MatchHistoryRepository:
         match_number = match.get("match_number", match.get("dopInfo"))
 
         market_rows = list(regulation_markets)
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             connection.execute(
                 """
                 INSERT INTO matches_history (
@@ -573,7 +627,7 @@ class MatchHistoryRepository:
 
         if not rows:
             return 0
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             connection.executemany(
                 """
                 INSERT INTO exact_score_predictions (
@@ -600,7 +654,7 @@ class MatchHistoryRepository:
         if score1 is None or score2 is None or game_id is None:
             raise ValueError("Score final invalide pour le règlement des scores exacts")
 
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             cursor = connection.execute(
                 """
                 UPDATE exact_score_predictions
@@ -652,7 +706,7 @@ class MatchHistoryRepository:
         ):
             raise ValueError("Instantané de signal LIVE invalide")
 
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             cursor = connection.execute(
                 """
                 INSERT INTO live_signal_snapshots (
@@ -713,7 +767,7 @@ class MatchHistoryRepository:
             updates.append("approved = ?")
             values.append(int(approved))
         values.append(snapshot_id)
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             cursor = connection.execute(
                 "UPDATE live_signal_snapshots SET "
                 + ", ".join(updates)
@@ -736,7 +790,7 @@ class MatchHistoryRepository:
         if score1 is None or score2 is None or game_id is None:
             raise ValueError("Score final invalide pour le règlement du signal LIVE")
 
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             snapshots = connection.execute(
                 """
                 SELECT id, group_id, event_type, threshold
@@ -772,7 +826,7 @@ class MatchHistoryRepository:
 
     def get_live_signal_statistics(self) -> dict[str, int | float | None]:
         try:
-            with closing(sqlite3.connect(self.db_path, timeout=5)) as connection:
+            with closing(self._connect(self.db_path, timeout=5)) as connection:
                 row = connection.execute(
                     """
                     SELECT COUNT(*),
@@ -804,7 +858,7 @@ class MatchHistoryRepository:
 
     def get_cycle_statistics(self, hour_of_day: int | None = None) -> dict[str, Any]:
         current_hour = datetime.now().hour if hour_of_day is None else hour_of_day
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection:
             recent = connection.execute(
                 """
                 SELECT total_goals, went_to_sudden_death
@@ -854,7 +908,7 @@ class MatchHistoryRepository:
         }
 
     def get_recent_matches(self, limit: int = 15) -> list[tuple[Any, ...]]:
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection:
             return connection.execute(
                 """
                 SELECT game_id, match_number, team1, final_score1, final_score2,
@@ -868,7 +922,7 @@ class MatchHistoryRepository:
             ).fetchall()
 
     def get_match_count(self) -> int:
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection:
             result = connection.execute(
                 "SELECT COUNT(*) FROM matches_history"
             ).fetchone()
@@ -880,7 +934,7 @@ class MatchHistoryRepository:
         normalized_phase = str(phase).upper()
         if normalized_phase not in ("LIVE", "PRE-MATCH"):
             raise ValueError("Phase de pronostic invalide")
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection:
             row = connection.execute(
                 "SELECT 1 FROM sent_predictions WHERE game_id = ? AND phase = ?",
                 (str(game_id), normalized_phase),
@@ -919,7 +973,7 @@ class MatchHistoryRepository:
         ):
             raise ValueError("Informations du ticket invalides")
 
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             cursor = connection.execute(
                 """
                 INSERT INTO sent_predictions (
@@ -949,7 +1003,7 @@ class MatchHistoryRepository:
         normalized_phase = str(phase).upper()
         if normalized_phase not in ("LIVE", "PRE-MATCH"):
             raise ValueError("Phase de pronostic invalide")
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             cursor = connection.execute(
                 """
                 UPDATE sent_predictions
@@ -972,7 +1026,7 @@ class MatchHistoryRepository:
         if score1 is None or score2 is None or game_id is None:
             raise ValueError("Score final invalide pour le règlement du ticket")
 
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection, connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection, connection:
             predictions = connection.execute(
                 """
                 SELECT id, group_id, event_type, threshold
@@ -1147,7 +1201,7 @@ class MatchHistoryRepository:
         return "VOID"
 
     def get_prediction_statistics(self) -> dict[str, int | float | None]:
-        with closing(sqlite3.connect(self.db_path, timeout=5)) as connection:
+        with closing(self._connect(self.db_path, timeout=5)) as connection:
             row = connection.execute(
                 """
                 SELECT COUNT(*),

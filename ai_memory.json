@@ -1,54 +1,54 @@
 {
   "version": 1,
-  "trained_matches": 535,
+  "trained_matches": 544,
   "overall": {
-    "sudden_death_rate": 0.26629422718808193,
-    "recent_sudden_death_rate": 0.2,
+    "sudden_death_rate": 0.2673992673992674,
+    "recent_sudden_death_rate": 0.26666666666666666,
     "recent_short_rate": 0.4666666666666667,
-    "average_goals": 8.710280373831775,
-    "average_score_team1": 4.166355140186916,
-    "average_score_team2": 4.54392523364486
+    "average_goals": 8.726102941176471,
+    "average_score_team1": 4.174632352941177,
+    "average_score_team2": 4.551470588235294
   },
   "markov": {
     "100": {
-      "count": 73,
-      "sudden_death": 19,
-      "probability": 0.2604345127250155
+      "count": 74,
+      "sudden_death": 20,
+      "probability": 0.2701947175631386
     },
     "001": {
-      "count": 72,
+      "count": 74,
       "sudden_death": 19,
-      "probability": 0.26395389803211033
+      "probability": 0.25703682282629653
     },
     "011": {
       "count": 28,
       "sudden_death": 8,
-      "probability": 0.2844196151458721
+      "probability": 0.2844932844932845
     },
     "110": {
       "count": 28,
       "sudden_death": 11,
-      "probability": 0.38441961514587214
+      "probability": 0.3844932844932845
     },
     "101": {
       "count": 31,
       "sudden_death": 9,
-      "probability": 0.2888663167992777
+      "probability": 0.28893328893328896
     },
     "010": {
-      "count": 75,
-      "sudden_death": 20,
-      "probability": 0.26665699291397615
+      "count": 77,
+      "sudden_death": 21,
+      "probability": 0.2725923865164372
     },
     "000": {
-      "count": 215,
-      "sudden_death": 53,
-      "probability": 0.2466939560109501
+      "count": 219,
+      "sudden_death": 54,
+      "probability": 0.24676379427510647
     },
     "111": {
       "count": 10,
       "sudden_death": 2,
-      "probability": 0.21104903786468032
+      "probability": 0.21123321123321123
     }
   },
   "hourly": {
@@ -60,16 +60,16 @@
         "implied_probability": 0.7725469839074113
       },
       "7": {
-        "count": 31,
-        "wins": 19,
-        "actual_rate": 0.6129032258064516,
-        "implied_probability": 0.768873238571317
+        "count": 38,
+        "wins": 24,
+        "actual_rate": 0.631578947368421,
+        "implied_probability": 0.7618467931038043
       },
       "8": {
-        "count": 9,
-        "wins": 6,
-        "actual_rate": 0.6666666666666666,
-        "implied_probability": 0.8208333829223269
+        "count": 11,
+        "wins": 7,
+        "actual_rate": 0.6363636363636364,
+        "implied_probability": 0.8163720944448667
       },
       "9": {
         "count": 12,
@@ -206,16 +206,16 @@
         "implied_probability": 0.5033733940133429
       },
       "7": {
-        "count": 31,
-        "wins": 18,
-        "actual_rate": 0.5806451612903226,
-        "implied_probability": 0.5055110181291051
+        "count": 38,
+        "wins": 21,
+        "actual_rate": 0.5526315789473685,
+        "implied_probability": 0.49057268437117413
       },
       "8": {
-        "count": 9,
-        "wins": 6,
-        "actual_rate": 0.6666666666666666,
-        "implied_probability": 0.5612446536566016
+        "count": 11,
+        "wins": 8,
+        "actual_rate": 0.7272727272727273,
+        "implied_probability": 0.5499533617940768
       },
       "9": {
         "count": 12,
@@ -352,16 +352,16 @@
         "implied_probability": 0.4966266059866571
       },
       "7": {
-        "count": 31,
-        "wins": 13,
-        "actual_rate": 0.41935483870967744,
-        "implied_probability": 0.4944889818708948
+        "count": 38,
+        "wins": 17,
+        "actual_rate": 0.4473684210526316,
+        "implied_probability": 0.5094273156288258
       },
       "8": {
-        "count": 9,
+        "count": 11,
         "wins": 3,
-        "actual_rate": 0.3333333333333333,
-        "implied_probability": 0.43875534634339847
+        "actual_rate": 0.2727272727272727,
+        "implied_probability": 0.45004663820592317
       },
       "9": {
         "count": 12,
@@ -499,26 +499,26 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 175,
-        "actual_rate": 0.3404669260700389,
-        "implied_probability": 0.40475340366851315,
-        "roi_pct": -15.609338521400772
+        "bets": 523,
+        "wins": 178,
+        "actual_rate": 0.3403441682600382,
+        "implied_probability": 0.4046356802521363,
+        "roi_pct": -15.611281070745692
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 8,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.3963488565358971,
-          "roi_pct": -14.683333333333332
+          "bets": 31,
+          "wins": 10,
+          "actual_rate": 0.3225806451612903,
+          "implied_probability": 0.39660630896151366,
+          "roi_pct": -17.73870967741935
         },
         "8": {
-          "bets": 9,
-          "wins": 3,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.4144717306186528,
-          "roi_pct": -18.511111111111113
+          "bets": 11,
+          "wins": 4,
+          "actual_rate": 0.36363636363636365,
+          "implied_probability": 0.4117303491703634,
+          "roi_pct": -10.054545454545458
         },
         "9": {
           "bets": 12,
@@ -677,11 +677,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 173,
-          "actual_rate": 0.3405511811023622,
-          "implied_probability": 0.4049566501482178,
-          "roi_pct": -15.62933070866141
+          "bets": 517,
+          "wins": 176,
+          "actual_rate": 0.3404255319148936,
+          "implied_probability": 0.4048340223627586,
+          "roi_pct": -15.630947775628618
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -699,26 +699,26 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 339,
-        "actual_rate": 0.6595330739299611,
-        "implied_probability": 0.6870594721760634,
-        "roi_pct": -3.8177042801556342
+        "bets": 523,
+        "wins": 345,
+        "actual_rate": 0.6596558317399618,
+        "implied_probability": 0.6871528480124849,
+        "roi_pct": -3.816061185468443
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 16,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.6966630602598204,
-          "roi_pct": -3.9125
+          "bets": 31,
+          "wins": 21,
+          "actual_rate": 0.6774193548387096,
+          "implied_probability": 0.6956644634017551,
+          "roi_pct": -2.367741935483871
         },
         "8": {
-          "bets": 9,
-          "wins": 6,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.6770850807717389,
-          "roi_pct": -0.9666666666666663
+          "bets": 11,
+          "wins": 7,
+          "actual_rate": 0.6363636363636364,
+          "implied_probability": 0.680041056341807,
+          "roi_pct": -5.7
         },
         "9": {
           "bets": 12,
@@ -877,11 +877,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 335,
-          "actual_rate": 0.6594488188976378,
-          "implied_probability": 0.6868421237683999,
-          "roi_pct": -3.798228346456685
+          "bets": 517,
+          "wins": 341,
+          "actual_rate": 0.6595744680851063,
+          "implied_probability": 0.6869403668982208,
+          "roi_pct": -3.796905222437129
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -899,19 +899,19 @@
       "threshold": 2.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 188,
-        "wins": 168,
-        "actual_rate": 0.8936170212765957,
-        "implied_probability": 0.9822358566554507,
-        "roi_pct": -8.963829787234054
+        "bets": 190,
+        "wins": 170,
+        "actual_rate": 0.8947368421052632,
+        "implied_probability": 0.982168308014022,
+        "roi_pct": -8.843157894736853
       },
       "by_hour": {
         "7": {
-          "bets": 12,
-          "wins": 11,
-          "actual_rate": 0.9166666666666666,
-          "implied_probability": 0.9850822684564969,
-          "roi_pct": -6.88333333333334
+          "bets": 14,
+          "wins": 13,
+          "actual_rate": 0.9285714285714286,
+          "implied_probability": 0.9837589066369583,
+          "roi_pct": -5.542857142857148
         },
         "8": {
           "bets": 9,
@@ -1077,11 +1077,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 186,
-          "wins": 166,
-          "actual_rate": 0.8924731182795699,
-          "implied_probability": 0.982255428065862,
-          "roi_pct": -9.081720430107538
+          "bets": 188,
+          "wins": 168,
+          "actual_rate": 0.8936170212765957,
+          "implied_probability": 0.9821869526153711,
+          "roi_pct": -8.958510638297883
         },
         "CYCLE COURT (Under)": {
           "bets": 2,
@@ -1099,26 +1099,26 @@
       "threshold": 3.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 368,
-        "actual_rate": 0.7159533073929961,
-        "implied_probability": 0.8362161035685958,
-        "roi_pct": -14.355642023346302
+        "bets": 523,
+        "wins": 374,
+        "actual_rate": 0.7151051625239006,
+        "implied_probability": 0.8362256335535218,
+        "roi_pct": -14.45602294455067
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 15,
-          "actual_rate": 0.625,
-          "implied_probability": 0.8422873278501743,
-          "roi_pct": -25.7625
+          "bets": 31,
+          "wins": 19,
+          "actual_rate": 0.6129032258064516,
+          "implied_probability": 0.8413078440553181,
+          "roi_pct": -27.112903225806452
         },
         "8": {
-          "bets": 9,
-          "wins": 6,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.8460417864761268,
-          "roi_pct": -21.055555555555554
+          "bets": 11,
+          "wins": 8,
+          "actual_rate": 0.7272727272727273,
+          "implied_probability": 0.8436052632007276,
+          "roi_pct": -13.545454545454547
         },
         "9": {
           "bets": 12,
@@ -1277,11 +1277,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 366,
-          "actual_rate": 0.7204724409448819,
-          "implied_probability": 0.8362669814738974,
-          "roi_pct": -13.814566929133868
+          "bets": 517,
+          "wins": 372,
+          "actual_rate": 0.7195357833655706,
+          "implied_probability": 0.8362757363693879,
+          "roi_pct": -13.925531914893627
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -1299,26 +1299,26 @@
       "threshold": 4.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 247,
-        "actual_rate": 0.4805447470817121,
-        "implied_probability": 0.5302916609981599,
-        "roi_pct": -9.14202334630349
+        "bets": 523,
+        "wins": 252,
+        "actual_rate": 0.4818355640535373,
+        "implied_probability": 0.5302345164499348,
+        "roi_pct": -8.868833652007634
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 12,
-          "actual_rate": 0.5,
-          "implied_probability": 0.5245669426835852,
-          "roi_pct": -2.3041666666666667
+          "bets": 31,
+          "wins": 15,
+          "actual_rate": 0.4838709677419355,
+          "implied_probability": 0.524889653431218,
+          "roi_pct": -5.554838709677419
         },
         "8": {
-          "bets": 9,
-          "wins": 3,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.5214305401619006,
-          "roi_pct": -37.82222222222222
+          "bets": 11,
+          "wins": 5,
+          "actual_rate": 0.45454545454545453,
+          "implied_probability": 0.52305823452337,
+          "roi_pct": -14.809090909090909
         },
         "9": {
           "bets": 12,
@@ -1477,11 +1477,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 245,
-          "actual_rate": 0.4822834645669291,
-          "implied_probability": 0.5301747383735051,
-          "roi_pct": -8.741141732283458
+          "bets": 517,
+          "wins": 250,
+          "actual_rate": 0.4835589941972921,
+          "implied_probability": 0.5301189660425576,
+          "roi_pct": -8.471760154738869
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -1499,26 +1499,26 @@
       "threshold": 5.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 479,
-        "wins": 129,
-        "actual_rate": 0.26931106471816285,
-        "implied_probability": 0.26166661081332593,
-        "roi_pct": 2.6018789144050083
+        "bets": 486,
+        "wins": 131,
+        "actual_rate": 0.26954732510288065,
+        "implied_probability": 0.2617774949084325,
+        "roi_pct": 2.7804526748971177
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 8,
-          "actual_rate": 0.34782608695652173,
-          "implied_probability": 0.256195899175266,
-          "roi_pct": 40.56521739130435
+          "bets": 28,
+          "wins": 9,
+          "actual_rate": 0.32142857142857145,
+          "implied_probability": 0.25933878349845335,
+          "roi_pct": 29.714285714285715
         },
         "8": {
-          "bets": 8,
-          "wins": 2,
-          "actual_rate": 0.25,
-          "implied_probability": 0.2559227018014222,
-          "roi_pct": -6.312499999999998
+          "bets": 10,
+          "wins": 3,
+          "actual_rate": 0.3,
+          "implied_probability": 0.25639573034008595,
+          "roi_pct": 15.549999999999997
         },
         "9": {
           "bets": 9,
@@ -1677,11 +1677,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 474,
-          "wins": 127,
-          "actual_rate": 0.2679324894514768,
-          "implied_probability": 0.261647251367627,
-          "roi_pct": 2.2147679324894485
+          "bets": 481,
+          "wins": 129,
+          "actual_rate": 0.2681912681912682,
+          "implied_probability": 0.2617595698423498,
+          "roi_pct": 2.400831600831598
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -1699,25 +1699,25 @@
       "threshold": 6.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 425,
-        "wins": 66,
-        "actual_rate": 0.15529411764705883,
-        "implied_probability": 0.17249598066201924,
-        "roi_pct": -10.48941176470588
+        "bets": 432,
+        "wins": 68,
+        "actual_rate": 0.1574074074074074,
+        "implied_probability": 0.1724579132322387,
+        "roi_pct": -9.171296296296294
       },
       "by_hour": {
         "7": {
-          "bets": 20,
-          "wins": 5,
-          "actual_rate": 0.25,
-          "implied_probability": 0.17040812838813632,
-          "roi_pct": 46.9
+          "bets": 26,
+          "wins": 7,
+          "actual_rate": 0.2692307692307692,
+          "implied_probability": 0.1705970454468743,
+          "roi_pct": 59.0
         },
         "8": {
-          "bets": 8,
+          "bets": 9,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.1691805910117458,
+          "implied_probability": 0.16856787213409954,
           "roi_pct": -100.0
         },
         "9": {
@@ -1877,11 +1877,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 420,
-          "wins": 66,
-          "actual_rate": 0.15714285714285714,
-          "implied_probability": 0.17256399009732373,
-          "roi_pct": -9.423809523809517
+          "bets": 427,
+          "wins": 68,
+          "actual_rate": 0.1592505854800937,
+          "implied_probability": 0.1725243620043206,
+          "roi_pct": -8.107728337236528
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -1899,26 +1899,26 @@
       "threshold": 2.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
+        "bets": 523,
         "wins": 46,
-        "actual_rate": 0.08949416342412451,
-        "implied_probability": 0.1296733413016303,
-        "roi_pct": -30.45719844357977
+        "actual_rate": 0.08795411089866156,
+        "implied_probability": 0.12967148677834192,
+        "roi_pct": -31.65391969407266
       },
       "by_hour": {
         "7": {
-          "bets": 24,
+          "bets": 31,
           "wins": 1,
-          "actual_rate": 0.041666666666666664,
-          "implied_probability": 0.13027151012799262,
-          "roi_pct": -69.5
+          "actual_rate": 0.03225806451612903,
+          "implied_probability": 0.1304567481979905,
+          "roi_pct": -76.38709677419355
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 2,
-          "actual_rate": 0.2222222222222222,
-          "implied_probability": 0.1316094548435417,
-          "roi_pct": 59.66666666666667
+          "actual_rate": 0.18181818181818182,
+          "implied_probability": 0.13026657259643812,
+          "roi_pct": 30.63636363636364
         },
         "9": {
           "bets": 12,
@@ -2077,11 +2077,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
+          "bets": 517,
           "wins": 45,
-          "actual_rate": 0.08858267716535433,
-          "implied_probability": 0.12971569493502424,
-          "roi_pct": -31.232283464566933
+          "actual_rate": 0.08704061895551257,
+          "implied_probability": 0.12971308159192874,
+          "roi_pct": -32.4294003868472
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -2099,26 +2099,26 @@
       "threshold": 3.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 146,
-        "actual_rate": 0.2840466926070039,
-        "implied_probability": 0.2569585608399805,
-        "roi_pct": 10.902140077821011
+        "bets": 523,
+        "wins": 149,
+        "actual_rate": 0.28489483747609945,
+        "implied_probability": 0.25694766746691006,
+        "roi_pct": 11.24608030592734
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 9,
-          "actual_rate": 0.375,
-          "implied_probability": 0.25084461745983616,
-          "roi_pct": 50.479166666666664
+          "bets": 31,
+          "wins": 12,
+          "actual_rate": 0.3870967741935484,
+          "implied_probability": 0.2518559584825246,
+          "roi_pct": 54.49999999999998
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 3,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.24733256023593528,
-          "roi_pct": 36.444444444444436
+          "actual_rate": 0.2727272727272727,
+          "implied_probability": 0.24960536014956772,
+          "roi_pct": 11.636363636363631
         },
         "9": {
           "bets": 12,
@@ -2277,11 +2277,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 142,
-          "actual_rate": 0.2795275590551181,
-          "implied_probability": 0.25690745243209484,
-          "roi_pct": 9.216929133858267
+          "bets": 517,
+          "wins": 145,
+          "actual_rate": 0.2804642166344294,
+          "implied_probability": 0.2568973223383911,
+          "roi_pct": 9.594197292069632
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -2299,26 +2299,26 @@
       "threshold": 4.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 267,
-        "actual_rate": 0.519455252918288,
-        "implied_probability": 0.5312979021606207,
-        "roi_pct": -2.049416342412452
+        "bets": 523,
+        "wins": 271,
+        "actual_rate": 0.5181644359464627,
+        "implied_probability": 0.5313628875195042,
+        "roi_pct": -2.291778202676865
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 12,
-          "actual_rate": 0.5,
-          "implied_probability": 0.5338778606986254,
-          "roi_pct": -4.2458333333333345
+          "bets": 31,
+          "wins": 16,
+          "actual_rate": 0.5161290322580645,
+          "implied_probability": 0.5350294115289027,
+          "roi_pct": -1.5193548387096785
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 6,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.5407316644022209,
-          "roi_pct": 21.11111111111111
+          "actual_rate": 0.5454545454545454,
+          "implied_probability": 0.5372191219211618,
+          "roi_pct": -0.90909090909091
         },
         "9": {
           "bets": 12,
@@ -2477,11 +2477,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 263,
-          "actual_rate": 0.5177165354330708,
-          "implied_probability": 0.5314098082260076,
-          "roi_pct": -2.345078740157481
+          "bets": 517,
+          "wins": 267,
+          "actual_rate": 0.5164410058027079,
+          "implied_probability": 0.5314735996923666,
+          "roi_pct": -2.5851063829787244
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -2499,26 +2499,26 @@
       "threshold": 5.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 479,
-        "wins": 350,
-        "actual_rate": 0.7306889352818372,
-        "implied_probability": 0.8313075005310759,
-        "roi_pct": -12.135908141962435
+        "bets": 486,
+        "wins": 355,
+        "actual_rate": 0.7304526748971193,
+        "implied_probability": 0.8311977621635402,
+        "roi_pct": -12.13786008230454
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 15,
-          "actual_rate": 0.6521739130434783,
-          "implied_probability": 0.8367611310408631,
-          "roi_pct": -21.58695652173913
+          "bets": 28,
+          "wins": 19,
+          "actual_rate": 0.6785714285714286,
+          "implied_probability": 0.8336249865308493,
+          "roi_pct": -18.0
         },
         "8": {
-          "bets": 8,
-          "wins": 6,
-          "actual_rate": 0.75,
-          "implied_probability": 0.8369589656871979,
-          "roi_pct": -10.787500000000003
+          "bets": 10,
+          "wins": 7,
+          "actual_rate": 0.7,
+          "implied_probability": 0.8365497773668858,
+          "roi_pct": -16.470000000000002
         },
         "9": {
           "bets": 9,
@@ -2677,11 +2677,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 474,
-          "wins": 347,
-          "actual_rate": 0.7320675105485233,
-          "implied_probability": 0.8313193719350807,
-          "roi_pct": -11.954641350210988
+          "bets": 481,
+          "wins": 352,
+          "actual_rate": 0.7318087318087318,
+          "implied_probability": 0.8312083200713585,
+          "roi_pct": -11.959251559251575
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -2699,26 +2699,26 @@
       "threshold": 6.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 425,
-        "wins": 359,
-        "actual_rate": 0.8447058823529412,
-        "implied_probability": 0.9442985123636564,
-        "roi_pct": -10.564941176470569
+        "bets": 432,
+        "wins": 364,
+        "actual_rate": 0.8425925925925926,
+        "implied_probability": 0.9443355199908058,
+        "roi_pct": -10.789120370370352
       },
       "by_hour": {
         "7": {
-          "bets": 20,
-          "wins": 15,
-          "actual_rate": 0.75,
-          "implied_probability": 0.9467507467012535,
-          "roi_pct": -20.755
+          "bets": 26,
+          "wins": 19,
+          "actual_rate": 0.7307692307692307,
+          "implied_probability": 0.9464189747006476,
+          "roi_pct": -22.71923076923077
         },
         "8": {
-          "bets": 8,
-          "wins": 8,
+          "bets": 9,
+          "wins": 9,
           "actual_rate": 1.0,
-          "implied_probability": 0.9478138355857724,
-          "roi_pct": 5.512500000000004
+          "implied_probability": 0.9485232397742913,
+          "roi_pct": 5.433333333333337
         },
         "9": {
           "bets": 10,
@@ -2877,11 +2877,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 420,
-          "wins": 354,
-          "actual_rate": 0.8428571428571429,
-          "implied_probability": 0.9442056853127929,
-          "roi_pct": -10.750714285714269
+          "bets": 427,
+          "wins": 359,
+          "actual_rate": 0.8407494145199064,
+          "implied_probability": 0.9442446480394548,
+          "roi_pct": -10.974473067915673
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -2899,26 +2899,26 @@
       "threshold": 5.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 404,
-        "wins": 344,
-        "actual_rate": 0.8514851485148515,
-        "implied_probability": 0.9477322992136256,
-        "roi_pct": -10.12376237623762
+        "bets": 412,
+        "wins": 351,
+        "actual_rate": 0.8519417475728155,
+        "implied_probability": 0.9476821391127513,
+        "roi_pct": -10.077912621359223
       },
       "by_hour": {
         "7": {
-          "bets": 18,
-          "wins": 16,
-          "actual_rate": 0.8888888888888888,
-          "implied_probability": 0.9468599921038678,
-          "roi_pct": -5.933333333333332
+          "bets": 24,
+          "wins": 21,
+          "actual_rate": 0.875,
+          "implied_probability": 0.9457766287949609,
+          "roi_pct": -7.449999999999997
         },
         "8": {
-          "bets": 6,
-          "wins": 6,
+          "bets": 8,
+          "wins": 8,
           "actual_rate": 1.0,
-          "implied_probability": 0.9404724619676896,
-          "roi_pct": 6.35
+          "implied_probability": 0.9436084963431894,
+          "roi_pct": 6.0
         },
         "9": {
           "bets": 10,
@@ -3077,11 +3077,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 399,
-          "wins": 341,
-          "actual_rate": 0.8546365914786967,
-          "implied_probability": 0.9476737344557451,
-          "roi_pct": -9.780451127819543
+          "bets": 407,
+          "wins": 348,
+          "actual_rate": 0.855036855036855,
+          "implied_probability": 0.9476241092874473,
+          "roi_pct": -9.740786240786239
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -3099,26 +3099,26 @@
       "threshold": 6.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 510,
-        "wins": 365,
-        "actual_rate": 0.7156862745098039,
-        "implied_probability": 0.8370287731448142,
-        "roi_pct": -14.486862745098037
+        "bets": 519,
+        "wins": 371,
+        "actual_rate": 0.7148362235067437,
+        "implied_probability": 0.8370242840425604,
+        "roi_pct": -14.585741811175335
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 15,
-          "actual_rate": 0.625,
-          "implied_probability": 0.8422873278501743,
-          "roi_pct": -25.7625
+          "bets": 31,
+          "wins": 19,
+          "actual_rate": 0.6129032258064516,
+          "implied_probability": 0.8413078440553181,
+          "roi_pct": -27.112903225806452
         },
         "8": {
-          "bets": 9,
-          "wins": 6,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.8460417864761268,
-          "roi_pct": -21.055555555555554
+          "bets": 11,
+          "wins": 8,
+          "actual_rate": 0.7272727272727273,
+          "implied_probability": 0.8436052632007276,
+          "roi_pct": -13.545454545454547
         },
         "9": {
           "bets": 12,
@@ -3277,11 +3277,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 504,
-          "wins": 363,
-          "actual_rate": 0.7202380952380952,
-          "implied_probability": 0.8370897294808273,
-          "roi_pct": -13.943055555555564
+          "bets": 513,
+          "wins": 369,
+          "actual_rate": 0.7192982456140351,
+          "implied_probability": 0.8370841184650498,
+          "roi_pct": -14.052631578947377
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -3299,19 +3299,19 @@
       "threshold": 7.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 237,
-        "wins": 110,
-        "actual_rate": 0.4641350210970464,
-        "implied_probability": 0.5440576509516252,
-        "roi_pct": -14.714345991561187
+        "bets": 242,
+        "wins": 112,
+        "actual_rate": 0.4628099173553719,
+        "implied_probability": 0.5440562991171546,
+        "roi_pct": -14.947933884297527
       },
       "by_hour": {
         "7": {
-          "bets": 14,
-          "wins": 8,
-          "actual_rate": 0.5714285714285714,
-          "implied_probability": 0.5449422224153616,
-          "roi_pct": 5.064285714285713
+          "bets": 19,
+          "wins": 10,
+          "actual_rate": 0.5263157894736842,
+          "implied_probability": 0.5446922223490148,
+          "roi_pct": -3.115789473684211
         },
         "8": {
           "bets": 5,
@@ -3477,11 +3477,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 234,
-          "wins": 110,
-          "actual_rate": 0.4700854700854701,
-          "implied_probability": 0.5441182643484861,
-          "roi_pct": -13.620940170940173
+          "bets": 239,
+          "wins": 112,
+          "actual_rate": 0.4686192468619247,
+          "implied_probability": 0.5441156274826862,
+          "roi_pct": -13.880334728033475
         },
         "CYCLE COURT (Under)": {
           "bets": 3,
@@ -3499,26 +3499,26 @@
       "threshold": 9.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 479,
-        "wins": 129,
-        "actual_rate": 0.26931106471816285,
-        "implied_probability": 0.26166661081332593,
-        "roi_pct": 2.6018789144050083
+        "bets": 486,
+        "wins": 131,
+        "actual_rate": 0.26954732510288065,
+        "implied_probability": 0.2617774949084325,
+        "roi_pct": 2.7804526748971177
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 8,
-          "actual_rate": 0.34782608695652173,
-          "implied_probability": 0.256195899175266,
-          "roi_pct": 40.56521739130435
+          "bets": 28,
+          "wins": 9,
+          "actual_rate": 0.32142857142857145,
+          "implied_probability": 0.25933878349845335,
+          "roi_pct": 29.714285714285715
         },
         "8": {
-          "bets": 8,
-          "wins": 2,
-          "actual_rate": 0.25,
-          "implied_probability": 0.2559227018014222,
-          "roi_pct": -6.312499999999998
+          "bets": 10,
+          "wins": 3,
+          "actual_rate": 0.3,
+          "implied_probability": 0.25639573034008595,
+          "roi_pct": 15.549999999999997
         },
         "9": {
           "bets": 9,
@@ -3677,11 +3677,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 474,
-          "wins": 127,
-          "actual_rate": 0.2679324894514768,
-          "implied_probability": 0.261647251367627,
-          "roi_pct": 2.2147679324894485
+          "bets": 481,
+          "wins": 129,
+          "actual_rate": 0.2681912681912682,
+          "implied_probability": 0.2617595698423498,
+          "roi_pct": 2.400831600831598
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -3699,25 +3699,25 @@
       "threshold": 11.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 315,
-        "wins": 46,
-        "actual_rate": 0.14603174603174604,
-        "implied_probability": 0.16889851679273246,
-        "roi_pct": -14.009523809523802
+        "bets": 321,
+        "wins": 48,
+        "actual_rate": 0.14953271028037382,
+        "implied_probability": 0.1688749979423504,
+        "roi_pct": -11.890965732087224
       },
       "by_hour": {
         "7": {
-          "bets": 18,
-          "wins": 5,
-          "actual_rate": 0.2777777777777778,
-          "implied_probability": 0.16875606711549626,
-          "roi_pct": 63.222222222222214
+          "bets": 23,
+          "wins": 7,
+          "actual_rate": 0.30434782608695654,
+          "implied_probability": 0.168686288554337,
+          "roi_pct": 79.73913043478261
         },
         "8": {
-          "bets": 7,
+          "bets": 8,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.16779340736123874,
+          "implied_probability": 0.16727749658020008,
           "roi_pct": -100.0
         },
         "9": {
@@ -3877,11 +3877,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 310,
-          "wins": 46,
-          "actual_rate": 0.14838709677419354,
-          "implied_probability": 0.16893263499751138,
-          "roi_pct": -12.622580645161285
+          "bets": 316,
+          "wins": 48,
+          "actual_rate": 0.1518987341772152,
+          "implied_probability": 0.16890809619940594,
+          "roi_pct": -10.49683544303797
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -3899,25 +3899,25 @@
       "threshold": 5.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 404,
-        "wins": 60,
-        "actual_rate": 0.1485148514851485,
-        "implied_probability": 0.16982536968202802,
-        "roi_pct": -11.98019801980199
+        "bets": 412,
+        "wins": 61,
+        "actual_rate": 0.14805825242718446,
+        "implied_probability": 0.16985670280482668,
+        "roi_pct": -12.42233009708739
       },
       "by_hour": {
         "7": {
-          "bets": 18,
-          "wins": 2,
-          "actual_rate": 0.1111111111111111,
-          "implied_probability": 0.1706149013740218,
-          "roi_pct": -28.666666666666657
+          "bets": 24,
+          "wins": 3,
+          "actual_rate": 0.125,
+          "implied_probability": 0.17125578098652425,
+          "roi_pct": -24.749999999999993
         },
         "8": {
-          "bets": 6,
+          "bets": 8,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.17453843546770445,
+          "implied_probability": 0.17245903723891226,
           "roi_pct": -100.0
         },
         "9": {
@@ -4077,11 +4077,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 399,
-          "wins": 58,
-          "actual_rate": 0.14536340852130325,
-          "implied_probability": 0.1698667320604944,
-          "roi_pct": -13.721804511278195
+          "bets": 407,
+          "wins": 59,
+          "actual_rate": 0.14496314496314497,
+          "implied_probability": 0.1698976370913674,
+          "roi_pct": -14.135135135135139
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -4099,26 +4099,26 @@
       "threshold": 6.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 510,
-        "wins": 145,
-        "actual_rate": 0.28431372549019607,
-        "implied_probability": 0.25615264970762086,
-        "roi_pct": 11.226862745098039
+        "bets": 519,
+        "wins": 148,
+        "actual_rate": 0.28516377649325625,
+        "implied_probability": 0.25615564771547333,
+        "roi_pct": 11.567822736030827
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 9,
-          "actual_rate": 0.375,
-          "implied_probability": 0.25084461745983616,
-          "roi_pct": 50.479166666666664
+          "bets": 31,
+          "wins": 12,
+          "actual_rate": 0.3870967741935484,
+          "implied_probability": 0.2518559584825246,
+          "roi_pct": 54.49999999999998
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 3,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.24733256023593528,
-          "roi_pct": 36.444444444444436
+          "actual_rate": 0.2727272727272727,
+          "implied_probability": 0.24960536014956772,
+          "roi_pct": 11.636363636363631
         },
         "9": {
           "bets": 12,
@@ -4277,11 +4277,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 504,
-          "wins": 141,
-          "actual_rate": 0.27976190476190477,
-          "implied_probability": 0.2560915414973033,
-          "roi_pct": 9.532142857142855
+          "bets": 513,
+          "wins": 144,
+          "actual_rate": 0.2807017543859649,
+          "implied_probability": 0.2560956466434403,
+          "roi_pct": 9.906822612085769
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -4299,19 +4299,19 @@
       "threshold": 7.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 237,
-        "wins": 127,
-        "actual_rate": 0.5358649789029536,
-        "implied_probability": 0.5126156055859604,
-        "roi_pct": 4.320253164556961
+        "bets": 242,
+        "wins": 130,
+        "actual_rate": 0.5371900826446281,
+        "implied_probability": 0.5126531771457512,
+        "roi_pct": 4.613223140495867
       },
       "by_hour": {
         "7": {
-          "bets": 14,
-          "wins": 6,
-          "actual_rate": 0.42857142857142855,
-          "implied_probability": 0.5079198960833687,
-          "roi_pct": -15.42857142857143
+          "bets": 19,
+          "wins": 9,
+          "actual_rate": 0.47368421052631576,
+          "implied_probability": 0.5096341521350689,
+          "roi_pct": -6.5
         },
         "8": {
           "bets": 5,
@@ -4477,11 +4477,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 234,
-          "wins": 124,
-          "actual_rate": 0.5299145299145299,
-          "implied_probability": 0.5126040399878508,
-          "roi_pct": 3.1598290598290593
+          "bets": 239,
+          "wins": 127,
+          "actual_rate": 0.5313807531380753,
+          "implied_probability": 0.5126423251152981,
+          "roi_pct": 3.4807531380753134
         },
         "CYCLE COURT (Under)": {
           "bets": 3,
@@ -4499,26 +4499,26 @@
       "threshold": 9.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 479,
-        "wins": 350,
-        "actual_rate": 0.7306889352818372,
-        "implied_probability": 0.8313075005310759,
-        "roi_pct": -12.135908141962435
+        "bets": 486,
+        "wins": 355,
+        "actual_rate": 0.7304526748971193,
+        "implied_probability": 0.8311977621635402,
+        "roi_pct": -12.13786008230454
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 15,
-          "actual_rate": 0.6521739130434783,
-          "implied_probability": 0.8367611310408631,
-          "roi_pct": -21.58695652173913
+          "bets": 28,
+          "wins": 19,
+          "actual_rate": 0.6785714285714286,
+          "implied_probability": 0.8336249865308493,
+          "roi_pct": -18.0
         },
         "8": {
-          "bets": 8,
-          "wins": 6,
-          "actual_rate": 0.75,
-          "implied_probability": 0.8369589656871979,
-          "roi_pct": -10.787500000000003
+          "bets": 10,
+          "wins": 7,
+          "actual_rate": 0.7,
+          "implied_probability": 0.8365497773668858,
+          "roi_pct": -16.470000000000002
         },
         "9": {
           "bets": 9,
@@ -4677,11 +4677,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 474,
-          "wins": 347,
-          "actual_rate": 0.7320675105485233,
-          "implied_probability": 0.8313193719350807,
-          "roi_pct": -11.954641350210988
+          "bets": 481,
+          "wins": 352,
+          "actual_rate": 0.7318087318087318,
+          "implied_probability": 0.8312083200713585,
+          "roi_pct": -11.959251559251575
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -4699,26 +4699,26 @@
       "threshold": 11.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 315,
-        "wins": 269,
-        "actual_rate": 0.8539682539682539,
-        "implied_probability": 0.9490717215079093,
-        "roi_pct": -10.036190476190471
+        "bets": 321,
+        "wins": 273,
+        "actual_rate": 0.8504672897196262,
+        "implied_probability": 0.9490895427742668,
+        "roi_pct": -10.405607476635508
       },
       "by_hour": {
         "7": {
-          "bets": 18,
-          "wins": 13,
-          "actual_rate": 0.7222222222222222,
-          "implied_probability": 0.948820917144312,
-          "roi_pct": -23.922222222222217
+          "bets": 23,
+          "wins": 16,
+          "actual_rate": 0.6956521739130435,
+          "implied_probability": 0.9489012604723243,
+          "roi_pct": -26.704347826086956
         },
         "8": {
-          "bets": 7,
-          "wins": 7,
+          "bets": 8,
+          "wins": 8,
           "actual_rate": 1.0,
-          "implied_probability": 0.949704463633406,
-          "roi_pct": 5.300000000000003
+          "implied_probability": 0.9502662148395356,
+          "roi_pct": 5.237500000000003
         },
         "9": {
           "bets": 8,
@@ -4877,11 +4877,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 310,
-          "wins": 264,
-          "actual_rate": 0.8516129032258064,
-          "implied_probability": 0.9490229430703563,
-          "roi_pct": -10.279354838709674
+          "bets": 316,
+          "wins": 268,
+          "actual_rate": 0.8481012658227848,
+          "implied_probability": 0.9490419724916415,
+          "roi_pct": -10.649999999999995
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -5001,26 +5001,26 @@
       "threshold": 3.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 487,
-        "wins": 283,
-        "actual_rate": 0.5811088295687885,
-        "implied_probability": 0.7201313351551085,
-        "roi_pct": -19.201026694045186
+        "bets": 495,
+        "wins": 289,
+        "actual_rate": 0.5838383838383838,
+        "implied_probability": 0.7201638429777443,
+        "roi_pct": -18.8319191919192
       },
       "by_hour": {
         "7": {
-          "bets": 22,
-          "wins": 13,
-          "actual_rate": 0.5909090909090909,
-          "implied_probability": 0.7142755521153247,
-          "roi_pct": -16.936363636363634
+          "bets": 28,
+          "wins": 17,
+          "actual_rate": 0.6071428571428571,
+          "implied_probability": 0.7147112235412256,
+          "roi_pct": -14.782142857142855
         },
         "8": {
-          "bets": 9,
-          "wins": 3,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.7146898778047956,
-          "roi_pct": -53.444444444444436
+          "bets": 11,
+          "wins": 5,
+          "actual_rate": 0.45454545454545453,
+          "implied_probability": 0.719227167370142,
+          "roi_pct": -37.32727272727272
         },
         "9": {
           "bets": 11,
@@ -5179,11 +5179,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 482,
-          "wins": 280,
-          "actual_rate": 0.5809128630705395,
-          "implied_probability": 0.7200401483934614,
-          "roi_pct": -19.204771784232378
+          "bets": 490,
+          "wins": 286,
+          "actual_rate": 0.5836734693877551,
+          "implied_probability": 0.7200744766920286,
+          "roi_pct": -18.831836734693887
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -5201,26 +5201,26 @@
       "threshold": 4.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 158,
-        "actual_rate": 0.30739299610894943,
-        "implied_probability": 0.3687307542324151,
-        "roi_pct": -17.1282101167315
+        "bets": 523,
+        "wins": 161,
+        "actual_rate": 0.3078393881453155,
+        "implied_probability": 0.3685659762655803,
+        "roi_pct": -16.75602294455065
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 8,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.36755318573621804,
-          "roi_pct": -8.512500000000001
+          "bets": 31,
+          "wins": 10,
+          "actual_rate": 0.3225806451612903,
+          "implied_probability": 0.36526398500650037,
+          "roi_pct": -8.041935483870967
         },
         "8": {
-          "bets": 9,
-          "wins": 3,
-          "actual_rate": 0.3333333333333333,
-          "implied_probability": 0.377083736233853,
-          "roi_pct": -12.188888888888885
+          "bets": 11,
+          "wins": 4,
+          "actual_rate": 0.36363636363636365,
+          "implied_probability": 0.3749313145463249,
+          "roi_pct": -2.199999999999996
         },
         "9": {
           "bets": 12,
@@ -5379,11 +5379,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 156,
-          "actual_rate": 0.30708661417322836,
-          "implied_probability": 0.36891701437789726,
-          "roi_pct": -17.14940944881888
+          "bets": 517,
+          "wins": 159,
+          "actual_rate": 0.30754352030947774,
+          "implied_probability": 0.36874708165456277,
+          "roi_pct": -16.772533849129577
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -5401,25 +5401,25 @@
       "threshold": 6.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 509,
-        "wins": 68,
-        "actual_rate": 0.13359528487229863,
-        "implied_probability": 0.15198443933773415,
-        "roi_pct": -11.795677799607072
+        "bets": 518,
+        "wins": 70,
+        "actual_rate": 0.13513513513513514,
+        "implied_probability": 0.15196141944493474,
+        "roi_pct": -10.627413127413126
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 4,
-          "actual_rate": 0.17391304347826086,
-          "implied_probability": 0.1498749032253761,
-          "roi_pct": 24.217391304347828
+          "bets": 30,
+          "wins": 6,
+          "actual_rate": 0.2,
+          "implied_probability": 0.14980294413617987,
+          "roi_pct": 41.86666666666667
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.14753730582883373,
+          "implied_probability": 0.1488005320115707,
           "roi_pct": -100.0
         },
         "9": {
@@ -5579,11 +5579,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 503,
-          "wins": 68,
-          "actual_rate": 0.13518886679920478,
-          "implied_probability": 0.15205957950928192,
-          "roi_pct": -10.743538767395625
+          "bets": 512,
+          "wins": 70,
+          "actual_rate": 0.13671875,
+          "implied_probability": 0.1520349690287858,
+          "roi_pct": -9.580078125
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -5601,18 +5601,18 @@
       "threshold": 1.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 146,
+        "bets": 149,
         "wins": 9,
-        "actual_rate": 0.06164383561643835,
-        "implied_probability": 0.10580822848193047,
-        "roi_pct": -39.8013698630137
+        "actual_rate": 0.06040268456375839,
+        "implied_probability": 0.10577290963504515,
+        "roi_pct": -41.013422818791945
       },
       "by_hour": {
         "7": {
-          "bets": 9,
+          "bets": 12,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.10387194146428705,
+          "implied_probability": 0.1039174708698719,
           "roi_pct": -100.0
         },
         "8": {
@@ -5779,11 +5779,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 145,
+          "bets": 148,
           "wins": 9,
-          "actual_rate": 0.06206896551724138,
-          "implied_probability": 0.10576130169482231,
-          "roi_pct": -39.38620689655173
+          "actual_rate": 0.060810810810810814,
+          "implied_probability": 0.10572669542573726,
+          "roi_pct": -40.61486486486486
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -5801,26 +5801,26 @@
       "threshold": 3.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 487,
-        "wins": 204,
-        "actual_rate": 0.4188911704312115,
-        "implied_probability": 0.3704105679392213,
-        "roi_pct": 13.802053388090338
+        "bets": 495,
+        "wins": 206,
+        "actual_rate": 0.4161616161616162,
+        "implied_probability": 0.37037793772121147,
+        "roi_pct": 13.009292929292918
       },
       "by_hour": {
         "7": {
-          "bets": 22,
-          "wins": 9,
-          "actual_rate": 0.4090909090909091,
-          "implied_probability": 0.37501417742221455,
-          "roi_pct": 10.613636363636362
+          "bets": 28,
+          "wins": 11,
+          "actual_rate": 0.39285714285714285,
+          "implied_probability": 0.37462428168277623,
+          "roi_pct": 5.410714285714283
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 6,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.37714771323089985,
-          "roi_pct": 77.26666666666665
+          "actual_rate": 0.5454545454545454,
+          "implied_probability": 0.3729358200770918,
+          "roi_pct": 45.036363636363625
         },
         "9": {
           "bets": 11,
@@ -5979,11 +5979,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 482,
-          "wins": 202,
-          "actual_rate": 0.4190871369294606,
-          "implied_probability": 0.37050532195722,
-          "roi_pct": 13.87883817427385
+          "bets": 490,
+          "wins": 204,
+          "actual_rate": 0.4163265306122449,
+          "implied_probability": 0.37047081177342644,
+          "roi_pct": 13.07673469387754
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -6001,26 +6001,26 @@
       "threshold": 4.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 356,
-        "actual_rate": 0.6926070038910506,
-        "implied_probability": 0.7245797009641964,
-        "roi_pct": -4.48988326848249
+        "bets": 523,
+        "wins": 362,
+        "actual_rate": 0.6921606118546845,
+        "implied_probability": 0.7247514066358162,
+        "roi_pct": -4.52925430210325
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 16,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.7255058786885497,
-          "roi_pct": -7.841666666666665
+          "bets": 31,
+          "wins": 21,
+          "actual_rate": 0.6774193548387096,
+          "implied_probability": 0.7278976493589286,
+          "roi_pct": -6.103225806451612
         },
         "8": {
-          "bets": 9,
-          "wins": 6,
-          "actual_rate": 0.6666666666666666,
-          "implied_probability": 0.7163997270370915,
-          "roi_pct": -7.1111111111111125
+          "bets": 11,
+          "wins": 7,
+          "actual_rate": 0.6363636363636364,
+          "implied_probability": 0.7187209887879233,
+          "roi_pct": -11.272727272727275
         },
         "9": {
           "bets": 12,
@@ -6179,11 +6179,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 352,
-          "actual_rate": 0.6929133858267716,
-          "implied_probability": 0.724396290281342,
-          "roi_pct": -4.396850393700786
+          "bets": 517,
+          "wins": 358,
+          "actual_rate": 0.6924564796905223,
+          "implied_probability": 0.7245731815045582,
+          "roi_pct": -4.438297872340424
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -6201,26 +6201,26 @@
       "threshold": 6.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 491,
-        "wins": 424,
-        "actual_rate": 0.8635437881873728,
-        "implied_probability": 0.9684751292584095,
-        "roi_pct": -10.815274949083513
+        "bets": 500,
+        "wins": 431,
+        "actual_rate": 0.862,
+        "implied_probability": 0.9685202641690006,
+        "roi_pct": -10.97440000000001
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 19,
-          "actual_rate": 0.8260869565217391,
-          "implied_probability": 0.97200414557119,
-          "roi_pct": -14.782608695652172
+          "bets": 30,
+          "wins": 24,
+          "actual_rate": 0.8,
+          "implied_probability": 0.9720721952504967,
+          "roi_pct": -17.463333333333328
         },
         "8": {
-          "bets": 9,
-          "wins": 9,
+          "bets": 11,
+          "wins": 11,
           "actual_rate": 1.0,
-          "implied_probability": 0.9746881218727004,
-          "roi_pct": 2.61111111111111
+          "implied_probability": 0.9731787460089092,
+          "roi_pct": 2.772727272727272
         },
         "9": {
           "bets": 12,
@@ -6379,11 +6379,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 486,
-          "wins": 419,
-          "actual_rate": 0.8621399176954733,
-          "implied_probability": 0.968428004943882,
-          "roi_pct": -10.955349794238693
+          "bets": 495,
+          "wins": 426,
+          "actual_rate": 0.8606060606060606,
+          "implied_probability": 0.9684744525683796,
+          "roi_pct": -11.113535353535365
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -6401,26 +6401,26 @@
       "threshold": 2.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 488,
-        "wins": 442,
-        "actual_rate": 0.9057377049180327,
-        "implied_probability": 0.9602067099785472,
-        "roi_pct": -5.6702868852459085
+        "bets": 496,
+        "wins": 449,
+        "actual_rate": 0.905241935483871,
+        "implied_probability": 0.9602171551851287,
+        "roi_pct": -5.722379032258072
       },
       "by_hour": {
         "7": {
-          "bets": 21,
-          "wins": 20,
-          "actual_rate": 0.9523809523809523,
-          "implied_probability": 0.9633552162939054,
-          "roi_pct": -1.1857142857142853
+          "bets": 27,
+          "wins": 25,
+          "actual_rate": 0.9259259259259259,
+          "implied_probability": 0.9627421965065238,
+          "roi_pct": -3.855555555555555
         },
         "8": {
-          "bets": 9,
-          "wins": 8,
-          "actual_rate": 0.8888888888888888,
-          "implied_probability": 0.9574379162634474,
-          "roi_pct": -7.299999999999998
+          "bets": 11,
+          "wins": 10,
+          "actual_rate": 0.9090909090909091,
+          "implied_probability": 0.9581996350145224,
+          "roi_pct": -5.2454545454545425
         },
         "9": {
           "bets": 11,
@@ -6579,11 +6579,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 483,
-          "wins": 438,
-          "actual_rate": 0.906832298136646,
-          "implied_probability": 0.9602180682425049,
-          "roi_pct": -5.552173913043484
+          "bets": 491,
+          "wins": 445,
+          "actual_rate": 0.9063136456211812,
+          "implied_probability": 0.9602284347523884,
+          "roi_pct": -5.606720977596747
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -6601,26 +6601,26 @@
       "threshold": 3.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 384,
-        "actual_rate": 0.7470817120622568,
-        "implied_probability": 0.8180132146002831,
-        "roi_pct": -8.621595330739305
+        "bets": 523,
+        "wins": 391,
+        "actual_rate": 0.7476099426386233,
+        "implied_probability": 0.8179180536203552,
+        "roi_pct": -8.551816443594651
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 18,
-          "actual_rate": 0.75,
-          "implied_probability": 0.8192518046968899,
-          "roi_pct": -7.883333333333333
+          "bets": 31,
+          "wins": 23,
+          "actual_rate": 0.7419354838709677,
+          "implied_probability": 0.8170650085234092,
+          "roi_pct": -8.822580645161288
         },
         "8": {
-          "bets": 9,
-          "wins": 7,
-          "actual_rate": 0.7777777777777778,
-          "implied_probability": 0.8086818352174592,
-          "roi_pct": -3.8444444444444428
+          "bets": 11,
+          "wins": 9,
+          "actual_rate": 0.8181818181818182,
+          "implied_probability": 0.8112285731233638,
+          "roi_pct": 0.7818181818181825
         },
         "9": {
           "bets": 12,
@@ -6779,11 +6779,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 382,
-          "actual_rate": 0.7519685039370079,
-          "implied_probability": 0.8179332609867023,
-          "roi_pct": -8.01003937007874
+          "bets": 517,
+          "wins": 389,
+          "actual_rate": 0.7524177949709865,
+          "implied_probability": 0.8178383874664313,
+          "roi_pct": -7.950096711798839
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -6801,26 +6801,26 @@
       "threshold": 4.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 498,
-        "wins": 217,
-        "actual_rate": 0.4357429718875502,
-        "implied_probability": 0.48685247950642907,
-        "roi_pct": -10.295582329317277
+        "bets": 507,
+        "wins": 222,
+        "actual_rate": 0.4378698224852071,
+        "implied_probability": 0.486853296305491,
+        "roi_pct": -9.872189349112432
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 12,
-          "actual_rate": 0.5217391304347826,
-          "implied_probability": 0.4834143236810662,
-          "roi_pct": 10.895652173913044
+          "bets": 30,
+          "wins": 15,
+          "actual_rate": 0.5,
+          "implied_probability": 0.48321948784067587,
+          "roi_pct": 5.803333333333334
         },
         "8": {
-          "bets": 9,
-          "wins": 2,
-          "actual_rate": 0.2222222222222222,
-          "implied_probability": 0.47139676983408774,
-          "roi_pct": -54.27777777777778
+          "bets": 11,
+          "wins": 4,
+          "actual_rate": 0.36363636363636365,
+          "implied_probability": 0.4769638336939337,
+          "roi_pct": -26.36363636363636
         },
         "9": {
           "bets": 11,
@@ -6979,11 +6979,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 492,
-          "wins": 215,
-          "actual_rate": 0.4369918699186992,
-          "implied_probability": 0.4867291756876255,
-          "roi_pct": -9.963414634146346
+          "bets": 501,
+          "wins": 220,
+          "actual_rate": 0.43912175648702595,
+          "implied_probability": 0.48673221730737326,
+          "roi_pct": -9.540918163672659
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -7001,25 +7001,25 @@
       "threshold": 6.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 501,
-        "wins": 61,
-        "actual_rate": 0.1217564870259481,
-        "implied_probability": 0.15058618631315035,
-        "roi_pct": -19.90618762475051
+        "bets": 510,
+        "wins": 63,
+        "actual_rate": 0.12352941176470589,
+        "implied_probability": 0.15057393179107023,
+        "roi_pct": -18.600000000000012
       },
       "by_hour": {
         "7": {
-          "bets": 22,
-          "wins": 2,
-          "actual_rate": 0.09090909090909091,
-          "implied_probability": 0.14824279333932328,
-          "roi_pct": -40.86363636363636
+          "bets": 29,
+          "wins": 4,
+          "actual_rate": 0.13793103448275862,
+          "implied_probability": 0.14815103281074707,
+          "roi_pct": -7.310344827586207
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.14855913582232363,
+          "implied_probability": 0.15009269044653095,
           "roi_pct": -100.0
         },
         "9": {
@@ -7179,11 +7179,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 496,
-          "wins": 61,
-          "actual_rate": 0.12298387096774194,
-          "implied_probability": 0.15064444010372502,
-          "roi_pct": -19.09879032258065
+          "bets": 505,
+          "wins": 63,
+          "actual_rate": 0.12475247524752475,
+          "implied_probability": 0.15063102606337642,
+          "roi_pct": -17.794059405940597
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -7201,26 +7201,26 @@
       "threshold": 2.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 510,
-        "wins": 49,
-        "actual_rate": 0.09607843137254903,
-        "implied_probability": 0.1583244204820277,
-        "roi_pct": -39.24509803921569
+        "bets": 519,
+        "wins": 50,
+        "actual_rate": 0.09633911368015415,
+        "implied_probability": 0.15829296142814367,
+        "roi_pct": -39.08092485549134
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 2,
-          "actual_rate": 0.08333333333333333,
-          "implied_probability": 0.15338382092440453,
-          "roi_pct": -42.54166666666666
+          "bets": 31,
+          "wins": 3,
+          "actual_rate": 0.0967741935483871,
+          "implied_probability": 0.15391666429097647,
+          "roi_pct": -35.129032258064505
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 1,
-          "actual_rate": 0.1111111111111111,
-          "implied_probability": 0.16163132293283247,
-          "roi_pct": -36.44444444444444
+          "actual_rate": 0.09090909090909091,
+          "implied_probability": 0.16118814099394324,
+          "roi_pct": -48.00000000000001
         },
         "9": {
           "bets": 12,
@@ -7379,11 +7379,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 504,
-          "wins": 48,
-          "actual_rate": 0.09523809523809523,
-          "implied_probability": 0.15836935198695937,
-          "roi_pct": -39.63095238095239
+          "bets": 513,
+          "wins": 49,
+          "actual_rate": 0.09551656920077972,
+          "implied_probability": 0.1583367367189083,
+          "roi_pct": -39.45808966861599
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -7401,26 +7401,26 @@
       "threshold": 3.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 514,
-        "wins": 130,
-        "actual_rate": 0.2529182879377432,
-        "implied_probability": 0.27503262735178946,
-        "roi_pct": -7.496887159533072
+        "bets": 523,
+        "wins": 132,
+        "actual_rate": 0.25239005736137665,
+        "implied_probability": 0.27513271309435766,
+        "roi_pct": -7.7560229445506685
       },
       "by_hour": {
         "7": {
-          "bets": 24,
-          "wins": 6,
-          "actual_rate": 0.25,
-          "implied_probability": 0.27403488351133337,
-          "roi_pct": -3.0000000000000027
+          "bets": 31,
+          "wins": 8,
+          "actual_rate": 0.25806451612903225,
+          "implied_probability": 0.2761996215099534,
+          "roi_pct": -2.41935483870968
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 2,
-          "actual_rate": 0.2222222222222222,
-          "implied_probability": 0.2841770966503737,
-          "roi_pct": -22.499999999999996
+          "actual_rate": 0.18181818181818182,
+          "implied_probability": 0.2818073906223715,
+          "roi_pct": -36.59090909090909
         },
         "9": {
           "bets": 12,
@@ -7579,11 +7579,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 508,
-          "wins": 126,
-          "actual_rate": 0.24803149606299213,
-          "implied_probability": 0.27511333984757835,
-          "roi_pct": -9.248031496062993
+          "bets": 517,
+          "wins": 128,
+          "actual_rate": 0.24758220502901354,
+          "implied_probability": 0.2752131820736926,
+          "roi_pct": -9.479690522243715
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -7601,26 +7601,26 @@
       "threshold": 4.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 498,
-        "wins": 281,
-        "actual_rate": 0.5642570281124498,
-        "implied_probability": 0.5946483654610566,
-        "roi_pct": -4.650200803212847
+        "bets": 507,
+        "wins": 285,
+        "actual_rate": 0.5621301775147929,
+        "implied_probability": 0.5946340448545759,
+        "roi_pct": -5.002761341222876
       },
       "by_hour": {
         "7": {
-          "bets": 23,
-          "wins": 11,
-          "actual_rate": 0.4782608695652174,
-          "implied_probability": 0.5990814489293362,
-          "roi_pct": -17.06086956521739
+          "bets": 30,
+          "wins": 15,
+          "actual_rate": 0.5,
+          "implied_probability": 0.5987928067164137,
+          "roi_pct": -13.766666666666666
         },
         "8": {
-          "bets": 9,
+          "bets": 11,
           "wins": 7,
-          "actual_rate": 0.7777777777777778,
-          "implied_probability": 0.6151610470510961,
-          "roi_pct": 25.7
+          "actual_rate": 0.6363636363636364,
+          "implied_probability": 0.6087375717278257,
+          "roi_pct": 2.845454545454547
         },
         "9": {
           "bets": 11,
@@ -7779,11 +7779,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 492,
-          "wins": 277,
-          "actual_rate": 0.5630081300813008,
-          "implied_probability": 0.5948302880934385,
-          "roi_pct": -4.834959349593492
+          "bets": 501,
+          "wins": 281,
+          "actual_rate": 0.5608782435129741,
+          "implied_probability": 0.5948125279114481,
+          "roi_pct": -5.188423153692612
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -7801,26 +7801,26 @@
       "threshold": 6.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 490,
-        "wins": 430,
-        "actual_rate": 0.8775510204081632,
-        "implied_probability": 0.9707767064742626,
-        "roi_pct": -9.61979591836735
+        "bets": 499,
+        "wins": 437,
+        "actual_rate": 0.875751503006012,
+        "implied_probability": 0.9708018788152302,
+        "roi_pct": -9.804008016032068
       },
       "by_hour": {
         "7": {
-          "bets": 22,
-          "wins": 20,
-          "actual_rate": 0.9090909090909091,
-          "implied_probability": 0.9737220089715778,
-          "roi_pct": -6.695454545454544
+          "bets": 29,
+          "wins": 25,
+          "actual_rate": 0.8620689655172413,
+          "implied_probability": 0.9740459986628166,
+          "roi_pct": -11.510344827586206
         },
         "8": {
-          "bets": 9,
-          "wins": 9,
+          "bets": 11,
+          "wins": 11,
           "actual_rate": 1.0,
-          "implied_probability": 0.9735636024819816,
-          "roi_pct": 2.7333333333333334
+          "implied_probability": 0.9714703649910837,
+          "roi_pct": 2.9636363636363643
         },
         "9": {
           "bets": 11,
@@ -7979,11 +7979,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 485,
-          "wins": 425,
-          "actual_rate": 0.8762886597938144,
-          "implied_probability": 0.970702624547608,
-          "roi_pct": -9.742268041237114
+          "bets": 494,
+          "wins": 432,
+          "actual_rate": 0.8744939271255061,
+          "implied_probability": 0.9707294013400831,
+          "roi_pct": -9.926113360323889
         },
         "CYCLE COURT (Under)": {
           "bets": 5,
@@ -8001,26 +8001,26 @@
       "threshold": 8.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 277,
-        "wins": 137,
-        "actual_rate": 0.49458483754512633,
-        "implied_probability": 0.5530683499682071,
-        "roi_pct": -10.105054151624541
+        "bets": 281,
+        "wins": 140,
+        "actual_rate": 0.498220640569395,
+        "implied_probability": 0.5530265242042818,
+        "roi_pct": -9.380782918149459
       },
       "by_hour": {
         "7": {
-          "bets": 10,
-          "wins": 4,
-          "actual_rate": 0.4,
-          "implied_probability": 0.5561065578779627,
-          "roi_pct": -25.409999999999993
+          "bets": 12,
+          "wins": 5,
+          "actual_rate": 0.4166666666666667,
+          "implied_probability": 0.5584016850574535,
+          "roi_pct": -22.374999999999996
         },
         "8": {
-          "bets": 4,
-          "wins": 2,
-          "actual_rate": 0.5,
-          "implied_probability": 0.5513554565910449,
-          "roi_pct": -7.699999999999996
+          "bets": 6,
+          "wins": 4,
+          "actual_rate": 0.6666666666666666,
+          "implied_probability": 0.5443645907773574,
+          "roi_pct": 24.450000000000003
         },
         "9": {
           "bets": 6,
@@ -8179,11 +8179,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 274,
-          "wins": 135,
-          "actual_rate": 0.4927007299270073,
-          "implied_probability": 0.552825082462202,
-          "roi_pct": -10.367153284671526
+          "bets": 278,
+          "wins": 138,
+          "actual_rate": 0.49640287769784175,
+          "implied_probability": 0.5527863055929969,
+          "roi_pct": -9.631294964028768
         },
         "CYCLE COURT (Under)": {
           "bets": 3,
@@ -8201,26 +8201,26 @@
       "threshold": 8.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 277,
-        "wins": 140,
-        "actual_rate": 0.5054151624548736,
-        "implied_probability": 0.5081653722019001,
-        "roi_pct": -0.13898916967508915
+        "bets": 281,
+        "wins": 141,
+        "actual_rate": 0.501779359430605,
+        "implied_probability": 0.5081787302670067,
+        "roi_pct": -0.8202846975088958
       },
       "by_hour": {
         "7": {
-          "bets": 10,
-          "wins": 6,
-          "actual_rate": 0.6,
-          "implied_probability": 0.5048036355556811,
-          "roi_pct": 21.180000000000003
+          "bets": 12,
+          "wins": 7,
+          "actual_rate": 0.5833333333333334,
+          "implied_probability": 0.5034688415955462,
+          "roi_pct": 18.31666666666667
         },
         "8": {
-          "bets": 4,
+          "bets": 6,
           "wins": 2,
-          "actual_rate": 0.5,
-          "implied_probability": 0.5086533860675841,
-          "roi_pct": -1.250000000000001
+          "actual_rate": 0.3333333333333333,
+          "implied_probability": 0.5129064842971881,
+          "roi_pct": -34.166666666666664
         },
         "9": {
           "bets": 6,
@@ -8379,11 +8379,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 274,
-          "wins": 139,
-          "actual_rate": 0.5072992700729927,
-          "implied_probability": 0.508396780381395,
-          "roi_pct": 0.2302919708029206
+          "bets": 278,
+          "wins": 140,
+          "actual_rate": 0.5035971223021583,
+          "implied_probability": 0.5084069529841899,
+          "roi_pct": -0.4636690647482005
         },
         "CYCLE COURT (Under)": {
           "bets": 3,
@@ -8401,26 +8401,26 @@
       "threshold": 2.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 460,
-        "wins": 369,
-        "actual_rate": 0.8021739130434783,
-        "implied_probability": 0.894601668490654,
-        "roi_pct": -10.256086956521736
+        "bets": 469,
+        "wins": 376,
+        "actual_rate": 0.8017057569296375,
+        "implied_probability": 0.8944917945086961,
+        "roi_pct": -10.298081023454152
       },
       "by_hour": {
         "7": {
-          "bets": 20,
-          "wins": 13,
-          "actual_rate": 0.65,
-          "implied_probability": 0.8888380715804901,
-          "roi_pct": -26.599999999999994
+          "bets": 27,
+          "wins": 18,
+          "actual_rate": 0.6666666666666666,
+          "implied_probability": 0.8878034686981251,
+          "roi_pct": -24.64814814814814
         },
         "8": {
-          "bets": 7,
-          "wins": 5,
-          "actual_rate": 0.7142857142857143,
-          "implied_probability": 0.8943348645552337,
-          "roi_pct": -20.657142857142855
+          "bets": 9,
+          "wins": 7,
+          "actual_rate": 0.7777777777777778,
+          "implied_probability": 0.8962551052805146,
+          "roi_pct": -13.677777777777775
         },
         "9": {
           "bets": 8,
@@ -8579,11 +8579,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 454,
-          "wins": 366,
-          "actual_rate": 0.8061674008810573,
-          "implied_probability": 0.8945642699476585,
-          "roi_pct": -9.792511013215858
+          "bets": 463,
+          "wins": 373,
+          "actual_rate": 0.8056155507559395,
+          "implied_probability": 0.8944536990823209,
+          "roi_pct": -9.844060475161987
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -8601,26 +8601,26 @@
       "threshold": 2.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 460,
-        "wins": 91,
-        "actual_rate": 0.19782608695652174,
-        "implied_probability": 0.20754735101154706,
-        "roi_pct": -3.865217391304348
+        "bets": 469,
+        "wins": 93,
+        "actual_rate": 0.19829424307036247,
+        "implied_probability": 0.20763483566638327,
+        "roi_pct": -3.6950959488272925
       },
       "by_hour": {
         "7": {
-          "bets": 20,
-          "wins": 7,
-          "actual_rate": 0.35,
-          "implied_probability": 0.21159318674875136,
-          "roi_pct": 69.15
+          "bets": 27,
+          "wins": 9,
+          "actual_rate": 0.3333333333333333,
+          "implied_probability": 0.2125418886837559,
+          "roi_pct": 60.296296296296305
         },
         "8": {
-          "bets": 7,
+          "bets": 9,
           "wins": 2,
-          "actual_rate": 0.2857142857142857,
-          "implied_probability": 0.20710454176102036,
-          "roi_pct": 31.571428571428573
+          "actual_rate": 0.2222222222222222,
+          "implied_probability": 0.20576899945142638,
+          "roi_pct": 2.333333333333333
         },
         "9": {
           "bets": 8,
@@ -8779,11 +8779,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 454,
-          "wins": 88,
-          "actual_rate": 0.19383259911894274,
-          "implied_probability": 0.2075779012150475,
-          "roi_pct": -5.643171806167402
+          "bets": 463,
+          "wins": 90,
+          "actual_rate": 0.19438444924406048,
+          "implied_probability": 0.20766592573186538,
+          "roi_pct": -5.436285097192226
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -8801,11 +8801,11 @@
       "threshold": 4.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 110,
-        "wins": 97,
-        "actual_rate": 0.8818181818181818,
-        "implied_probability": 0.9776548817270774,
-        "roi_pct": -9.761818181818182
+        "bets": 111,
+        "wins": 98,
+        "actual_rate": 0.8828828828828829,
+        "implied_probability": 0.97755153662034,
+        "roi_pct": -9.642342342342342
       },
       "by_hour": {
         "8": {
@@ -8921,11 +8921,11 @@
           "roi_pct": 2.385714285714286
         },
         "7": {
-          "bets": 6,
-          "wins": 5,
-          "actual_rate": 0.8333333333333334,
-          "implied_probability": 0.9780531999740704,
-          "roi_pct": -14.56666666666667
+          "bets": 7,
+          "wins": 6,
+          "actual_rate": 0.8571428571428571,
+          "implied_probability": 0.9763575392462356,
+          "roi_pct": -11.985714285714288
         },
         "10": {
           "bets": 1,
@@ -8979,11 +8979,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 109,
-          "wins": 96,
-          "actual_rate": 0.8807339449541285,
-          "implied_probability": 0.9776736443475317,
-          "roi_pct": -9.874311926605506
+          "bets": 110,
+          "wins": 97,
+          "actual_rate": 0.8818181818181818,
+          "implied_probability": 0.9775691891705471,
+          "roi_pct": -9.752727272727274
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -9001,11 +9001,11 @@
       "threshold": 4.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 110,
+        "bets": 111,
         "wins": 13,
-        "actual_rate": 0.11818181818181818,
-        "implied_probability": 0.14490160083448939,
-        "roi_pct": -17.072727272727274
+        "actual_rate": 0.11711711711711711,
+        "implied_probability": 0.14501269185762475,
+        "roi_pct": -17.81981981981982
       },
       "by_hour": {
         "8": {
@@ -9121,11 +9121,11 @@
           "roi_pct": -100.0
         },
         "7": {
-          "bets": 6,
+          "bets": 7,
           "wins": 1,
-          "actual_rate": 0.16666666666666666,
-          "implied_probability": 0.1447743116633972,
-          "roi_pct": 22.499999999999996
+          "actual_rate": 0.14285714285714285,
+          "implied_probability": 0.14655408205469983,
+          "roi_pct": 4.999999999999995
         },
         "10": {
           "bets": 1,
@@ -9179,11 +9179,11 @@
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 109,
+          "bets": 110,
           "wins": 13,
-          "actual_rate": 0.11926605504587157,
-          "implied_probability": 0.14487982281455475,
-          "roi_pct": -16.31192660550459
+          "actual_rate": 0.11818181818181818,
+          "implied_probability": 0.14499212173808165,
+          "roi_pct": -17.072727272727274
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -9201,18 +9201,18 @@
       "threshold": 13.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 199,
+        "bets": 202,
         "wins": 21,
-        "actual_rate": 0.10552763819095477,
-        "implied_probability": 0.1359140519400123,
-        "roi_pct": -23.1356783919598
+        "actual_rate": 0.10396039603960396,
+        "implied_probability": 0.13591806688429858,
+        "roi_pct": -24.27722772277228
       },
       "by_hour": {
         "8": {
-          "bets": 2,
+          "bets": 3,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.13631133546136143,
+          "implied_probability": 0.1398218496810447,
           "roi_pct": -100.0
         },
         "9": {
@@ -9370,20 +9370,20 @@
           "roi_pct": 30.666666666666664
         },
         "7": {
-          "bets": 6,
+          "bets": 8,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.14052277878355737,
+          "implied_probability": 0.13810587114335027,
           "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 198,
+          "bets": 201,
           "wins": 21,
-          "actual_rate": 0.10606060606060606,
-          "implied_probability": 0.13585226357532476,
-          "roi_pct": -22.74747474747475
+          "actual_rate": 0.1044776119402985,
+          "implied_probability": 0.13585722070885659,
+          "roi_pct": -23.900497512437813
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -9401,19 +9401,19 @@
       "threshold": 13.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 90,
-        "wins": 79,
-        "actual_rate": 0.8777777777777778,
-        "implied_probability": 0.9822133363997172,
-        "roi_pct": -10.624444444444443
+        "bets": 92,
+        "wins": 81,
+        "actual_rate": 0.8804347826086957,
+        "implied_probability": 0.9822272721953597,
+        "roi_pct": -10.355434782608695
       },
       "by_hour": {
         "8": {
-          "bets": 2,
-          "wins": 2,
+          "bets": 3,
+          "wins": 3,
           "actual_rate": 1.0,
-          "implied_probability": 0.989696577931872,
-          "roi_pct": 1.0499999999999954
+          "implied_probability": 0.9850009706537683,
+          "roi_pct": 1.5333333333333274
         },
         "9": {
           "bets": 3,
@@ -9563,20 +9563,20 @@
           "roi_pct": 2.3666666666666654
         },
         "7": {
-          "bets": 4,
-          "wins": 4,
+          "bets": 5,
+          "wins": 5,
           "actual_rate": 1.0,
-          "implied_probability": 0.977770309199155,
-          "roi_pct": 2.2749999999999937
+          "implied_probability": 0.980236049339522,
+          "roi_pct": 2.019999999999995
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 89,
-          "wins": 78,
-          "actual_rate": 0.8764044943820225,
-          "implied_probability": 0.982287533931202,
-          "roi_pct": -10.771910112359551
+          "bets": 91,
+          "wins": 80,
+          "actual_rate": 0.8791208791208791,
+          "implied_probability": 0.9822999921524783,
+          "roi_pct": -10.496703296703297
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -9594,18 +9594,18 @@
       "threshold": 7.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 89,
+        "bets": 91,
         "wins": 9,
-        "actual_rate": 0.10112359550561797,
-        "implied_probability": 0.1422555666453399,
-        "roi_pct": -29.865168539325843
+        "actual_rate": 0.0989010989010989,
+        "implied_probability": 0.14223986913815395,
+        "roi_pct": -31.4065934065934
       },
       "by_hour": {
         "8": {
-          "bets": 1,
+          "bets": 2,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.14104372355430184,
+          "implied_probability": 0.1439433008373565,
           "roi_pct": -100.0
         },
         "9": {
@@ -9756,20 +9756,20 @@
           "roi_pct": -100.0
         },
         "7": {
-          "bets": 4,
+          "bets": 5,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.14542921093139433,
+          "implied_probability": 0.1435913251483852,
           "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 88,
+          "bets": 90,
           "wins": 9,
-          "actual_rate": 0.10227272727272728,
-          "implied_probability": 0.1421886054918989,
-          "roi_pct": -29.068181818181817
+          "actual_rate": 0.1,
+          "implied_probability": 0.1421742215935985,
+          "roi_pct": -30.644444444444442
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -9787,19 +9787,19 @@
       "threshold": 7.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 81,
-        "wins": 72,
-        "actual_rate": 0.8888888888888888,
-        "implied_probability": 0.9803480405551305,
-        "roi_pct": -9.344444444444438
+        "bets": 83,
+        "wins": 74,
+        "actual_rate": 0.891566265060241,
+        "implied_probability": 0.9804084343489652,
+        "roi_pct": -9.077108433734935
       },
       "by_hour": {
         "8": {
-          "bets": 1,
-          "wins": 1,
+          "bets": 2,
+          "wins": 2,
           "actual_rate": 1.0,
-          "implied_probability": 0.9803921568627451,
-          "roi_pct": 2.0000000000000018
+          "implied_probability": 0.9780009564801531,
+          "roi_pct": 2.2499999999999964
         },
         "9": {
           "bets": 2,
@@ -9949,20 +9949,20 @@
           "roi_pct": 2.3666666666666654
         },
         "7": {
-          "bets": 4,
-          "wins": 4,
+          "bets": 5,
+          "wins": 5,
           "actual_rate": 1.0,
-          "implied_probability": 0.977770309199155,
-          "roi_pct": 2.2749999999999937
+          "implied_probability": 0.980236049339522,
+          "roi_pct": 2.019999999999995
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 80,
-          "wins": 71,
-          "actual_rate": 0.8875,
-          "implied_probability": 0.9804072691108502,
-          "roi_pct": -9.492499999999996
+          "bets": 82,
+          "wins": 73,
+          "actual_rate": 0.8902439024390244,
+          "implied_probability": 0.9804669548154458,
+          "roi_pct": -9.218292682926824
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -9980,18 +9980,18 @@
       "threshold": 5.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 101,
+        "bets": 103,
         "wins": 24,
-        "actual_rate": 0.2376237623762376,
-        "implied_probability": 0.2345840408785694,
-        "roi_pct": 2.099009900990093
+        "actual_rate": 0.23300970873786409,
+        "implied_probability": 0.23450853611859684,
+        "roi_pct": 0.1165048543689261
       },
       "by_hour": {
         "8": {
-          "bets": 1,
+          "bets": 2,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.23640661938534277,
+          "implied_probability": 0.23448237946011324,
           "roi_pct": -100.0
         },
         "9": {
@@ -10149,20 +10149,20 @@
           "roi_pct": -100.0
         },
         "7": {
-          "bets": 5,
+          "bets": 6,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.24060609236116887,
+          "implied_probability": 0.23864390229182073,
           "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 100,
+          "bets": 102,
           "wins": 24,
-          "actual_rate": 0.24,
-          "implied_probability": 0.2343853520252686,
-          "roi_pct": 3.119999999999994
+          "actual_rate": 0.23529411764705882,
+          "implied_probability": 0.23431300288241985,
+          "roi_pct": 1.0980392156862684
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -10180,19 +10180,19 @@
       "threshold": 5.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 101,
-        "wins": 77,
-        "actual_rate": 0.7623762376237624,
-        "implied_probability": 0.8586931359304087,
-        "roi_pct": -11.161386138613869
+        "bets": 103,
+        "wins": 79,
+        "actual_rate": 0.7669902912621359,
+        "implied_probability": 0.8587589970241222,
+        "roi_pct": -10.633980582524279
       },
       "by_hour": {
         "8": {
-          "bets": 1,
-          "wins": 1,
+          "bets": 2,
+          "wins": 2,
           "actual_rate": 1.0,
-          "implied_probability": 0.8561643835616439,
-          "roi_pct": 16.799999999999994
+          "implied_probability": 0.8572667411370452,
+          "roi_pct": 16.65
         },
         "9": {
           "bets": 3,
@@ -10349,20 +10349,20 @@
           "roi_pct": 16.63333333333333
         },
         "7": {
-          "bets": 5,
-          "wins": 5,
+          "bets": 6,
+          "wins": 6,
           "actual_rate": 1.0,
-          "implied_probability": 0.8520846070024503,
-          "roi_pct": 17.379999999999995
+          "implied_probability": 0.8543706501355195,
+          "roi_pct": 17.066666666666663
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 100,
-          "wins": 76,
-          "actual_rate": 0.76,
-          "implied_probability": 0.8588908055447465,
-          "roi_pct": -11.465000000000007
+          "bets": 102,
+          "wins": 78,
+          "actual_rate": 0.7647058823529411,
+          "implied_probability": 0.8589534364606662,
+          "roi_pct": -10.9264705882353
         },
         "CYCLE COURT (Under)": {
           "bets": 1,
@@ -10535,11 +10535,11 @@
       "threshold": -1.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 496,
-        "wins": 32,
-        "actual_rate": 0.06451612903225806,
-        "implied_probability": 0.1338543452930234,
-        "roi_pct": -52.34879032258066
+        "bets": 505,
+        "wins": 33,
+        "actual_rate": 0.06534653465346535,
+        "implied_probability": 0.13380190699483965,
+        "roi_pct": -51.839603960396055
       },
       "by_hour": {
         "9": {
@@ -10669,11 +10669,11 @@
           "roi_pct": -52.064516129032256
         },
         "7": {
-          "bets": 20,
-          "wins": 2,
-          "actual_rate": 0.1,
-          "implied_probability": 0.13316219563864806,
-          "roi_pct": -22.749999999999996
+          "bets": 27,
+          "wins": 3,
+          "actual_rate": 0.1111111111111111,
+          "implied_probability": 0.13187930106930348,
+          "roi_pct": -17.370370370370367
         },
         "11": {
           "bets": 11,
@@ -10702,15 +10702,22 @@
           "actual_rate": 0.0,
           "implied_probability": 0.13589990489339104,
           "roi_pct": -100.0
+        },
+        "8": {
+          "bets": 2,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.1403552754780911,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 490,
-          "wins": 31,
-          "actual_rate": 0.06326530612244897,
-          "implied_probability": 0.13395484702226712,
-          "roi_pct": -53.100000000000016
+          "bets": 499,
+          "wins": 32,
+          "actual_rate": 0.06412825651302605,
+          "implied_probability": 0.13389996554702466,
+          "roi_pct": -52.57114228456915
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -10728,11 +10735,11 @@
       "threshold": -0.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 496,
-        "wins": 170,
-        "actual_rate": 0.34274193548387094,
-        "implied_probability": 0.4046850992687802,
-        "roi_pct": -15.018346774193548
+        "bets": 505,
+        "wins": 173,
+        "actual_rate": 0.3425742574257426,
+        "implied_probability": 0.4045643970763694,
+        "roi_pct": -15.030891089108907
       },
       "by_hour": {
         "9": {
@@ -10862,11 +10869,11 @@
           "roi_pct": -12.038709677419357
         },
         "7": {
-          "bets": 20,
-          "wins": 7,
-          "actual_rate": 0.35,
-          "implied_probability": 0.39760663209175756,
-          "roi_pct": -9.469999999999994
+          "bets": 27,
+          "wins": 9,
+          "actual_rate": 0.3333333333333333,
+          "implied_probability": 0.39757613565853867,
+          "roi_pct": -14.329629629629622
         },
         "11": {
           "bets": 11,
@@ -10895,15 +10902,22 @@
           "actual_rate": 0.4166666666666667,
           "implied_probability": 0.41241377668011586,
           "roi_pct": 0.1666666666666594
+        },
+        "8": {
+          "bets": 2,
+          "wins": 1,
+          "actual_rate": 0.5,
+          "implied_probability": 0.39939413265306123,
+          "roi_pct": 28.000000000000004
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 490,
-          "wins": 168,
-          "actual_rate": 0.34285714285714286,
-          "implied_probability": 0.40489497556529364,
-          "roi_pct": -15.031836734693876
+          "bets": 499,
+          "wins": 171,
+          "actual_rate": 0.342685370741483,
+          "implied_probability": 0.40476903669989067,
+          "roi_pct": -15.044288577154305
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -10921,11 +10935,11 @@
       "threshold": 1.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 496,
-        "wins": 429,
-        "actual_rate": 0.8649193548387096,
-        "implied_probability": 0.9588903217734932,
-        "roi_pct": -9.778225806451612
+        "bets": 505,
+        "wins": 437,
+        "actual_rate": 0.8653465346534653,
+        "implied_probability": 0.9588515746847067,
+        "roi_pct": -9.728712871287128
       },
       "by_hour": {
         "9": {
@@ -11055,11 +11069,11 @@
           "roi_pct": -5.858064516129033
         },
         "7": {
-          "bets": 20,
-          "wins": 19,
-          "actual_rate": 0.95,
-          "implied_probability": 0.9562903986860689,
-          "roi_pct": -0.655
+          "bets": 27,
+          "wins": 25,
+          "actual_rate": 0.9259259259259259,
+          "implied_probability": 0.9560419339230827,
+          "roi_pct": -3.1148148148148156
         },
         "11": {
           "bets": 11,
@@ -11088,15 +11102,22 @@
           "actual_rate": 0.9166666666666666,
           "implied_probability": 0.9635489032952816,
           "roi_pct": -4.941666666666668
+        },
+        "8": {
+          "bets": 2,
+          "wins": 2,
+          "actual_rate": 1.0,
+          "implied_probability": 0.9615606869611447,
+          "roi_pct": 3.9999999999999925
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 490,
-          "wins": 424,
-          "actual_rate": 0.8653061224489796,
-          "implied_probability": 0.9588654203423882,
-          "roi_pct": -9.736734693877553
+          "bets": 499,
+          "wins": 432,
+          "actual_rate": 0.8657314629258517,
+          "implied_probability": 0.9588266564807504,
+          "roi_pct": -9.687374749498998
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -11114,11 +11135,11 @@
       "threshold": 1.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 223,
-        "wins": 206,
-        "actual_rate": 0.9237668161434978,
-        "implied_probability": 0.9725209845019138,
-        "roi_pct": -4.98520179372197
+        "bets": 226,
+        "wins": 208,
+        "actual_rate": 0.9203539823008849,
+        "implied_probability": 0.9723009729047144,
+        "roi_pct": -5.311061946902652
       },
       "by_hour": {
         "9": {
@@ -11248,11 +11269,11 @@
           "roi_pct": -10.487500000000002
         },
         "7": {
-          "bets": 8,
-          "wins": 7,
-          "actual_rate": 0.875,
-          "implied_probability": 0.966342532789846,
-          "roi_pct": -9.437500000000002
+          "bets": 10,
+          "wins": 8,
+          "actual_rate": 0.8,
+          "implied_probability": 0.9646199642476481,
+          "roi_pct": -16.91
         },
         "11": {
           "bets": 6,
@@ -11281,15 +11302,22 @@
           "actual_rate": 1.0,
           "implied_probability": 0.969314389069647,
           "roi_pct": 3.183333333333327
+        },
+        "8": {
+          "bets": 1,
+          "wins": 1,
+          "actual_rate": 1.0,
+          "implied_probability": 0.9523809523809523,
+          "roi_pct": 5.000000000000004
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 221,
-          "wins": 205,
-          "actual_rate": 0.9276018099547512,
-          "implied_probability": 0.9724488993104888,
-          "roi_pct": -4.58235294117647
+          "bets": 224,
+          "wins": 207,
+          "actual_rate": 0.9241071428571429,
+          "implied_probability": 0.9722278887506995,
+          "roi_pct": -4.916517857142856
         },
         "CYCLE COURT (Under)": {
           "bets": 2,
@@ -11307,11 +11335,11 @@
       "threshold": 0.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 496,
-        "wins": 326,
-        "actual_rate": 0.657258064516129,
-        "implied_probability": 0.6871109017749248,
-        "roi_pct": -4.153225806451606
+        "bets": 505,
+        "wins": 332,
+        "actual_rate": 0.6574257425742575,
+        "implied_probability": 0.6872066892918727,
+        "roi_pct": -4.145544554455438
       },
       "by_hour": {
         "9": {
@@ -11441,11 +11469,11 @@
           "roi_pct": -5.874193548387097
         },
         "7": {
-          "bets": 20,
-          "wins": 13,
-          "actual_rate": 0.65,
-          "implied_probability": 0.6954000810579373,
-          "roi_pct": -5.720000000000001
+          "bets": 27,
+          "wins": 18,
+          "actual_rate": 0.6666666666666666,
+          "implied_probability": 0.6945809829769432,
+          "roi_pct": -3.4777777777777783
         },
         "11": {
           "bets": 11,
@@ -11474,15 +11502,22 @@
           "actual_rate": 0.5833333333333334,
           "implied_probability": 0.6796599179788281,
           "roi_pct": -14.391666666666666
+        },
+        "8": {
+          "bets": 2,
+          "wins": 1,
+          "actual_rate": 0.5,
+          "implied_probability": 0.6933429464071137,
+          "roi_pct": -27.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 490,
-          "wins": 322,
-          "actual_rate": 0.6571428571428571,
-          "implied_probability": 0.6868861988902312,
-          "roi_pct": -4.13714285714285
+          "bets": 499,
+          "wins": 328,
+          "actual_rate": 0.657314629258517,
+          "implied_probability": 0.6869871909183292,
+          "roi_pct": -4.129659318637267
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -11500,11 +11535,11 @@
       "threshold": -1.5,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 496,
-        "wins": 67,
-        "actual_rate": 0.1350806451612903,
-        "implied_probability": 0.16068156688295132,
-        "roi_pct": -15.340725806451616
+        "bets": 505,
+        "wins": 68,
+        "actual_rate": 0.13465346534653466,
+        "implied_probability": 0.16071291651189018,
+        "roi_pct": -15.5980198019802
       },
       "by_hour": {
         "9": {
@@ -11634,11 +11669,11 @@
           "roi_pct": -38.67741935483871
         },
         "7": {
-          "bets": 20,
-          "wins": 1,
-          "actual_rate": 0.05,
-          "implied_probability": 0.1626503533715627,
-          "roi_pct": -70.05
+          "bets": 27,
+          "wins": 2,
+          "actual_rate": 0.07407407407407407,
+          "implied_probability": 0.16281024382533335,
+          "roi_pct": -54.407407407407405
         },
         "11": {
           "bets": 11,
@@ -11667,15 +11702,22 @@
           "actual_rate": 0.08333333333333333,
           "implied_probability": 0.1564356232985084,
           "roi_pct": -49.75
+        },
+        "8": {
+          "bets": 2,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.159548074353983,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 490,
-          "wins": 66,
-          "actual_rate": 0.1346938775510204,
-          "implied_probability": 0.16070212851100585,
-          "roi_pct": -15.620408163265312
+          "bets": 499,
+          "wins": 67,
+          "actual_rate": 0.1342685370741483,
+          "implied_probability": 0.1607334842383839,
+          "roi_pct": -15.875751503006017
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -11693,11 +11735,11 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 497,
-        "wins": 92,
-        "actual_rate": 0.1851106639839034,
-        "implied_probability": 0.37353621606693366,
-        "roi_pct": -49.9209255533199
+        "bets": 506,
+        "wins": 94,
+        "actual_rate": 0.1857707509881423,
+        "implied_probability": 0.37344129190863773,
+        "roi_pct": -49.81561264822132
       },
       "by_hour": {
         "9": {
@@ -11827,11 +11869,11 @@
           "roi_pct": -55.900000000000006
         },
         "7": {
-          "bets": 20,
-          "wins": 3,
-          "actual_rate": 0.15,
-          "implied_probability": 0.36865407428011027,
-          "roi_pct": -57.78
+          "bets": 27,
+          "wins": 5,
+          "actual_rate": 0.18518518518518517,
+          "implied_probability": 0.36922584781285506,
+          "roi_pct": -50.05925925925926
         },
         "11": {
           "bets": 11,
@@ -11860,15 +11902,22 @@
           "actual_rate": 0.08333333333333333,
           "implied_probability": 0.3741900859335334,
           "roi_pct": -78.91666666666667
+        },
+        "8": {
+          "bets": 2,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.35888895757987904,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 491,
-          "wins": 91,
-          "actual_rate": 0.18533604887983707,
-          "implied_probability": 0.3736104004840554,
-          "roi_pct": -49.91995926680243
+          "bets": 500,
+          "wins": 93,
+          "actual_rate": 0.186,
+          "implied_probability": 0.37351300191635173,
+          "roi_pct": -49.81339999999998
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -11886,11 +11935,11 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 497,
-        "wins": 405,
-        "actual_rate": 0.8148893360160966,
-        "implied_probability": 0.7191170104538851,
-        "roi_pct": 13.49778672032193
+        "bets": 506,
+        "wins": 412,
+        "actual_rate": 0.8142292490118577,
+        "implied_probability": 0.7192151764665031,
+        "roi_pct": 13.36798418972332
       },
       "by_hour": {
         "9": {
@@ -12020,11 +12069,11 @@
           "roi_pct": 17.596774193548384
         },
         "7": {
-          "bets": 20,
-          "wins": 17,
-          "actual_rate": 0.85,
-          "implied_probability": 0.7235518728557098,
-          "roi_pct": 17.860000000000003
+          "bets": 27,
+          "wins": 22,
+          "actual_rate": 0.8148148148148148,
+          "implied_probability": 0.7231022600541966,
+          "roi_pct": 12.61851851851852
         },
         "11": {
           "bets": 11,
@@ -12053,15 +12102,22 @@
           "actual_rate": 0.9166666666666666,
           "implied_probability": 0.7182013051874385,
           "roi_pct": 27.41666666666667
+        },
+        "8": {
+          "bets": 2,
+          "wins": 2,
+          "actual_rate": 1.0,
+          "implied_probability": 0.7345007660602921,
+          "roi_pct": 36.150000000000006
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 491,
-          "wins": 400,
-          "actual_rate": 0.814663951120163,
-          "implied_probability": 0.7190595516959534,
-          "roi_pct": 13.461507128309567
+          "bets": 500,
+          "wins": 407,
+          "actual_rate": 0.814,
+          "implied_probability": 0.7191599299583656,
+          "roi_pct": 13.330799999999995
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -12079,11 +12135,11 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 497,
+        "bets": 506,
         "wins": 9,
-        "actual_rate": 0.018108651911468814,
-        "implied_probability": 0.21758008205523896,
-        "roi_pct": -91.74446680080483
+        "actual_rate": 0.017786561264822136,
+        "implied_probability": 0.21755394108770987,
+        "roi_pct": -91.8913043478261
       },
       "by_hour": {
         "9": {
@@ -12213,11 +12269,11 @@
           "roi_pct": -100.0
         },
         "7": {
-          "bets": 20,
+          "bets": 27,
           "wins": 1,
-          "actual_rate": 0.05,
-          "implied_probability": 0.21960698945158233,
-          "roi_pct": -80.65
+          "actual_rate": 0.037037037037037035,
+          "implied_probability": 0.21822978078793495,
+          "roi_pct": -85.66666666666666
         },
         "11": {
           "bets": 11,
@@ -12246,15 +12302,22 @@
           "actual_rate": 0.0,
           "implied_probability": 0.213227101263348,
           "roi_pct": -100.0
+        },
+        "8": {
+          "bets": 2,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.22246455834242093,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 491,
+          "bets": 500,
           "wins": 8,
-          "actual_rate": 0.016293279022403257,
-          "implied_probability": 0.2177231039863496,
-          "roi_pct": -92.70875763747455
+          "actual_rate": 0.016,
+          "implied_probability": 0.21769407493245016,
+          "roi_pct": -92.84000000000002
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -12272,11 +12335,11 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 497,
-        "wins": 488,
-        "actual_rate": 0.9818913480885312,
-        "implied_probability": 0.8754421536374947,
-        "roi_pct": 12.239839034205234
+        "bets": 506,
+        "wins": 497,
+        "actual_rate": 0.9822134387351779,
+        "implied_probability": 0.8754706549114704,
+        "roi_pct": 12.27332015810277
       },
       "by_hour": {
         "9": {
@@ -12406,11 +12469,11 @@
           "roi_pct": 13.619354838709679
         },
         "7": {
-          "bets": 20,
-          "wins": 19,
-          "actual_rate": 0.95,
-          "implied_probability": 0.8736960288048538,
-          "roi_pct": 8.564999999999998
+          "bets": 27,
+          "wins": 26,
+          "actual_rate": 0.9629629629629629,
+          "implied_probability": 0.8750923899284652,
+          "roi_pct": 9.933333333333334
         },
         "11": {
           "bets": 11,
@@ -12439,15 +12502,22 @@
           "actual_rate": 1.0,
           "implied_probability": 0.8799016152370153,
           "roi_pct": 13.741666666666665
+        },
+        "8": {
+          "bets": 2,
+          "wins": 2,
+          "actual_rate": 1.0,
+          "implied_probability": 0.8699135376987726,
+          "roi_pct": 15.100000000000001
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 491,
-          "wins": 483,
-          "actual_rate": 0.9837067209775967,
-          "implied_probability": 0.8752964196926439,
-          "roi_pct": 12.459674134419554
+          "bets": 500,
+          "wins": 492,
+          "actual_rate": 0.984,
+          "implied_probability": 0.8753278861929146,
+          "roi_pct": 12.489600000000003
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -12465,11 +12535,11 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 497,
+        "bets": 506,
         "wins": 5,
-        "actual_rate": 0.01006036217303823,
-        "implied_probability": 0.0333333333333333,
-        "roi_pct": -69.81891348088531
+        "actual_rate": 0.009881422924901186,
+        "implied_probability": 0.033333333333333326,
+        "roi_pct": -70.35573122529645
       },
       "by_hour": {
         "9": {
@@ -12599,11 +12669,11 @@
           "roi_pct": -100.0
         },
         "7": {
-          "bets": 20,
+          "bets": 27,
           "wins": 1,
-          "actual_rate": 0.05,
+          "actual_rate": 0.037037037037037035,
           "implied_probability": 0.03333333333333333,
-          "roi_pct": 50.0
+          "roi_pct": 11.11111111111111
         },
         "11": {
           "bets": 11,
@@ -12632,15 +12702,22 @@
           "actual_rate": 0.0,
           "implied_probability": 0.03333333333333333,
           "roi_pct": -100.0
+        },
+        "8": {
+          "bets": 2,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.03333333333333333,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 491,
+          "bets": 500,
           "wins": 5,
-          "actual_rate": 0.010183299389002037,
-          "implied_probability": 0.03333333333333328,
-          "roi_pct": -69.4501018329939
+          "actual_rate": 0.01,
+          "implied_probability": 0.033333333333333305,
+          "roi_pct": -70.0
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -12725,11 +12802,11 @@
       "threshold": null,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 497,
+        "bets": 506,
         "wins": 4,
-        "actual_rate": 0.008048289738430584,
-        "implied_probability": 0.03352315915696193,
-        "roi_pct": -75.85513078470825
+        "actual_rate": 0.007905138339920948,
+        "implied_probability": 0.033519782808320346,
+        "roi_pct": -76.28458498023716
       },
       "by_hour": {
         "9": {
@@ -12859,10 +12936,10 @@
           "roi_pct": -100.0
         },
         "7": {
-          "bets": 20,
+          "bets": 27,
           "wins": 0,
           "actual_rate": 0.0,
-          "implied_probability": 0.033666666666666664,
+          "implied_probability": 0.03358024691358024,
           "roi_pct": -100.0
         },
         "11": {
@@ -12892,15 +12969,22 @@
           "actual_rate": 0.0,
           "implied_probability": 0.03364197530864197,
           "roi_pct": -100.0
+        },
+        "8": {
+          "bets": 2,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.03333333333333333,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 491,
+          "bets": 500,
           "wins": 3,
-          "actual_rate": 0.006109979633401222,
-          "implied_probability": 0.033525478820794444,
-          "roi_pct": -81.67006109979633
+          "actual_rate": 0.006,
+          "implied_probability": 0.03352202020202017,
+          "roi_pct": -82.0
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -12985,11 +13069,11 @@
       "threshold": 1.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 1383,
-        "wins": 1063,
-        "actual_rate": 0.7686189443239335,
-        "implied_probability": 0.7988782577079766,
-        "roi_pct": -3.943239334779467
+        "bets": 1410,
+        "wins": 1082,
+        "actual_rate": 0.7673758865248227,
+        "implied_probability": 0.7988436843192933,
+        "roi_pct": -4.091205673758867
       },
       "by_hour": {
         "18": {
@@ -13084,11 +13168,11 @@
           "roi_pct": -0.5129032258064464
         },
         "7": {
-          "bets": 60,
-          "wins": 45,
-          "actual_rate": 0.75,
-          "implied_probability": 0.7978601522235848,
-          "roi_pct": -5.90833333333333
+          "bets": 81,
+          "wins": 58,
+          "actual_rate": 0.7160493827160493,
+          "implied_probability": 0.7967312854914731,
+          "roi_pct": -10.012345679012341
         },
         "9": {
           "bets": 6,
@@ -13152,15 +13236,22 @@
           "actual_rate": 0.7111111111111111,
           "implied_probability": 0.807171691686678,
           "roi_pct": -11.96222222222222
+        },
+        "8": {
+          "bets": 6,
+          "wins": 6,
+          "actual_rate": 1.0,
+          "implied_probability": 0.8095565814462663,
+          "roi_pct": 23.566666666666666
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 1365,
-          "wins": 1052,
-          "actual_rate": 0.7706959706959707,
-          "implied_probability": 0.798829084599914,
-          "roi_pct": -3.6720146520146524
+          "bets": 1392,
+          "wins": 1071,
+          "actual_rate": 0.7693965517241379,
+          "implied_probability": 0.7987950179302834,
+          "roi_pct": -3.8271551724137924
         },
         "CYCLE COURT (Under)": {
           "bets": 18,
@@ -13178,11 +13269,11 @@
       "threshold": 1.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 1383,
-        "wins": 124,
-        "actual_rate": 0.08966015907447578,
-        "implied_probability": 0.29398574660662474,
-        "roi_pct": -70.87339117859726
+        "bets": 1410,
+        "wins": 129,
+        "actual_rate": 0.09148936170212765,
+        "implied_probability": 0.2940233588364082,
+        "roi_pct": -70.25673758865248
       },
       "by_hour": {
         "18": {
@@ -13277,11 +13368,11 @@
           "roi_pct": -73.62795698924731
         },
         "7": {
-          "bets": 60,
-          "wins": 8,
-          "actual_rate": 0.13333333333333333,
-          "implied_probability": 0.29498828995467247,
-          "roi_pct": -56.201666666666675
+          "bets": 81,
+          "wins": 13,
+          "actual_rate": 0.16049382716049382,
+          "implied_probability": 0.29614803254150635,
+          "roi_pct": -47.113580246913585
         },
         "9": {
           "bets": 6,
@@ -13345,15 +13436,22 @@
           "actual_rate": 0.17777777777777778,
           "implied_probability": 0.2857756881058532,
           "roi_pct": -39.342222222222226
+        },
+        "8": {
+          "bets": 6,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.2836591939653062,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 1365,
-          "wins": 119,
-          "actual_rate": 0.08717948717948718,
-          "implied_probability": 0.2940341781966476,
-          "roi_pct": -71.72849816849816
+          "bets": 1392,
+          "wins": 124,
+          "actual_rate": 0.08908045977011494,
+          "implied_probability": 0.29407133738563046,
+          "roi_pct": -71.08728448275862
         },
         "CYCLE COURT (Under)": {
           "bets": 18,
@@ -13371,11 +13469,11 @@
       "threshold": 1.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 1363,
-        "wins": 1175,
-        "actual_rate": 0.8620689655172413,
-        "implied_probability": 0.8931104223489675,
-        "roi_pct": -3.536316947909025
+        "bets": 1389,
+        "wins": 1195,
+        "actual_rate": 0.8603311735061195,
+        "implied_probability": 0.8930972321567395,
+        "roi_pct": -3.7259179265658733
       },
       "by_hour": {
         "18": {
@@ -13470,11 +13568,11 @@
           "roi_pct": -3.4076923076923062
         },
         "7": {
-          "bets": 59,
-          "wins": 49,
-          "actual_rate": 0.8305084745762712,
-          "implied_probability": 0.897498132184514,
-          "roi_pct": -7.410169491525423
+          "bets": 79,
+          "wins": 63,
+          "actual_rate": 0.7974683544303798,
+          "implied_probability": 0.8953243186767801,
+          "roi_pct": -10.839240506329112
         },
         "9": {
           "bets": 5,
@@ -13538,15 +13636,22 @@
           "actual_rate": 0.7954545454545454,
           "implied_probability": 0.9022730410874661,
           "roi_pct": -11.927272727272724
+        },
+        "8": {
+          "bets": 6,
+          "wins": 6,
+          "actual_rate": 1.0,
+          "implied_probability": 0.9040530712481601,
+          "roi_pct": 10.63333333333334
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 1345,
-          "wins": 1162,
-          "actual_rate": 0.8639405204460967,
-          "implied_probability": 0.8929972507738896,
-          "roi_pct": -3.3080297397769556
+          "bets": 1371,
+          "wins": 1182,
+          "actual_rate": 0.862144420131291,
+          "implied_probability": 0.8929860336214077,
+          "roi_pct": -3.5044493070751304
         },
         "CYCLE COURT (Under)": {
           "bets": 18,
@@ -13564,11 +13669,11 @@
       "threshold": 1.0,
       "is_extra_penalties": false,
       "overall": {
-        "bets": 1363,
-        "wins": 70,
-        "actual_rate": 0.05135730007336757,
-        "implied_probability": 0.19975369807739596,
-        "roi_pct": -75.01760821716802
+        "bets": 1389,
+        "wins": 73,
+        "actual_rate": 0.05255579553635709,
+        "implied_probability": 0.19976480049191608,
+        "roi_pct": -74.27573794096475
       },
       "by_hour": {
         "18": {
@@ -13663,11 +13768,11 @@
           "roi_pct": -78.58241758241758
         },
         "7": {
-          "bets": 59,
-          "wins": 6,
-          "actual_rate": 0.1016949152542373,
-          "implied_probability": 0.19535325776866547,
-          "roi_pct": -44.33898305084746
+          "bets": 79,
+          "wins": 9,
+          "actual_rate": 0.11392405063291139,
+          "implied_probability": 0.1974905798226644,
+          "roi_pct": -37.164556962025316
         },
         "9": {
           "bets": 5,
@@ -13731,15 +13836,22 @@
           "actual_rate": 0.13636363636363635,
           "implied_probability": 0.19044707627865626,
           "roi_pct": -29.318181818181817
+        },
+        "8": {
+          "bets": 6,
+          "wins": 0,
+          "actual_rate": 0.0,
+          "implied_probability": 0.1888506343569083,
+          "roi_pct": -100.0
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 1345,
-          "wins": 69,
-          "actual_rate": 0.051301115241635685,
-          "implied_probability": 0.19986995022350879,
-          "roi_pct": -75.05576208178437
+          "bets": 1371,
+          "wins": 72,
+          "actual_rate": 0.0525164113785558,
+          "implied_probability": 0.19987899376688553,
+          "roi_pct": -74.30342815463163
         },
         "CYCLE COURT (Under)": {
           "bets": 18,
@@ -13916,11 +14028,11 @@
       "threshold": null,
       "is_extra_penalties": true,
       "overall": {
-        "bets": 430,
-        "wins": 120,
-        "actual_rate": 0.27906976744186046,
-        "implied_probability": 0.20755021415503097,
-        "roi_pct": 38.425581395348836
+        "bets": 439,
+        "wins": 123,
+        "actual_rate": 0.28018223234624146,
+        "implied_probability": 0.20760395295770262,
+        "roi_pct": 39.03644646924829
       },
       "by_hour": {
         "21": {
@@ -13994,11 +14106,11 @@
           "roi_pct": 97.93548387096777
         },
         "7": {
-          "bets": 20,
-          "wins": 7,
-          "actual_rate": 0.35,
-          "implied_probability": 0.20447843959010417,
-          "roi_pct": 79.30000000000004
+          "bets": 27,
+          "wins": 9,
+          "actual_rate": 0.3333333333333333,
+          "implied_probability": 0.20481284278333506,
+          "roi_pct": 72.11111111111114
         },
         "9": {
           "bets": 2,
@@ -14083,15 +14195,22 @@
           "actual_rate": 0.16666666666666666,
           "implied_probability": 0.20675490024479592,
           "roi_pct": -11.000000000000004
+        },
+        "8": {
+          "bets": 2,
+          "wins": 1,
+          "actual_rate": 0.5,
+          "implied_probability": 0.22558264921007926,
+          "roi_pct": 126.50000000000001
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 424,
-          "wins": 118,
-          "actual_rate": 0.2783018867924528,
-          "implied_probability": 0.2076181282753705,
-          "roi_pct": 37.865566037735846
+          "bets": 433,
+          "wins": 121,
+          "actual_rate": 0.279445727482679,
+          "implied_probability": 0.2076712001166864,
+          "roi_pct": 38.49653579676674
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -14109,11 +14228,11 @@
       "threshold": null,
       "is_extra_penalties": true,
       "overall": {
-        "bets": 430,
-        "wins": 310,
-        "actual_rate": 0.7209302325581395,
-        "implied_probability": 0.3977784900462669,
-        "roi_pct": 82.64441860465111
+        "bets": 439,
+        "wins": 316,
+        "actual_rate": 0.7198177676537585,
+        "implied_probability": 0.39764127543528865,
+        "roi_pct": 82.37562642369014
       },
       "by_hour": {
         "21": {
@@ -14187,11 +14306,11 @@
           "roi_pct": 54.14193548387096
         },
         "7": {
-          "bets": 20,
-          "wins": 13,
-          "actual_rate": 0.65,
-          "implied_probability": 0.3925644086359498,
-          "roi_pct": 66.885
+          "bets": 27,
+          "wins": 18,
+          "actual_rate": 0.6666666666666666,
+          "implied_probability": 0.3929462945350184,
+          "roi_pct": 70.33333333333334
         },
         "9": {
           "bets": 2,
@@ -14276,15 +14395,22 @@
           "actual_rate": 0.8333333333333334,
           "implied_probability": 0.3950888462604641,
           "roi_pct": 115.74999999999997
+        },
+        "8": {
+          "bets": 2,
+          "wins": 1,
+          "actual_rate": 0.5,
+          "implied_probability": 0.3807537082352396,
+          "roi_pct": 32.25
         }
       },
       "by_cycle": {
         "CYCLE PROLONGATIONS (Over / Mort Subite)": {
-          "bets": 424,
-          "wins": 306,
-          "actual_rate": 0.7216981132075472,
-          "implied_probability": 0.39786575124101925,
-          "roi_pct": 82.69457547169807
+          "bets": 433,
+          "wins": 312,
+          "actual_rate": 0.7205542725173211,
+          "implied_probability": 0.39772482152976696,
+          "roi_pct": 82.4210161662817
         },
         "CYCLE COURT (Under)": {
           "bets": 6,
@@ -14419,222 +14545,222 @@
   "market_profitability": {
     "winner:1": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 175,
-      "actual_rate": 0.3404669260700389,
-      "break_even_rate": 0.40475340366851315,
-      "wilson_lower_rate": 0.3008188699893358,
-      "roi_pct": -15.609338521400772,
+      "bets": 523,
+      "wins": 178,
+      "actual_rate": 0.3403441682600382,
+      "break_even_rate": 0.4046356802521363,
+      "wilson_lower_rate": 0.30103084728201074,
+      "roi_pct": -15.611281070745692,
       "source": "prematch"
     },
     "winner:3": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 339,
-      "actual_rate": 0.6595330739299611,
-      "break_even_rate": 0.6870594721760634,
-      "wilson_lower_rate": 0.6175180305048295,
-      "roi_pct": -3.8177042801556342,
+      "bets": 523,
+      "wins": 345,
+      "actual_rate": 0.6596558317399618,
+      "break_even_rate": 0.6871528480124849,
+      "wilson_lower_rate": 0.6180141682650159,
+      "roi_pct": -3.816061185468443,
       "source": "prematch"
     },
     "total:11273:2": {
       "verdict": "NEUTRAL",
-      "bets": 188,
-      "wins": 168,
-      "actual_rate": 0.8936170212765957,
-      "break_even_rate": 0.9822358566554507,
-      "wilson_lower_rate": 0.8413975161532908,
-      "roi_pct": -8.963829787234054,
+      "bets": 190,
+      "wins": 170,
+      "actual_rate": 0.8947368421052632,
+      "break_even_rate": 0.982168308014022,
+      "wilson_lower_rate": 0.8430078455726835,
+      "roi_pct": -8.843157894736853,
       "source": "prematch"
     },
     "total:11273:3": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 368,
-      "actual_rate": 0.7159533073929961,
-      "break_even_rate": 0.8362161035685958,
-      "wilson_lower_rate": 0.6754768410323561,
-      "roi_pct": -14.355642023346302,
+      "bets": 523,
+      "wins": 374,
+      "actual_rate": 0.7151051625239006,
+      "break_even_rate": 0.8362256335535218,
+      "wilson_lower_rate": 0.6749619643605821,
+      "roi_pct": -14.45602294455067,
       "source": "prematch"
     },
     "total:11273:4": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 247,
-      "actual_rate": 0.4805447470817121,
-      "break_even_rate": 0.5302916609981599,
-      "wilson_lower_rate": 0.4376561339548667,
-      "roi_pct": -9.14202334630349,
+      "bets": 523,
+      "wins": 252,
+      "actual_rate": 0.4818355640535373,
+      "break_even_rate": 0.5302345164499348,
+      "wilson_lower_rate": 0.4393001056145968,
+      "roi_pct": -8.868833652007634,
       "source": "prematch"
     },
     "total:11273:5": {
       "verdict": "NEUTRAL",
-      "bets": 479,
-      "wins": 129,
-      "actual_rate": 0.26931106471816285,
-      "break_even_rate": 0.26166661081332593,
-      "wilson_lower_rate": 0.2315356606182686,
-      "roi_pct": 2.6018789144050083,
+      "bets": 486,
+      "wins": 131,
+      "actual_rate": 0.26954732510288065,
+      "break_even_rate": 0.2617774949084325,
+      "wilson_lower_rate": 0.23201771025260426,
+      "roi_pct": 2.7804526748971177,
       "source": "prematch"
     },
     "total:11273:6": {
       "verdict": "NEUTRAL",
-      "bets": 425,
-      "wins": 66,
-      "actual_rate": 0.15529411764705883,
-      "break_even_rate": 0.17249598066201924,
-      "wilson_lower_rate": 0.12396345670311232,
-      "roi_pct": -10.48941176470588,
+      "bets": 432,
+      "wins": 68,
+      "actual_rate": 0.1574074074074074,
+      "break_even_rate": 0.1724579132322387,
+      "wilson_lower_rate": 0.1261028993614447,
+      "roi_pct": -9.171296296296294,
       "source": "prematch"
     },
     "total:11274:2": {
       "verdict": "AVOID",
-      "bets": 514,
+      "bets": 523,
       "wins": 46,
-      "actual_rate": 0.08949416342412451,
-      "break_even_rate": 0.1296733413016303,
-      "wilson_lower_rate": 0.06776513376392286,
-      "roi_pct": -30.45719844357977,
+      "actual_rate": 0.08795411089866156,
+      "break_even_rate": 0.12967148677834192,
+      "wilson_lower_rate": 0.06658738238451613,
+      "roi_pct": -31.65391969407266,
       "source": "prematch"
     },
     "total:11274:3": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 146,
-      "actual_rate": 0.2840466926070039,
-      "break_even_rate": 0.2569585608399805,
-      "wilson_lower_rate": 0.24677431887113918,
-      "roi_pct": 10.902140077821011,
+      "bets": 523,
+      "wins": 149,
+      "actual_rate": 0.28489483747609945,
+      "break_even_rate": 0.25694766746691006,
+      "wilson_lower_rate": 0.24788862770683265,
+      "roi_pct": 11.24608030592734,
       "source": "prematch"
     },
     "total:11274:4": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 267,
-      "actual_rate": 0.519455252918288,
-      "break_even_rate": 0.5312979021606207,
-      "wilson_lower_rate": 0.4762779827982196,
-      "roi_pct": -2.049416342412452,
+      "bets": 523,
+      "wins": 271,
+      "actual_rate": 0.5181644359464627,
+      "break_even_rate": 0.5313628875195042,
+      "wilson_lower_rate": 0.4753640762653579,
+      "roi_pct": -2.291778202676865,
       "source": "prematch"
     },
     "total:11274:5": {
       "verdict": "NEUTRAL",
-      "bets": 479,
-      "wins": 350,
-      "actual_rate": 0.7306889352818372,
-      "break_even_rate": 0.8313075005310759,
-      "wilson_lower_rate": 0.6892427016023097,
-      "roi_pct": -12.135908141962435,
+      "bets": 486,
+      "wins": 355,
+      "actual_rate": 0.7304526748971193,
+      "break_even_rate": 0.8311977621635402,
+      "wilson_lower_rate": 0.6893083936082032,
+      "roi_pct": -12.13786008230454,
       "source": "prematch"
     },
     "total:11274:6": {
       "verdict": "NEUTRAL",
-      "bets": 425,
-      "wins": 359,
-      "actual_rate": 0.8447058823529412,
-      "break_even_rate": 0.9442985123636564,
-      "wilson_lower_rate": 0.8071994114239229,
-      "roi_pct": -10.564941176470569,
+      "bets": 432,
+      "wins": 364,
+      "actual_rate": 0.8425925925925926,
+      "break_even_rate": 0.9443355199908058,
+      "wilson_lower_rate": 0.8052487174751813,
+      "roi_pct": -10.789120370370352,
       "source": "prematch"
     },
     "total:9:5.5": {
       "verdict": "NEUTRAL",
-      "bets": 404,
-      "wins": 344,
-      "actual_rate": 0.8514851485148515,
-      "break_even_rate": 0.9477322992136256,
-      "wilson_lower_rate": 0.8135028703871523,
-      "roi_pct": -10.12376237623762,
+      "bets": 412,
+      "wins": 351,
+      "actual_rate": 0.8519417475728155,
+      "break_even_rate": 0.9476821391127513,
+      "wilson_lower_rate": 0.8143999206220817,
+      "roi_pct": -10.077912621359223,
       "source": "prematch"
     },
     "total:9:6.5": {
       "verdict": "NEUTRAL",
-      "bets": 510,
-      "wins": 365,
-      "actual_rate": 0.7156862745098039,
-      "break_even_rate": 0.8370287731448142,
-      "wilson_lower_rate": 0.675037103402799,
-      "roi_pct": -14.486862745098037,
+      "bets": 519,
+      "wins": 371,
+      "actual_rate": 0.7148362235067437,
+      "break_even_rate": 0.8370242840425604,
+      "wilson_lower_rate": 0.6745245919036575,
+      "roi_pct": -14.585741811175335,
       "source": "prematch"
     },
     "total:9:7.5": {
       "verdict": "NEUTRAL",
-      "bets": 237,
-      "wins": 110,
-      "actual_rate": 0.4641350210970464,
-      "break_even_rate": 0.5440576509516252,
-      "wilson_lower_rate": 0.40171905458517687,
-      "roi_pct": -14.714345991561187,
+      "bets": 242,
+      "wins": 112,
+      "actual_rate": 0.4628099173553719,
+      "break_even_rate": 0.5440562991171546,
+      "wilson_lower_rate": 0.40105884336833564,
+      "roi_pct": -14.947933884297527,
       "source": "prematch"
     },
     "total:9:9.5": {
       "verdict": "NEUTRAL",
-      "bets": 479,
-      "wins": 129,
-      "actual_rate": 0.26931106471816285,
-      "break_even_rate": 0.26166661081332593,
-      "wilson_lower_rate": 0.2315356606182686,
-      "roi_pct": 2.6018789144050083,
+      "bets": 486,
+      "wins": 131,
+      "actual_rate": 0.26954732510288065,
+      "break_even_rate": 0.2617774949084325,
+      "wilson_lower_rate": 0.23201771025260426,
+      "roi_pct": 2.7804526748971177,
       "source": "prematch"
     },
     "total:9:11.5": {
       "verdict": "NEUTRAL",
-      "bets": 315,
-      "wins": 46,
-      "actual_rate": 0.14603174603174604,
-      "break_even_rate": 0.16889851679273246,
-      "wilson_lower_rate": 0.11130004573707938,
-      "roi_pct": -14.009523809523802,
+      "bets": 321,
+      "wins": 48,
+      "actual_rate": 0.14953271028037382,
+      "break_even_rate": 0.1688749979423504,
+      "wilson_lower_rate": 0.1146756778199547,
+      "roi_pct": -11.890965732087224,
       "source": "prematch"
     },
     "total:10:5.5": {
       "verdict": "NEUTRAL",
-      "bets": 404,
-      "wins": 60,
-      "actual_rate": 0.1485148514851485,
-      "break_even_rate": 0.16982536968202802,
-      "wilson_lower_rate": 0.11715409184175628,
-      "roi_pct": -11.98019801980199,
+      "bets": 412,
+      "wins": 61,
+      "actual_rate": 0.14805825242718446,
+      "break_even_rate": 0.16985670280482668,
+      "wilson_lower_rate": 0.11701899480802175,
+      "roi_pct": -12.42233009708739,
       "source": "prematch"
     },
     "total:10:6.5": {
       "verdict": "NEUTRAL",
-      "bets": 510,
-      "wins": 145,
-      "actual_rate": 0.28431372549019607,
-      "break_even_rate": 0.25615264970762086,
-      "wilson_lower_rate": 0.2468895964668094,
-      "roi_pct": 11.226862745098039,
+      "bets": 519,
+      "wins": 148,
+      "actual_rate": 0.28516377649325625,
+      "break_even_rate": 0.25615564771547333,
+      "wilson_lower_rate": 0.2480091807351507,
+      "roi_pct": 11.567822736030827,
       "source": "prematch"
     },
     "total:10:7.5": {
       "verdict": "NEUTRAL",
-      "bets": 237,
-      "wins": 127,
-      "actual_rate": 0.5358649789029536,
-      "break_even_rate": 0.5126156055859604,
-      "wilson_lower_rate": 0.4723048670029652,
-      "roi_pct": 4.320253164556961,
+      "bets": 242,
+      "wins": 130,
+      "actual_rate": 0.5371900826446281,
+      "break_even_rate": 0.5126531771457512,
+      "wilson_lower_rate": 0.4742767202451537,
+      "roi_pct": 4.613223140495867,
       "source": "prematch"
     },
     "total:10:9.5": {
       "verdict": "NEUTRAL",
-      "bets": 479,
-      "wins": 350,
-      "actual_rate": 0.7306889352818372,
-      "break_even_rate": 0.8313075005310759,
-      "wilson_lower_rate": 0.6892427016023097,
-      "roi_pct": -12.135908141962435,
+      "bets": 486,
+      "wins": 355,
+      "actual_rate": 0.7304526748971193,
+      "break_even_rate": 0.8311977621635402,
+      "wilson_lower_rate": 0.6893083936082032,
+      "roi_pct": -12.13786008230454,
       "source": "prematch"
     },
     "total:10:11.5": {
       "verdict": "NEUTRAL",
-      "bets": 315,
-      "wins": 269,
-      "actual_rate": 0.8539682539682539,
-      "break_even_rate": 0.9490717215079093,
-      "wilson_lower_rate": 0.8107068985442412,
-      "roi_pct": -10.036190476190471,
+      "bets": 321,
+      "wins": 273,
+      "actual_rate": 0.8504672897196262,
+      "break_even_rate": 0.9490895427742668,
+      "wilson_lower_rate": 0.8073209547795559,
+      "roi_pct": -10.405607476635508,
       "source": "prematch"
     },
     "team-total:1:11:1.5": {
@@ -14649,282 +14775,282 @@
     },
     "team-total:1:11:3.5": {
       "verdict": "AVOID",
-      "bets": 487,
-      "wins": 283,
-      "actual_rate": 0.5811088295687885,
-      "break_even_rate": 0.7201313351551085,
-      "wilson_lower_rate": 0.5368213723774856,
-      "roi_pct": -19.201026694045186,
+      "bets": 495,
+      "wins": 289,
+      "actual_rate": 0.5838383838383838,
+      "break_even_rate": 0.7201638429777443,
+      "wilson_lower_rate": 0.5399313535258006,
+      "roi_pct": -18.8319191919192,
       "source": "prematch"
     },
     "team-total:1:11:4.5": {
       "verdict": "AVOID",
-      "bets": 514,
-      "wins": 158,
-      "actual_rate": 0.30739299610894943,
-      "break_even_rate": 0.3687307542324151,
-      "wilson_lower_rate": 0.26905432536220586,
-      "roi_pct": -17.1282101167315,
+      "bets": 523,
+      "wins": 161,
+      "actual_rate": 0.3078393881453155,
+      "break_even_rate": 0.3685659762655803,
+      "wilson_lower_rate": 0.269798860214617,
+      "roi_pct": -16.75602294455065,
       "source": "prematch"
     },
     "team-total:1:11:6.5": {
       "verdict": "NEUTRAL",
-      "bets": 509,
-      "wins": 68,
-      "actual_rate": 0.13359528487229863,
-      "break_even_rate": 0.15198443933773415,
-      "wilson_lower_rate": 0.10676671239930469,
-      "roi_pct": -11.795677799607072,
+      "bets": 518,
+      "wins": 70,
+      "actual_rate": 0.13513513513513514,
+      "break_even_rate": 0.15196141944493474,
+      "wilson_lower_rate": 0.10836618442691451,
+      "roi_pct": -10.627413127413126,
       "source": "prematch"
     },
     "team-total:1:12:1.5": {
       "verdict": "AVOID",
-      "bets": 146,
+      "bets": 149,
       "wins": 9,
-      "actual_rate": 0.06164383561643835,
-      "break_even_rate": 0.10580822848193047,
-      "wilson_lower_rate": 0.03276635005485378,
-      "roi_pct": -39.8013698630137,
+      "actual_rate": 0.06040268456375839,
+      "break_even_rate": 0.10577290963504515,
+      "wilson_lower_rate": 0.032099859851737626,
+      "roi_pct": -41.013422818791945,
       "source": "prematch"
     },
     "team-total:1:12:3.5": {
       "verdict": "PROVEN",
-      "bets": 487,
-      "wins": 204,
-      "actual_rate": 0.4188911704312115,
-      "break_even_rate": 0.3704105679392213,
-      "wilson_lower_rate": 0.3758733190747501,
-      "roi_pct": 13.802053388090338,
+      "bets": 495,
+      "wins": 206,
+      "actual_rate": 0.4161616161616162,
+      "break_even_rate": 0.37037793772121147,
+      "wilson_lower_rate": 0.3735458716413707,
+      "roi_pct": 13.009292929292918,
       "source": "prematch"
     },
     "team-total:1:12:4.5": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 356,
-      "actual_rate": 0.6926070038910506,
-      "break_even_rate": 0.7245797009641964,
-      "wilson_lower_rate": 0.6514106289113992,
-      "roi_pct": -4.48988326848249,
+      "bets": 523,
+      "wins": 362,
+      "actual_rate": 0.6921606118546845,
+      "break_even_rate": 0.7247514066358162,
+      "wilson_lower_rate": 0.6513177076252998,
+      "roi_pct": -4.52925430210325,
       "source": "prematch"
     },
     "team-total:1:12:6.5": {
       "verdict": "NEUTRAL",
-      "bets": 491,
-      "wins": 424,
-      "actual_rate": 0.8635437881873728,
-      "break_even_rate": 0.9684751292584095,
-      "wilson_lower_rate": 0.8303445264094528,
-      "roi_pct": -10.815274949083513,
+      "bets": 500,
+      "wins": 431,
+      "actual_rate": 0.862,
+      "break_even_rate": 0.9685202641690006,
+      "wilson_lower_rate": 0.8289973296731233,
+      "roi_pct": -10.97440000000001,
       "source": "prematch"
     },
     "team-total:2:13:2.5": {
       "verdict": "NEUTRAL",
-      "bets": 488,
-      "wins": 442,
-      "actual_rate": 0.9057377049180327,
-      "break_even_rate": 0.9602067099785472,
-      "wilson_lower_rate": 0.876551488011567,
-      "roi_pct": -5.6702868852459085,
+      "bets": 496,
+      "wins": 449,
+      "actual_rate": 0.905241935483871,
+      "break_even_rate": 0.9602171551851287,
+      "wilson_lower_rate": 0.8762630123638961,
+      "roi_pct": -5.722379032258072,
       "source": "prematch"
     },
     "team-total:2:13:3.5": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 384,
-      "actual_rate": 0.7470817120622568,
-      "break_even_rate": 0.8180132146002831,
-      "wilson_lower_rate": 0.7077642482881954,
-      "roi_pct": -8.621595330739305,
+      "bets": 523,
+      "wins": 391,
+      "actual_rate": 0.7476099426386233,
+      "break_even_rate": 0.8179180536203552,
+      "wilson_lower_rate": 0.7086677087161577,
+      "roi_pct": -8.551816443594651,
       "source": "prematch"
     },
     "team-total:2:13:4.5": {
       "verdict": "NEUTRAL",
-      "bets": 498,
-      "wins": 217,
-      "actual_rate": 0.4357429718875502,
-      "break_even_rate": 0.48685247950642907,
-      "wilson_lower_rate": 0.3928483875426042,
-      "roi_pct": -10.295582329317277,
+      "bets": 507,
+      "wins": 222,
+      "actual_rate": 0.4378698224852071,
+      "break_even_rate": 0.486853296305491,
+      "wilson_lower_rate": 0.39531119508977164,
+      "roi_pct": -9.872189349112432,
       "source": "prematch"
     },
     "team-total:2:13:6.5": {
       "verdict": "AVOID",
-      "bets": 501,
-      "wins": 61,
-      "actual_rate": 0.1217564870259481,
-      "break_even_rate": 0.15058618631315035,
-      "wilson_lower_rate": 0.09596447605571078,
-      "roi_pct": -19.90618762475051,
+      "bets": 510,
+      "wins": 63,
+      "actual_rate": 0.12352941176470589,
+      "break_even_rate": 0.15057393179107023,
+      "wilson_lower_rate": 0.09775425901587344,
+      "roi_pct": -18.600000000000012,
       "source": "prematch"
     },
     "team-total:2:14:2.5": {
       "verdict": "AVOID",
-      "bets": 510,
-      "wins": 49,
-      "actual_rate": 0.09607843137254903,
-      "break_even_rate": 0.1583244204820277,
-      "wilson_lower_rate": 0.07343873275521455,
-      "roi_pct": -39.24509803921569,
+      "bets": 519,
+      "wins": 50,
+      "actual_rate": 0.09633911368015415,
+      "break_even_rate": 0.15829296142814367,
+      "wilson_lower_rate": 0.07384018916992235,
+      "roi_pct": -39.08092485549134,
       "source": "prematch"
     },
     "team-total:2:14:3.5": {
       "verdict": "NEUTRAL",
-      "bets": 514,
-      "wins": 130,
-      "actual_rate": 0.2529182879377432,
-      "break_even_rate": 0.27503262735178946,
-      "wilson_lower_rate": 0.21726676797761396,
-      "roi_pct": -7.496887159533072,
+      "bets": 523,
+      "wins": 132,
+      "actual_rate": 0.25239005736137665,
+      "break_even_rate": 0.27513271309435766,
+      "wilson_lower_rate": 0.2170588456347305,
+      "roi_pct": -7.7560229445506685,
       "source": "prematch"
     },
     "team-total:2:14:4.5": {
       "verdict": "NEUTRAL",
-      "bets": 498,
-      "wins": 281,
-      "actual_rate": 0.5642570281124498,
-      "break_even_rate": 0.5946483654610566,
-      "wilson_lower_rate": 0.5203786680135736,
-      "roi_pct": -4.650200803212847,
+      "bets": 507,
+      "wins": 285,
+      "actual_rate": 0.5621301775147929,
+      "break_even_rate": 0.5946340448545759,
+      "wilson_lower_rate": 0.5186370949381787,
+      "roi_pct": -5.002761341222876,
       "source": "prematch"
     },
     "team-total:2:14:6.5": {
       "verdict": "NEUTRAL",
-      "bets": 490,
-      "wins": 430,
-      "actual_rate": 0.8775510204081632,
-      "break_even_rate": 0.9707767064742626,
-      "wilson_lower_rate": 0.8455533963370779,
-      "roi_pct": -9.61979591836735,
+      "bets": 499,
+      "wins": 437,
+      "actual_rate": 0.875751503006012,
+      "break_even_rate": 0.9708018788152302,
+      "wilson_lower_rate": 0.8439061737295862,
+      "roi_pct": -9.804008016032068,
       "source": "prematch"
     },
     "total:9:8.5": {
       "verdict": "NEUTRAL",
-      "bets": 277,
-      "wins": 137,
-      "actual_rate": 0.49458483754512633,
-      "break_even_rate": 0.5530683499682071,
-      "wilson_lower_rate": 0.43618391061162143,
-      "roi_pct": -10.105054151624541,
+      "bets": 281,
+      "wins": 140,
+      "actual_rate": 0.498220640569395,
+      "break_even_rate": 0.5530265242042818,
+      "wilson_lower_rate": 0.44017867256548476,
+      "roi_pct": -9.380782918149459,
       "source": "prematch"
     },
     "total:10:8.5": {
       "verdict": "NEUTRAL",
-      "bets": 277,
-      "wins": 140,
-      "actual_rate": 0.5054151624548736,
-      "break_even_rate": 0.5081653722019001,
-      "wilson_lower_rate": 0.44686608875047257,
-      "roi_pct": -0.13898916967508915,
+      "bets": 281,
+      "wins": 141,
+      "actual_rate": 0.501779359430605,
+      "break_even_rate": 0.5081787302670067,
+      "wilson_lower_rate": 0.4436893957182828,
+      "roi_pct": -0.8202846975088958,
       "source": "prematch"
     },
     "team-total:1:11:2.5": {
       "verdict": "NEUTRAL",
-      "bets": 460,
-      "wins": 369,
-      "actual_rate": 0.8021739130434783,
-      "break_even_rate": 0.894601668490654,
-      "wilson_lower_rate": 0.7633317109651043,
-      "roi_pct": -10.256086956521736,
+      "bets": 469,
+      "wins": 376,
+      "actual_rate": 0.8017057569296375,
+      "break_even_rate": 0.8944917945086961,
+      "wilson_lower_rate": 0.763232484132296,
+      "roi_pct": -10.298081023454152,
       "source": "prematch"
     },
     "team-total:1:12:2.5": {
       "verdict": "NEUTRAL",
-      "bets": 460,
-      "wins": 91,
-      "actual_rate": 0.19782608695652174,
-      "break_even_rate": 0.20754735101154706,
-      "wilson_lower_rate": 0.1639891767896443,
-      "roi_pct": -3.865217391304348,
+      "bets": 469,
+      "wins": 93,
+      "actual_rate": 0.19829424307036247,
+      "break_even_rate": 0.20763483566638327,
+      "wilson_lower_rate": 0.16472338510209222,
+      "roi_pct": -3.6950959488272925,
       "source": "prematch"
     },
     "total:9:4.5": {
       "verdict": "NEUTRAL",
-      "bets": 110,
-      "wins": 97,
-      "actual_rate": 0.8818181818181818,
-      "break_even_rate": 0.9776548817270774,
-      "wilson_lower_rate": 0.808247966275603,
-      "roi_pct": -9.761818181818182,
+      "bets": 111,
+      "wins": 98,
+      "actual_rate": 0.8828828828828829,
+      "break_even_rate": 0.97755153662034,
+      "wilson_lower_rate": 0.8098841750443868,
+      "roi_pct": -9.642342342342342,
       "source": "prematch"
     },
     "total:10:4.5": {
       "verdict": "AVOID",
-      "bets": 110,
+      "bets": 111,
       "wins": 13,
-      "actual_rate": 0.11818181818181818,
-      "break_even_rate": 0.14490160083448939,
-      "wilson_lower_rate": 0.07038061374366392,
-      "roi_pct": -17.072727272727274,
+      "actual_rate": 0.11711711711711711,
+      "break_even_rate": 0.14501269185762475,
+      "wilson_lower_rate": 0.06973426421068199,
+      "roi_pct": -17.81981981981982,
       "source": "prematch"
     },
     "total:9:13.5": {
       "verdict": "AVOID",
-      "bets": 199,
+      "bets": 202,
       "wins": 21,
-      "actual_rate": 0.10552763819095477,
-      "break_even_rate": 0.1359140519400123,
-      "wilson_lower_rate": 0.0700626606555105,
-      "roi_pct": -23.1356783919598,
+      "actual_rate": 0.10396039603960396,
+      "break_even_rate": 0.13591806688429858,
+      "wilson_lower_rate": 0.06900629651282683,
+      "roi_pct": -24.27722772277228,
       "source": "prematch"
     },
     "total:10:13.5": {
       "verdict": "NEUTRAL",
-      "bets": 90,
-      "wins": 79,
-      "actual_rate": 0.8777777777777778,
-      "break_even_rate": 0.9822133363997172,
-      "wilson_lower_rate": 0.7942607696004788,
-      "roi_pct": -10.624444444444443,
+      "bets": 92,
+      "wins": 81,
+      "actual_rate": 0.8804347826086957,
+      "break_even_rate": 0.9822272721953597,
+      "wilson_lower_rate": 0.7984624277438815,
+      "roi_pct": -10.355434782608695,
       "source": "prematch"
     },
     "total:11273:7": {
       "verdict": "AVOID",
-      "bets": 89,
+      "bets": 91,
       "wins": 9,
-      "actual_rate": 0.10112359550561797,
-      "break_even_rate": 0.1422555666453399,
-      "wilson_lower_rate": 0.05411793406379983,
-      "roi_pct": -29.865168539325843,
+      "actual_rate": 0.0989010989010989,
+      "break_even_rate": 0.14223986913815395,
+      "wilson_lower_rate": 0.052908040587209215,
+      "roi_pct": -31.4065934065934,
       "source": "prematch"
     },
     "total:11274:7": {
       "verdict": "NEUTRAL",
-      "bets": 81,
-      "wins": 72,
-      "actual_rate": 0.8888888888888888,
-      "break_even_rate": 0.9803480405551305,
-      "wilson_lower_rate": 0.8021271435356178,
-      "roi_pct": -9.344444444444438,
+      "bets": 83,
+      "wins": 74,
+      "actual_rate": 0.891566265060241,
+      "break_even_rate": 0.9804084343489652,
+      "wilson_lower_rate": 0.8065934609334693,
+      "roi_pct": -9.077108433734935,
       "source": "prematch"
     },
     "team-total:2:13:5.5": {
       "verdict": "NEUTRAL",
-      "bets": 101,
+      "bets": 103,
       "wins": 24,
-      "actual_rate": 0.2376237623762376,
-      "break_even_rate": 0.2345840408785694,
-      "wilson_lower_rate": 0.1651985046175726,
-      "roi_pct": 2.099009900990093,
+      "actual_rate": 0.23300970873786409,
+      "break_even_rate": 0.23450853611859684,
+      "wilson_lower_rate": 0.16187497360880485,
+      "roi_pct": 0.1165048543689261,
       "source": "prematch"
     },
     "team-total:2:14:5.5": {
       "verdict": "NEUTRAL",
-      "bets": 101,
-      "wins": 77,
-      "actual_rate": 0.7623762376237624,
-      "break_even_rate": 0.8586931359304087,
-      "wilson_lower_rate": 0.6707230292337555,
-      "roi_pct": -11.161386138613869,
+      "bets": 103,
+      "wins": 79,
+      "actual_rate": 0.7669902912621359,
+      "break_even_rate": 0.8587589970241222,
+      "wilson_lower_rate": 0.6766557331631357,
+      "roi_pct": -10.633980582524279,
       "source": "prematch"
     },
     "team-total:2:13:7.5": {
-      "verdict": "NEUTRAL",
-      "bets": 28,
+      "verdict": "AVOID",
+      "bets": 30,
       "wins": 4,
-      "actual_rate": 0.14285714285714285,
-      "break_even_rate": 0.16413450499570573,
-      "wilson_lower_rate": 0.05698912930701783,
-      "roi_pct": -14.39285714285714,
+      "actual_rate": 0.13333333333333333,
+      "break_even_rate": 0.1643869949528686,
+      "wilson_lower_rate": 0.05309569424218104,
+      "roi_pct": -20.099999999999998,
       "source": "live_signal"
     },
     "team-total:2:14:7.5": {
@@ -14939,112 +15065,112 @@
     },
     "handicap:7:-1.5": {
       "verdict": "AVOID",
-      "bets": 496,
-      "wins": 32,
-      "actual_rate": 0.06451612903225806,
-      "break_even_rate": 0.1338543452930234,
-      "wilson_lower_rate": 0.04606724025085303,
-      "roi_pct": -52.34879032258066,
+      "bets": 505,
+      "wins": 33,
+      "actual_rate": 0.06534653465346535,
+      "break_even_rate": 0.13380190699483965,
+      "wilson_lower_rate": 0.046905322376172,
+      "roi_pct": -51.839603960396055,
       "source": "prematch"
     },
     "handicap:7:-0.5": {
       "verdict": "AVOID",
-      "bets": 496,
-      "wins": 170,
-      "actual_rate": 0.34274193548387094,
-      "break_even_rate": 0.4046850992687802,
-      "wilson_lower_rate": 0.30232361342858255,
-      "roi_pct": -15.018346774193548,
+      "bets": 505,
+      "wins": 173,
+      "actual_rate": 0.3425742574257426,
+      "break_even_rate": 0.4045643970763694,
+      "wilson_lower_rate": 0.3025106984252208,
+      "roi_pct": -15.030891089108907,
       "source": "prematch"
     },
     "handicap:7:1.5": {
       "verdict": "NEUTRAL",
-      "bets": 496,
-      "wins": 429,
-      "actual_rate": 0.8649193548387096,
-      "break_even_rate": 0.9588903217734932,
-      "wilson_lower_rate": 0.8320180669042544,
-      "roi_pct": -9.778225806451612,
+      "bets": 505,
+      "wins": 437,
+      "actual_rate": 0.8653465346534653,
+      "break_even_rate": 0.9588515746847067,
+      "wilson_lower_rate": 0.8328004776054626,
+      "roi_pct": -9.728712871287128,
       "source": "prematch"
     },
     "handicap:8:1.5": {
       "verdict": "NEUTRAL",
-      "bets": 223,
-      "wins": 206,
-      "actual_rate": 0.9237668161434978,
-      "break_even_rate": 0.9725209845019138,
-      "wilson_lower_rate": 0.881318369410597,
-      "roi_pct": -4.98520179372197,
+      "bets": 226,
+      "wins": 208,
+      "actual_rate": 0.9203539823008849,
+      "break_even_rate": 0.9723009729047144,
+      "wilson_lower_rate": 0.8776272984262001,
+      "roi_pct": -5.311061946902652,
       "source": "prematch"
     },
     "handicap:8:0.5": {
       "verdict": "NEUTRAL",
-      "bets": 496,
-      "wins": 326,
-      "actual_rate": 0.657258064516129,
-      "break_even_rate": 0.6871109017749248,
-      "wilson_lower_rate": 0.6144224863515245,
-      "roi_pct": -4.153225806451606,
+      "bets": 505,
+      "wins": 332,
+      "actual_rate": 0.6574257425742575,
+      "break_even_rate": 0.6872066892918727,
+      "wilson_lower_rate": 0.6149851501996041,
+      "roi_pct": -4.145544554455438,
       "source": "prematch"
     },
     "handicap:8:-1.5": {
       "verdict": "AVOID",
-      "bets": 496,
-      "wins": 67,
-      "actual_rate": 0.1350806451612903,
-      "break_even_rate": 0.16068156688295132,
-      "wilson_lower_rate": 0.10778863101896599,
-      "roi_pct": -15.340725806451616,
+      "bets": 505,
+      "wins": 68,
+      "actual_rate": 0.13465346534653466,
+      "break_even_rate": 0.16071291651189018,
+      "wilson_lower_rate": 0.10762391971396955,
+      "roi_pct": -15.5980198019802,
       "source": "prematch"
     },
     "even-odd:2511:Total pair": {
       "verdict": "AVOID",
-      "bets": 497,
-      "wins": 92,
-      "actual_rate": 0.1851106639839034,
-      "break_even_rate": 0.37353621606693366,
-      "wilson_lower_rate": 0.15342527915724083,
-      "roi_pct": -49.9209255533199,
+      "bets": 506,
+      "wins": 94,
+      "actual_rate": 0.1857707509881423,
+      "break_even_rate": 0.37344129190863773,
+      "wilson_lower_rate": 0.15429566310428472,
+      "roi_pct": -49.81561264822132,
       "source": "prematch"
     },
     "even-odd:2512:Total impair": {
       "verdict": "PROVEN",
-      "bets": 497,
-      "wins": 405,
-      "actual_rate": 0.8148893360160966,
-      "break_even_rate": 0.7191170104538851,
-      "wilson_lower_rate": 0.778373366536564,
-      "roi_pct": 13.49778672032193,
+      "bets": 506,
+      "wins": 412,
+      "actual_rate": 0.8142292490118577,
+      "break_even_rate": 0.7192151764665031,
+      "wilson_lower_rate": 0.7780187959361289,
+      "roi_pct": 13.36798418972332,
       "source": "prematch"
     },
     "btts:182:Non": {
       "verdict": "AVOID",
-      "bets": 497,
+      "bets": 506,
       "wins": 9,
-      "actual_rate": 0.018108651911468814,
-      "break_even_rate": 0.21758008205523896,
-      "wilson_lower_rate": 0.009555589078263274,
-      "roi_pct": -91.74446680080483,
+      "actual_rate": 0.017786561264822136,
+      "break_even_rate": 0.21755394108770987,
+      "wilson_lower_rate": 0.00938512863162563,
+      "roi_pct": -91.8913043478261,
       "source": "prematch"
     },
     "btts:183:Oui": {
       "verdict": "PROVEN",
-      "bets": 497,
-      "wins": 488,
-      "actual_rate": 0.9818913480885312,
-      "break_even_rate": 0.8754421536374947,
-      "wilson_lower_rate": 0.9659457930868759,
-      "roi_pct": 12.239839034205234,
+      "bets": 506,
+      "wins": 497,
+      "actual_rate": 0.9822134387351779,
+      "break_even_rate": 0.8754706549114704,
+      "wilson_lower_rate": 0.9665451563735752,
+      "roi_pct": 12.27332015810277,
       "source": "prematch"
     },
     "clean-sheet-win:1:200:Oui": {
       "verdict": "AVOID",
-      "bets": 497,
+      "bets": 506,
       "wins": 5,
-      "actual_rate": 0.01006036217303823,
-      "break_even_rate": 0.0333333333333333,
-      "wilson_lower_rate": 0.004304562704326953,
-      "roi_pct": -69.81891348088531,
+      "actual_rate": 0.009881422924901186,
+      "break_even_rate": 0.033333333333333326,
+      "wilson_lower_rate": 0.0042278688527985974,
+      "roi_pct": -70.35573122529645,
       "source": "prematch"
     },
     "clean-sheet-win:1:205:Non": {
@@ -15059,12 +15185,12 @@
     },
     "clean-sheet-win:2:195:Oui": {
       "verdict": "AVOID",
-      "bets": 497,
+      "bets": 506,
       "wins": 4,
-      "actual_rate": 0.008048289738430584,
-      "break_even_rate": 0.03352315915696193,
-      "wilson_lower_rate": 0.003134095229314929,
-      "roi_pct": -75.85513078470825,
+      "actual_rate": 0.007905138339920948,
+      "break_even_rate": 0.033519782808320346,
+      "wilson_lower_rate": 0.0030782747028726665,
+      "roi_pct": -76.28458498023716,
       "source": "prematch"
     },
     "clean-sheet-win:2:210:Non": {
@@ -15079,42 +15205,42 @@
     },
     "team-pens:776:1422": {
       "verdict": "NEUTRAL",
-      "bets": 1383,
-      "wins": 1063,
-      "actual_rate": 0.7686189443239335,
-      "break_even_rate": 0.7988782577079766,
-      "wilson_lower_rate": 0.7456670371287992,
-      "roi_pct": -3.943239334779467,
+      "bets": 1410,
+      "wins": 1082,
+      "actual_rate": 0.7673758865248227,
+      "break_even_rate": 0.7988436843192933,
+      "wilson_lower_rate": 0.7446138702661603,
+      "roi_pct": -4.091205673758867,
       "source": "prematch"
     },
     "team-pens:776:1423": {
       "verdict": "AVOID",
-      "bets": 1383,
-      "wins": 124,
-      "actual_rate": 0.08966015907447578,
-      "break_even_rate": 0.29398574660662474,
-      "wilson_lower_rate": 0.0757175038053206,
-      "roi_pct": -70.87339117859726,
+      "bets": 1410,
+      "wins": 129,
+      "actual_rate": 0.09148936170212765,
+      "break_even_rate": 0.2940233588364082,
+      "wilson_lower_rate": 0.07753023837684185,
+      "roi_pct": -70.25673758865248,
       "source": "prematch"
     },
     "team-pens:776:1424": {
       "verdict": "NEUTRAL",
-      "bets": 1363,
-      "wins": 1175,
-      "actual_rate": 0.8620689655172413,
-      "break_even_rate": 0.8931104223489675,
-      "wilson_lower_rate": 0.8427420859609256,
-      "roi_pct": -3.536316947909025,
+      "bets": 1389,
+      "wins": 1195,
+      "actual_rate": 0.8603311735061195,
+      "break_even_rate": 0.8930972321567395,
+      "wilson_lower_rate": 0.841105357802977,
+      "roi_pct": -3.7259179265658733,
       "source": "prematch"
     },
     "team-pens:776:1425": {
       "verdict": "AVOID",
-      "bets": 1363,
-      "wins": 70,
-      "actual_rate": 0.05135730007336757,
-      "break_even_rate": 0.19975369807739596,
-      "wilson_lower_rate": 0.04084878706187398,
-      "roi_pct": -75.01760821716802,
+      "bets": 1389,
+      "wins": 73,
+      "actual_rate": 0.05255579553635709,
+      "break_even_rate": 0.19976480049191608,
+      "wilson_lower_rate": 0.04200604414966872,
+      "roi_pct": -74.27573794096475,
       "source": "prematch"
     },
     "total:9:3.5": {
@@ -15149,32 +15275,32 @@
     },
     "extra-penalties:1094:2210:Oui": {
       "verdict": "PROVEN",
-      "bets": 430,
-      "wins": 120,
-      "actual_rate": 0.27906976744186046,
-      "break_even_rate": 0.20755021415503097,
-      "wilson_lower_rate": 0.23877288294790514,
-      "roi_pct": 38.425581395348836,
+      "bets": 439,
+      "wins": 123,
+      "actual_rate": 0.28018223234624146,
+      "break_even_rate": 0.20760395295770262,
+      "wilson_lower_rate": 0.24021803398763922,
+      "roi_pct": 39.03644646924829,
       "source": "prematch"
     },
     "extra-penalties:1094:2211:Non": {
       "verdict": "PROVEN",
-      "bets": 430,
-      "wins": 310,
-      "actual_rate": 0.7209302325581395,
-      "break_even_rate": 0.3977784900462669,
-      "wilson_lower_rate": 0.6767207422587688,
-      "roi_pct": 82.64441860465111,
+      "bets": 439,
+      "wins": 316,
+      "actual_rate": 0.7198177676537585,
+      "break_even_rate": 0.39764127543528865,
+      "wilson_lower_rate": 0.6760397815380048,
+      "roi_pct": 82.37562642369014,
       "source": "prematch"
     },
     "team-total:1:11:5.5": {
       "verdict": "NEUTRAL",
-      "bets": 65,
-      "wins": 22,
-      "actual_rate": 0.3384615384615385,
-      "break_even_rate": 0.31073186313654577,
-      "wilson_lower_rate": 0.23533338768646594,
-      "roi_pct": -0.18,
+      "bets": 69,
+      "wins": 24,
+      "actual_rate": 0.34782608695652173,
+      "break_even_rate": 0.30707432491564496,
+      "wilson_lower_rate": 0.2461797794825202,
+      "roi_pct": 6.786956521739131,
       "source": "live_signal"
     },
     "team-total:1:12:5.5": {
@@ -15229,12 +15355,12 @@
     },
     "team-total:1:11:7.5": {
       "verdict": "NEUTRAL",
-      "bets": 25,
+      "bets": 27,
       "wins": 4,
-      "actual_rate": 0.16,
-      "break_even_rate": 0.16113259842854796,
-      "wilson_lower_rate": 0.06403347608577989,
-      "roi_pct": 2.039999999999999,
+      "actual_rate": 0.14814814814814814,
+      "break_even_rate": 0.16138984150082938,
+      "wilson_lower_rate": 0.0591583185964489,
+      "roi_pct": -5.518518518518519,
       "source": "live_signal"
     },
     "total:11273:8": {
@@ -15279,12 +15405,12 @@
     },
     "team-pens:776:1425:2": {
       "verdict": "NEUTRAL",
-      "bets": 5,
+      "bets": 7,
       "wins": 1,
-      "actual_rate": 0.2,
-      "break_even_rate": 0.2943455901725324,
-      "wilson_lower_rate": 0.036223160969787456,
-      "roi_pct": -19.800000000000004,
+      "actual_rate": 0.14285714285714285,
+      "break_even_rate": 0.30463567670165403,
+      "wilson_lower_rate": 0.02567895594897479,
+      "roi_pct": -42.714285714285715,
       "source": "live_signal"
     },
     "total:10:1.5": {
@@ -15349,22 +15475,22 @@
     }
   },
   "exact_scores": {
-    "6-5": 29,
-    "4-5": 92,
-    "3-4": 91,
+    "6-5": 30,
+    "4-5": 94,
+    "3-4": 92,
     "5-6": 26,
-    "7-8": 13,
+    "7-8": 14,
     "4-3": 34,
     "9-8": 6,
     "7-6": 21,
     "5-4": 27,
     "14-13": 1,
-    "2-4": 49,
+    "2-4": 50,
     "1-2": 3,
     "1-3": 20,
     "3-0": 6,
-    "2-3": 26,
-    "4-2": 18,
+    "2-3": 27,
+    "4-2": 19,
     "8-9": 7,
     "12-11": 2,
     "8-7": 14,
@@ -15379,26 +15505,27 @@
     "11-10": 2,
     "10-11": 3,
     "16-15": 1,
-    "2-0": 1
+    "2-0": 1,
+    "10-9": 1
   },
-  "exact_score_total": 535,
+  "exact_score_total": 544,
   "exact_score_calibration": {
     "overall": {
       "all": {
-        "bets": 197,
+        "bets": 204,
         "wins": 13,
-        "actual_rate": 0.06598984771573604,
-        "implied_probability": 0.11809261982249053,
-        "roi_pct": -60.202030456852796
+        "actual_rate": 0.06372549019607843,
+        "implied_probability": 0.11501573636098571,
+        "roi_pct": -61.567647058823525
       }
     },
     "by_score": {
       "4-5": {
-        "bets": 42,
+        "bets": 43,
         "wins": 6,
-        "actual_rate": 0.14285714285714285,
-        "implied_probability": 0.22949576909942884,
-        "roi_pct": -40.66190476190476
+        "actual_rate": 0.13953488372093023,
+        "implied_probability": 0.22596143446560402,
+        "roi_pct": -42.04186046511628
       },
       "3-4": {
         "bets": 44,
@@ -15457,10 +15584,10 @@
         "roi_pct": -100.0
       },
       "8-7": {
-        "bets": 11,
+        "bets": 14,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.020817738236714848,
+        "implied_probability": 0.020400880920103785,
         "roi_pct": -100.0
       },
       "1-3": {
@@ -15485,17 +15612,17 @@
         "roi_pct": -100.0
       },
       "7-6": {
-        "bets": 3,
+        "bets": 4,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.024965098135829842,
+        "implied_probability": 0.025668268046316826,
         "roi_pct": -100.0
       },
       "7-8": {
-        "bets": 3,
+        "bets": 5,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.017726258322728197,
+        "implied_probability": 0.01804570353566093,
         "roi_pct": -100.0
       }
     },
@@ -15655,17 +15782,17 @@
         "roi_pct": -100.0
       },
       "4-5|12-20": {
-        "bets": 4,
+        "bets": 5,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.0761965962380148,
+        "implied_probability": 0.07646115295940407,
         "roi_pct": -100.0
       },
       "8-7|20+": {
-        "bets": 11,
+        "bets": 14,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.020817738236714848,
+        "implied_probability": 0.020400880920103785,
         "roi_pct": -100.0
       },
       "1-3|20+": {
@@ -15718,17 +15845,17 @@
         "roi_pct": -100.0
       },
       "7-6|20+": {
-        "bets": 3,
+        "bets": 4,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.024965098135829842,
+        "implied_probability": 0.025668268046316826,
         "roi_pct": -100.0
       },
       "7-8|20+": {
-        "bets": 3,
+        "bets": 5,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.017726258322728197,
+        "implied_probability": 0.01804570353566093,
         "roi_pct": -100.0
       }
     },
@@ -15776,11 +15903,11 @@
         "roi_pct": -37.07142857142857
       },
       "LIVE|12-20": {
-        "bets": 25,
+        "bets": 26,
         "wins": 2,
-        "actual_rate": 0.08,
-        "implied_probability": 0.06552827831580474,
-        "roi_pct": 5.199999999999996
+        "actual_rate": 0.07692307692307693,
+        "implied_probability": 0.06598947452846461,
+        "roi_pct": 1.1538461538461497
       },
       "PRE-MATCH|12-20": {
         "bets": 7,
@@ -15790,17 +15917,17 @@
         "roi_pct": -100.0
       },
       "LIVE|20+": {
-        "bets": 34,
+        "bets": 35,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.02690560255538108,
+        "implied_probability": 0.026675954611750246,
         "roi_pct": -100.0
       },
       "PRE-MATCH|20+": {
-        "bets": 26,
+        "bets": 31,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.021661791300302054,
+        "implied_probability": 0.021476883291775453,
         "roi_pct": -100.0
       }
     },
@@ -16016,24 +16143,24 @@
         "roi_pct": -100.0
       },
       "LIVE|8-9|away+1|12-20": {
-        "bets": 4,
+        "bets": 5,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.0761965962380148,
+        "implied_probability": 0.07646115295940407,
         "roi_pct": -100.0
       },
       "PRE-MATCH|12+|home+1|20+": {
-        "bets": 13,
+        "bets": 16,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.021500013162224142,
+        "implied_probability": 0.021564202289748712,
         "roi_pct": -100.0
       },
       "LIVE|12+|home+1|20+": {
-        "bets": 1,
+        "bets": 2,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.024390243902439025,
+        "implied_probability": 0.021629084215370457,
         "roi_pct": -100.0
       },
       "LIVE|<=5|away+2|20+": {
@@ -16100,10 +16227,10 @@
         "roi_pct": -100.0
       },
       "PRE-MATCH|12+|away+1|20+": {
-        "bets": 3,
+        "bets": 5,
         "wins": 0,
         "actual_rate": 0.0,
-        "implied_probability": 0.017726258322728197,
+        "implied_probability": 0.01804570353566093,
         "roi_pct": -100.0
       },
       "PRE-MATCH|<=5|away+2|20+": {
@@ -16115,10 +16242,10 @@
       }
     }
   },
-  "trained_exact_score_predictions": 197,
+  "trained_exact_score_predictions": 204,
   "profitability": {
     "market": "Favoris 1X2",
-    "roi_pct": -4.461302681992336,
-    "bets": 522
+    "roi_pct": -4.5862523540489635,
+    "bets": 531
   }
 }

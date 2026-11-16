@@ -1720,13 +1720,18 @@ def format_prediction_message(
 ) -> str:
     if cycle_stats is None:
         cycle_stats = CycleStatistics(current_hour=datetime.now().hour)
-    game_id = escape(str(match["game_id"]))
+
+    score1 = match.get("score1")
+    score2 = match.get("score2")
+    if not isinstance(score1, (int, float)):
+        score1 = 0
+    if not isinstance(score2, (int, float)):
+        score2 = 0
     status = str(match.get("status", "")).upper()
     is_prematch = status == "PRE-MATCH"
     team1_name = str(match.get("team1") or "Équipe 1")
     team2_name = str(match.get("team2") or "Équipe 2")
-    team1 = escape(team1_name)
-    team2 = escape(team2_name)
+    game_id = escape(str(match.get("game_id", match.get("id", ""))))
     match_number = match.get("match_number")
     if match_number is None:
         match_number = match.get("dopInfo")
@@ -1735,62 +1740,231 @@ def format_prediction_message(
         if match_number is not None and str(match_number).strip()
         else f"ID {game_id}"
     )
+
+    def _recommended_extra_penalties() -> str:
+        extra_penalties = analysis.extra_penalties
+        if extra_penalties is None:
+            return ""
+        yes_odds = float(extra_penalties.yes_odds)
+        score_1 = _as_int(match.get("score1"))
+        score_2 = _as_int(match.get("score2"))
+        status_value = str(match.get("status", "")).upper()
+        if status_value == "PRE-MATCH":
+            if yes_odds <= 2.75:
+                return "Oui"
+            strong_history = any(
+                math.isfinite(rate) and rate >= 25.0
+                for rate in (
+                    float(cycle_stats.recent_sudden_death_pct),
+                    float(cycle_stats.hour_sudden_death_pct),
+                )
+            )
+            relevant_quote = any(
+                quote.group_id == 17
+                and (
+                    (quote.event_type == 9 and quote.threshold == 8.5 and quote.odds <= 1.72)
+                    or (quote.threshold == 9.5 and quote.is_center)
+                )
+                for quote in analysis.regulation_markets
+            )
+            if yes_odds <= 4.50 and relevant_quote and strong_history:
+                return "Oui"
+            return "Non"
+        if score_1 is None or score_2 is None:
+            return "Oui" if yes_odds <= 2.75 else "Non"
+        live_level_score = score_1 == score_2 and score_1 in (3, 4, 5)
+        if yes_odds <= 2.75 or live_level_score:
+            return "Oui"
+        return "Non"
+
+    def _sorted_exact_scores() -> list[ExactScorePrediction]:
+        exact_scores = tuple(analysis.exact_scores)
+        if not exact_scores:
+            return []
+        current_total = int(score1) + int(score2)
+        filtered = [
+            prediction
+            for prediction in exact_scores
+            if prediction.score[0] + prediction.score[1] <= current_total + 6
+        ]
+        if not filtered:
+            filtered = list(exact_scores)
+        if current_total > 0 and int(score1) == int(score2):
+            extended_scores = [
+                prediction
+                for prediction in filtered
+                if prediction.score[0] + prediction.score[1] >= current_total + 2
+            ]
+            if extended_scores:
+                filtered = extended_scores
+            filtered.sort(
+                key=lambda prediction: (
+                    (prediction.score[0] + prediction.score[1]) - current_total,
+                    prediction.score[0],
+                    prediction.score[1],
+                    -prediction.probability_pct,
+                )
+            )
+            return filtered[:3]
+        if current_total > 0:
+            filtered.sort(key=lambda prediction: prediction.probability_pct, reverse=True)
+            return filtered[:3]
+        filtered.sort(key=lambda prediction: prediction.probability_pct, reverse=True)
+        return filtered[:3]
+
     lines: list[str] = []
-
-    # ── EN-TÊTE ──────────────────────────────────────────────
+    if signal is not None and signal.STRONG_SIGNAL:
+        largest_drop = max(item.drop_pct for item in signal.signals)
+        lines.append(f"🚨 SIGNAL FORT (Chute de cote -{largest_drop:.1f}%)")
     if is_prematch:
-        lines.append("⚽ <b>FC24 PENALTY · PRE-MATCH</b>")
-        lines.append(f"🏟 <b>{escape(team1_name.upper())} vs "
-                     f"{escape(team2_name.upper())}</b>")
-        lines.append(f"🔖 {match_identity}")
-        time_sec = match.get("timeSec")
-        if time_sec is not None:
-            remaining = max(0, math.ceil(time_sec))
-            minutes, seconds = divmod(remaining, 60)
-            countdown = (
-                f"{minutes} min {seconds} s" if minutes else f"{seconds} s"
-            )
-            lines.append(f"⏳ Coup d'envoi dans <b>{countdown}</b>")
+        lines.append("⚽ PRE-MATCH")
     else:
-        if signal is not None and signal.STRONG_SIGNAL:
-            largest_drop = max(item.drop_pct for item in signal.signals)
-            lines.append(
-                f"🚨 <b>SIGNAL FORT</b> (Chute de cote <b>-{largest_drop:.1f}%</b>)"
-            )
-        lines.append("🔴 <b>FC24 PENALTY · EN DIRECT</b>")
-        lines.append(f"🏟 <b>{escape(team1_name.upper())} "
-                     f"{match['score1']} - {match['score2']} "
-                     f"{escape(team2_name.upper())}</b>")
-        lines.append(f"🔖 {match_identity}")
-
+        lines.append(f"🔴 LIVE · Score : {int(score1)} - {int(score2)}")
+    lines.append(f"🏟 <b>{escape(team1_name.upper())} vs {escape(team2_name.upper())}</b>")
+    lines.append(match_identity)
+    if is_prematch and match.get("timeSec") is not None:
+        time_sec = max(0, math.ceil(float(match["timeSec"])))
+        minutes, seconds = divmod(time_sec, 60)
+        countdown = f"{minutes} min {seconds} s" if minutes else f"{seconds} s"
+        lines.append(f"⏳ Coup d'envoi dans <b>{countdown}</b>")
     lines.append("")
 
-    # ── DÉCISION IA ──────────────────────────────────────────
-    matchup: Mapping[str, Any] = {}
-    top_markets: list[Any] = []
     if ai_review is not None:
-        matchup = ai_review.get("matchup", {})
-        top_markets = list(ai_review.get("top_markets", []))[:3]
+        lines.append("🧠 DÉCISION IA")
         decision = ai_review.get("decision")
-        lines.append("━━━━━━━━━━━━━━━━━━━━")
-        lines.append("🧠 <b>DÉCISION TERMINAT-AI</b>")
-        lines.append("━━━━━━━━━━━━━━━━━━━━")
         if isinstance(decision, Mapping):
-            confidence = decision['confidence_pct']
-            roi = decision.get("historical_roi_pct")
-            lines.append("")
-            lines.append(f"🎯 <b>PARI CONSEILLÉ :</b>")
-            lines.append(f"👉 <b>{escape(str(decision['label']))}</b>")
-            lines.append(f"💎 Cote : <b>@{decision['odds']:g}</b>")
-            lines.append(f"📊 Confiance : <b>{confidence:.1f}%</b>")
-            if isinstance(roi, (int, float)):
-                lines.append(f"📈 Rentabilité historique : <b>{roi:+.1f}%</b>")
+            label = str(decision.get("label", ""))
+            odds = decision.get("odds")
+            confidence = decision.get("confidence_pct")
+            lines.append(f"<b>👉 {escape(label)}</b>")
+            if isinstance(odds, (int, float)) and math.isfinite(float(odds)):
+                lines.append(f"✅ Cote : @{float(odds):g}")
+            if isinstance(confidence, (int, float)) and math.isfinite(float(confidence)):
+                lines.append(f"Confiance : {float(confidence):.1f}%")
         else:
             lines.append("❌ Aucun pari fiable validé")
+        lines.append("")
 
-    lines.append("")
-    lines.append("🤖 <i>Terminat-AI · FC24 Penalty</i>")
+    if ai_review is not None and ai_review.get("approved") is True:
+        lines.append("✅ Pari validé par Terminat-AI")
+        lines.append("🎯 À MISER")
+        lines.append("")
 
+    top_markets = []
+    if ai_review is not None:
+        top_markets = [
+            market
+            for market in (ai_review.get("top_markets") or [])
+            if isinstance(market, Mapping)
+        ]
+    if analysis.market_probabilities or top_markets:
+        lines.append("<b>⚽ COTES 1X2</b>")
+        favorite = None
+        rendered_items: list[tuple[str, float]] = []
+        for item in analysis.market_probabilities:
+            rendered_items.append((str(item.label), float(item.odds)))
+            if item.group_id == 1 and item.event_type in {1, 3}:
+                if favorite is None or item.odds < favorite.odds:
+                    favorite = item
+        for market in top_markets:
+            label = str(market.get("label") or "")
+            odds = market.get("odds")
+            if label and isinstance(odds, (int, float)):
+                rendered_items.append((label, float(odds)))
+        if favorite is not None:
+            lines.append(f"<b>{escape(favorite.label)}</b> ⭐ Favori")
+            lines.append(f"@{favorite.odds:g}")
+        for label, odds in rendered_items:
+            if favorite is not None and label == favorite.label and odds == favorite.odds:
+                continue
+            lines.append(f"{escape(label)} @ {odds:g}")
+        lines.append("")
+
+    if analysis.balanced_total is not None:
+        total = analysis.balanced_total
+        regime_upper = str(cycle_stats.regime).upper()
+        selected_side = total.selected_side
+        selected_odds = total.selected_odds
+        selected_probability_pct = total.selected_probability_pct
+        if "UNDER" in regime_upper or "MOINS" in regime_upper:
+            if total.under_odds <= total.over_odds:
+                selected_side = "Moins de"
+                selected_odds = total.under_odds
+                selected_probability_pct = total.under_probability_pct
+        elif "OVER" in regime_upper or "PLUS" in regime_upper:
+            if total.over_odds <= total.under_odds:
+                selected_side = "Plus de"
+                selected_odds = total.over_odds
+                selected_probability_pct = total.over_probability_pct
+        lines.append(f"<b>🌐 TOTAL {total.threshold:g}</b>")
+        lines.append(f"<b>{selected_side} {total.threshold:g}</b>")
+        lines.append(f"@{selected_odds:g} ({selected_probability_pct:.1f}%)")
+        lines.append("")
+
+    for team_total in analysis.team_totals:
+        team_name = team1_name if team_total.team_number == 1 else team2_name
+        emoji = "🏠" if team_total.team_number == 1 else "✈️"
+        lines.append(f"<b>{emoji} TOTAL {escape(team_name)} ({team_total.threshold:g})</b>")
+        lines.append(f"<b>{team_total.selected_side}</b>")
+        lines.append("")
+
+    if analysis.extra_penalties is not None:
+        lines.append("⏱️ PÉNALITÉS SUPPLÉMENTAIRES")
+        lines.append(f"<b>Oui</b> @{analysis.extra_penalties.yes_odds:g}")
+        lines.append(f"<b>Non</b> @{analysis.extra_penalties.no_odds:g}")
+        recommendation = _recommended_extra_penalties()
+        if recommendation:
+            lines.append(f"Recommandé : <b>{recommendation}</b>")
+        if recommendation == "Oui":
+            relevant_quote = any(
+                quote.group_id == 17
+                and (
+                    (quote.event_type == 9 and quote.threshold == 8.5 and quote.odds <= 1.72)
+                    or (quote.threshold == 9.5 and quote.is_center)
+                )
+                for quote in analysis.regulation_markets
+            )
+            strong_history = any(
+                math.isfinite(rate) and rate >= 25.0
+                for rate in (
+                    float(cycle_stats.recent_sudden_death_pct),
+                    float(cycle_stats.hour_sudden_death_pct),
+                )
+            )
+            if analysis.extra_penalties.yes_odds <= 4.50 and relevant_quote and strong_history:
+                lines.append("🔥 OPPORTUNITÉ COTE ÉLEVÉE")
+        lines.append("")
+
+    if analysis.exact_scores:
+        lines.append("<b>🎯 SCORES EXACTS VALIDÉS</b>")
+        lines.append("🔥 SCORES PROLONGÉS")
+        for index, score in enumerate(_sorted_exact_scores(), start=1):
+            a, b = score.score
+            if max(a, b) >= 6 and abs(a - b) == 1:
+                prefix = "🥇" if index == 1 else "🥈" if index == 2 else "🥉"
+            else:
+                prefix = ["1️⃣", "2️⃣", "3️⃣"][index - 1]
+            lines.append(f"{prefix} {a}-{b}")
+        lines.append("")
+
+    if ai_review is not None and isinstance(ai_review.get("matchup"), Mapping):
+        matchup = ai_review["matchup"]
+        h2h = matchup.get("h2h", {})
+        if isinstance(h2h, Mapping):
+            matches_played = h2h.get("matches_played")
+            score1_avg = h2h.get("average_score_team1")
+            score2_avg = h2h.get("average_score_team2")
+            if isinstance(matches_played, (int, float)) and isinstance(score1_avg, (int, float)) and isinstance(score2_avg, (int, float)):
+                lines.append("<b>📊 CONFRONTATIONS DIRECTES</b>")
+                lines.append(f"{int(matches_played)} matchs · score moyen {float(score1_avg):.1f} - {float(score2_avg):.1f}")
+                lines.append("")
+
+    lines.append(f"<b>📈 TENDANCE · {max(int(cycle_stats.recent_count), 0)} DERNIERS MATCHS</b>")
+    regime = cycle_stats.regime
+    if cycle_stats.recent_average_goals is not None:
+        lines.append(f"Régime {regime} · moyenne {cycle_stats.recent_average_goals:.1f} buts")
+    else:
+        lines.append(f"Régime {regime}")
     return "\n".join(lines)
 
 
@@ -1868,7 +2042,9 @@ class GameEventProcessor:
             self._history_repository.settle_sent_predictions(match)
             self._history_repository.settle_exact_score_predictions(match)
             if self.ai_brain is not None and self.ai_brain.maybe_train():
-                logger.info("Cycle d'apprentissage terminé:\n%s", self.ai_brain.format_training_summary())
+                summary = self.ai_brain.format_training_summary()
+                logger.info("Cycle d'apprentissage terminé:\n%s", summary)
+                self._sender(summary)
 
     def _format_prediction(
         self,

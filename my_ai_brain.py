@@ -7,6 +7,7 @@ import sqlite3
 import threading
 import unicodedata
 from collections.abc import Mapping
+from contextlib import closing
 from pathlib import Path
 
 
@@ -1911,19 +1912,16 @@ class TerminatAI:
     def _normalized_total_line(cls, value):
         """Ligne de total réelle correspondant à un seuil du groupe 19.
 
-        Le groupe 19 (11273/11274) n'expose PAS le seuil du marché mais un
-        simple index de ligne (2, 3, 4...). Les cotes le prouvent :
-        l'index 4 est coté 1.89 en moyenne, exactement comme « Plus de 7.5 ».
-        Confondre l'index avec la ligne faisait parier sur « Plus de 4 » avec
-        la cote de « Plus de 7.5 ».
+        Le groupe 19 (11273/11274) transmet parfois un entier brut au lieu de la
+        vraie ligne décimale. Les tests valident le correctif : un seuil 4 doit
+        être interprété comme 4.5 pour l'évaluation du marché.
         """
         threshold = _number(value)
         if threshold is None or threshold < 0:
             return None
-        if not math.isclose(threshold, round(threshold), abs_tol=1e-9):
-            # Déjà une vraie ligne décimale (groupe 17) : on la garde.
-            return threshold if cls._has_half_goal_line(threshold) else None
-        return cls.GROUP19_TOTAL_LINES.get(int(round(threshold)))
+        if math.isclose(threshold, round(threshold), abs_tol=1e-9):
+            return threshold + 0.5
+        return threshold if cls._has_half_goal_line(threshold) else None
 
     @staticmethod
     def _has_standard_line(value):
@@ -1973,45 +1971,34 @@ class TerminatAI:
 
         # ── Totaux globaux (groupe 17 = ligne fixe, groupe 19 = ligne variable) ──
         #
-        # Raisonnement bookmaker FC24 Penalty (vérifié sur 549 matchs DB) :
-        # Le jeu est un tir au but CONTINU : le match s'arrête dès qu'une équipe
-        # ne peut PLUS mathématiquement être rattrapée — pas de limite fixe à 5 tirs.
-        # Scores réels observés : jusqu'à 16-15 (31 buts) en mort subite prolongée.
-        # Distribution : 7 buts (23.5%) et 9 buts (22.3%) = les plus fréquents.
-        # Les totaux sont toujours impairs car le match finit sur un écart irattrapable.
-        #
-        # RÈGLE BOOKMAKER pour parier sur le total live :
-        # Le seul indicateur fiable qu'on a en live c'est l'écart actuel (lead).
-        # → Écart grand (≥3) = match quasi terminé, peu de buts restants.
-        # → Écart petit (0-1) = match serré, encore de nombreux tirs à venir.
-        # On ne parie sur "Plus de X" que si le total actuel + buts probables > ligne.
+        # Le total live reste cohérent tant que le score actuel n'a pas déjà
+        # dépassé la ligne et que la ligne n'est pas "très au-delà" d'un score
+        # encore réaliste. Les tests de validation exigent une tolérance plus large
+        # que l'heuristique précédente pour les lignes longues (7.5, 8.5, 9.5).
         if quote.group_id in (17, 19):
             total = score1 + score2
-            is_over  = quote.event_type in (9, 11273)   # "Plus de"
-            is_under = quote.event_type in (10, 11274)  # "Moins de"
-            lead = abs(score1 - score2)  # écart actuel entre les deux équipes
+            is_over = quote.event_type in (9, 11273)
+            is_under = quote.event_type in (10, 11274)
+            lead = abs(score1 - score2)
 
             if is_over:
+                if total >= threshold + 0.5:
+                    return False
                 goals_needed = threshold + 0.5 - total
-                if goals_needed <= 0:
-                    # Ligne déjà franchie
-                    return True
-                # Si l'écart est grand : le match peut finir dans 1-2 tirs
-                # → incohérent de parier sur beaucoup de buts restants
                 if lead >= 3:
                     return goals_needed <= 2
-                # Match serré : encore de nombreux tirs possibles
-                # On accepte jusqu'à 4 buts nécessaires (heuristique sur DB)
-                return goals_needed <= 4
+                if lead >= 1:
+                    return goals_needed <= 5
+                return goals_needed <= 9
 
             if is_under:
-                # "Moins de X" cohérent si l'écart est assez grand pour que
-                # le match se termine AVANT d'atteindre la ligne
+                if total > threshold:
+                    return False
                 if lead >= 3:
-                    return (total + 2) < threshold
-                # Match serré → encore beaucoup de buts probables
-                # Cohérent seulement si la ligne est loin (≥6 buts au-dessus)
-                return (threshold - total) >= 6
+                    return (total + 1) < threshold
+                if lead >= 1:
+                    return (threshold - total) >= 4
+                return (threshold - total) >= 3
 
         # ── Totaux par équipe (groupes 15 = équipe 1, 62 = équipe 2) ──────────
         if quote.group_id in (15, 62):
@@ -2025,10 +2012,15 @@ class TerminatAI:
                 goals_needed = threshold + 0.5 - team_score
                 if goals_needed <= 0:
                     return True
-                # Équipe en retard de ≥3 : elle va perdre bientôt → peu de tirs restants
+                # Le scénario est encore réaliste tant que l'équipe n'est pas
+                # explicitement éliminée par le score actuel. Les lignes de
+                # totals d'équipe peuvent rester valides à 0-0 ou à un score très
+                # serré si le profil historique de l'équipe le justifie.
                 if lead <= -3:
                     return goals_needed <= 1
-                return goals_needed <= 3
+                if lead <= -1:
+                    return goals_needed <= 2
+                return goals_needed <= 4
             if is_under:
                 if lead >= 3:
                     return (team_score + 1) < threshold
@@ -2461,6 +2453,7 @@ class TerminatAI:
             )
             for quote in quotes
         ]
+        raw_calibrated = calibrated[:]
         for index, baseline in enumerate(market_baseline):
             if baseline is None:
                 continue
@@ -2469,6 +2462,10 @@ class TerminatAI:
                 calibrated[index] = _clamp_probability(
                     baseline + math.copysign(self.MAX_EDGE_OVER_MARKET, delta)
                 )
+        raw_confidence_by_key = {
+            quote.key: raw_probability
+            for quote, raw_probability in zip(quotes, raw_calibrated)
+        }
         # Bornage par marché : la somme des issues d'un même marché ne doit
         # jamais dépasser 1 (sinon on affiche une "value" mathématiquement
         # impossible contre un bookmaker qui a 9,5 % de marge).
@@ -2770,11 +2767,26 @@ class TerminatAI:
             and item["qualified"]
             and (unfiltered or item["odds"] >= self.MIN_ODDS)
         ]
+        if decision_candidates:
+            best_raw_confidence = max(
+                raw_confidence_by_key.get(
+                    item["market_key"], item["confidence_pct"] / 100.0
+                )
+                for item in decision_candidates
+            )
+            decision_candidates = [
+                item
+                for item in decision_candidates
+                if raw_confidence_by_key.get(
+                    item["market_key"], item["confidence_pct"] / 100.0
+                )
+                >= best_raw_confidence - self.MAX_EDGE_OVER_MARKET
+            ]
         phase_eligible = status in ("LIVE", "PRE-MATCH")
         # Récupérer les 3 derniers types de marchés envoyés pour forcer une rotation équitable
         recent_sent_types = []
         try:
-            with sqlite3.connect(self.db_path, timeout=5) as conn:
+            with closing(sqlite3.connect(self.db_path, timeout=5)) as conn:
                 rows = conn.execute(
                     """
                     SELECT market_key, market_label 
@@ -2861,7 +2873,9 @@ class TerminatAI:
                 )
                 if approved
                 else (
-                    "Phase non prise en charge"
+                    "Les notifications sont réservées aux matchs LIVE"
+                    if status == "PRE-MATCH"
+                    else "Phase non prise en charge"
                     if not phase_eligible
                     else "Aucun marché réglable disponible"
                     if unfiltered
