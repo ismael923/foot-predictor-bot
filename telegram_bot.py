@@ -1978,11 +1978,18 @@ class GameEventProcessor:
         tracker: OddsSignalTracker | None = None,
         history_repository: Any | None = None,
         ai_brain: Any | None = None,
+        single_prediction_per_match: bool | None = None,
     ) -> None:
         self._sender = send_message if sender is None else sender
         self._tracker = OddsSignalTracker() if tracker is None else tracker
         self._history_repository = history_repository
         self.ai_brain = ai_brain
+        self._single_prediction_per_match = (
+            os.getenv("SINGLE_PREDICTION_PER_MATCH", "true").strip().lower()
+            in ("true", "1", "yes")
+            if single_prediction_per_match is None
+            else bool(single_prediction_per_match)
+        )
         self._delivery_state: dict[str, MatchDeliveryState] = {}
         self.is_paused = False
         self._processed_match_ids: set[str] = set()
@@ -2108,6 +2115,15 @@ class GameEventProcessor:
 
         if phase not in ("PRE-MATCH", "LIVE"):
             return False
+
+        if self._single_prediction_per_match:
+            if state.prematch_alert_sent or state.live_alert_sent:
+                return False
+            if (
+                self._history_repository is not None
+                and self._history_repository.has_sent_any_prediction(game_id)
+            ):
+                return False
 
         is_live = phase == "LIVE"
         phase_alert_sent = (

@@ -1762,6 +1762,7 @@ class GameEventProcessorTests(unittest.TestCase):
                 sender=sender,
                 history_repository=repository,
                 ai_brain=approving_ai(),
+                single_prediction_per_match=False,
             )
 
             self.assertTrue(
@@ -1788,6 +1789,38 @@ class GameEventProcessorTests(unittest.TestCase):
             self.assertEqual(sender.call_count, 2)
             self.assertTrue(repository.has_sent_prediction(2401, "PRE-MATCH"))
             self.assertTrue(repository.has_sent_prediction(2401, "LIVE"))
+
+    def test_single_prediction_per_match_blocks_duplicate_live_alert_after_prematch(self):
+        from collector import MatchHistoryRepository
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            repository = MatchHistoryRepository(
+                Path(temp_dir) / "penalty_history.db"
+            )
+            sender = unittest.mock.Mock()
+            processor = GameEventProcessor(
+                sender=sender,
+                history_repository=repository,
+                ai_brain=approving_ai(),
+                single_prediction_per_match=True,
+            )
+
+            self.assertTrue(
+                processor.process_game_event(
+                    game_event(3001, odds=9.0, time_sec=120)
+                )
+            )
+            self.assertEqual(sender.call_count, 1)
+
+            # Le match passe en LIVE : doit être bloqué pour éviter le doublon
+            self.assertFalse(
+                processor.process_game_event(
+                    game_event(3001, odds=9.0, time_sec=120, live=True)
+                )
+            )
+            self.assertEqual(sender.call_count, 1)
+            self.assertTrue(repository.has_sent_prediction(3001, "PRE-MATCH"))
+            self.assertFalse(repository.has_sent_prediction(3001, "LIVE"))
 
     def test_migrates_existing_sent_predictions_to_live_phase(self):
         from collector import MatchHistoryRepository

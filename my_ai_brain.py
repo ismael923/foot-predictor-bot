@@ -2603,10 +2603,18 @@ class TerminatAI:
         if candidate.get("market_type") == "Pénalités supplémentaires":
             outcome_text = label.casefold()
             is_yes = "oui" in outcome_text or "yes" in outcome_text
+            is_no = "non" in outcome_text or "no" in outcome_text
             if is_yes:
                 recent_sd = self.memory.get("overall", {}).get("recent_sudden_death_rate", 0.0)
                 if not (recent_sd and recent_sd >= 0.55):
                     return False, "Pénalités supplémentaires 'Oui' rejeté (taux prolongation bas)"
+            elif is_no:
+                regime = str(getattr(analysis, "regime", "") or "")
+                if not regime:
+                    pref = self.predict_preference(parsed_game, analysis)
+                    regime = str(pref.get("regime", "") or "")
+                if "prolongation" in regime.casefold() or "mort subite" in regime.casefold():
+                    return False, "Pénalités supplémentaires 'Non' rejeté (régime prolongations actif)"
 
         # Règle 5 : Rentabilité historique en base négative
         hist_roi = candidate.get("historical_roi_pct")
@@ -2617,6 +2625,23 @@ class TerminatAI:
         if not is_live:
             if conf_pct < 70.0 and kelly_fraction < 0.025:
                 return False, f"Confiance pre-match insuffisante ({conf_pct:.1f}%)"
+
+        # Règle 7 : En LIVE à 0-0, interdire les cotes écrasées sur Total 4.5/5.5 (< 1.65)
+        # Les totaux élevés (>= 7.5) ont naturellement des cotes basses → non affectés.
+        score1 = int(parsed_game.get("score1", 0) or 0)
+        score2 = int(parsed_game.get("score2", 0) or 0)
+        if is_live and score1 == 0 and score2 == 0:
+            if group_id in (17, 19) and threshold is not None:
+                try:
+                    th_val = float(threshold)
+                    # Seuil <= 5.5 : ces cotes s'écrasent vite après le coup d'envoi
+                    if th_val <= 5.5 and odds < 1.65:
+                        return False, (
+                            f"Cote live 0-0 trop faible pour Total {th_val}"
+                            f" (@{odds:.2f} < 1.65)"
+                        )
+                except (ValueError, TypeError):
+                    pass
 
         return True, "Validé"
 

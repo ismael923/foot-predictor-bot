@@ -929,17 +929,26 @@ class MatchHistoryRepository:
         return int(result[0] if result is not None else 0)
 
     def has_sent_prediction(
-        self, game_id: str | int, phase: str = "LIVE"
+        self, game_id: str | int, phase: str | None = "LIVE"
     ) -> bool:
-        normalized_phase = str(phase).upper()
-        if normalized_phase not in ("LIVE", "PRE-MATCH"):
-            raise ValueError("Phase de pronostic invalide")
         with closing(self._connect(self.db_path, timeout=5)) as connection:
+            if phase is None:
+                row = connection.execute(
+                    "SELECT 1 FROM sent_predictions WHERE game_id = ?",
+                    (str(game_id),),
+                ).fetchone()
+                return row is not None
+            normalized_phase = str(phase).upper()
+            if normalized_phase not in ("LIVE", "PRE-MATCH"):
+                raise ValueError("Phase de pronostic invalide")
             row = connection.execute(
                 "SELECT 1 FROM sent_predictions WHERE game_id = ? AND phase = ?",
                 (str(game_id), normalized_phase),
             ).fetchone()
         return row is not None
+
+    def has_sent_any_prediction(self, game_id: str | int) -> bool:
+        return self.has_sent_prediction(game_id, phase=None)
 
     def reserve_sent_prediction(
         self,
