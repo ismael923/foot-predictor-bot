@@ -1847,6 +1847,7 @@ def format_prediction_message(
 
     if ai_review is not None and ai_review.get("approved") is True:
         lines.append("✅ Pari validé par Terminat-AI")
+        lines.append("🛡️ Double Filtre Validé : Sûr via analyses passées")
         lines.append("🎯 À MISER")
         lines.append("")
 

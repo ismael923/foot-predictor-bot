@@ -2527,6 +2527,99 @@ class TerminatAI:
             "regime": regime,
         }
 
+    def _validate_second_filter(
+        self,
+        candidate: Mapping[str, Any],
+        parsed_game: Mapping[str, Any],
+        analysis: Any,
+        matchup: Mapping[str, Any],
+    ) -> tuple[bool, str]:
+        """Deuxième filtre quantitatif et historique (Sûreté et Rentabilité Avérée).
+
+        Ce filtre applique 6 règles strictes issues des analyses des matchs passés :
+        1. Modèle du Critère de Kelly (Ed Thorp / Fractional Kelly >= 1.5% edge).
+        2. Élimination des Totaux de buts excessifs (>= 5.5 buts) sauf si l'historique
+           des confrontations ou des équipes prouve un volume de buts structurel.
+        3. Élimination des Handicaps négatifs (-1.5, etc.) constatés à 0-20% de réussite.
+        4. Élimination des paris 'Pénalités supplémentaires : Oui' à faible probabilité.
+        5. Cohérence historique H2H (moyenne de buts H2H vs ligne demandée).
+        6. Sécurité en PRE-MATCH : seuil de confiance rehaussé pour éviter les paris hasardeux.
+        """
+        odds = float(candidate.get("odds", 1.0) or 1.0)
+        conf_pct = float(candidate.get("confidence_pct", 0.0) or 0.0)
+        prob = conf_pct / 100.0
+        status = str(parsed_game.get("status", "")).upper()
+        is_live = status == "LIVE"
+        group_id = candidate.get("group_id")
+        event_type = candidate.get("event_type")
+        threshold = candidate.get("threshold")
+        label = str(candidate.get("label", ""))
+
+        # Règle 1 : Critère de Kelly calibré (fraction >= 1.5% du bankroll)
+        kelly_fraction = kelly_criterion(odds, prob, fraction=0.5)
+        if kelly_fraction < 0.015:
+            return False, f"Edge Kelly insuffisant ({kelly_fraction:.1%})"
+
+        # Règle 2 : Handicaps négatifs (échec historique massif en penalties)
+        if group_id == 2 and threshold is not None:
+            try:
+                th_val = float(threshold)
+                if th_val <= -1.0:
+                    return False, f"Handicap négatif ({th_val}) rejeté par le 2e filtre"
+            except (ValueError, TypeError):
+                pass
+
+        # Règle 3 : Totaux de buts (groupes 17 et 19)
+        if group_id in (17, 19) and threshold is not None:
+            try:
+                th = float(threshold)
+                is_over = event_type in (9, 11273) or "Plus" in label
+                
+                # Récupérer les moyennes historiques
+                h2h = matchup.get("h2h", {}) if isinstance(matchup.get("h2h"), Mapping) else {}
+                h2h_avg = float(h2h.get("average_score_team1", 0.0) or 0.0) + float(h2h.get("average_score_team2", 0.0) or 0.0)
+                t1 = matchup.get("team1", {}) if isinstance(matchup.get("team1"), Mapping) else {}
+                t2 = matchup.get("team2", {}) if isinstance(matchup.get("team2"), Mapping) else {}
+                t1_avg = float(t1.get("average_goals_scored", 0.0) or 0.0)
+                t2_avg = float(t2.get("average_goals_scored", 0.0) or 0.0)
+                team_combined = t1_avg + t2_avg
+                has_history = (h2h_avg > 0 or team_combined > 0)
+
+                # Totaux élevés (>= 5.5 buts) : historiquement 18% de victoire (-6.45u de perte)
+                if is_over and th >= 5.5 and has_history:
+                    h2h_ok = h2h_avg >= (th - 0.5) if h2h_avg > 0 else True
+                    teams_ok = team_combined >= (th - 0.5) if team_combined > 0 else True
+                    if not (h2h_ok or teams_ok):
+                        return False, f"Total over {th} contredit par l'historique (H2H={h2h_avg:.1f}, équipes={team_combined:.1f})"
+                
+                # Totaux 4.5 buts : refuser si les équipes ont une moyenne anémique (< 3.5)
+                elif is_over and th >= 4.5 and has_history:
+                    if team_combined > 0 and team_combined < 3.5 and (h2h_avg == 0 or h2h_avg < 3.5):
+                        return False, f"Total 4.5 sur confrontation fermée ({team_combined:.1f} buts)"
+            except (ValueError, TypeError):
+                pass
+
+        # Règle 4 : Pénalités supplémentaires (Mort subite)
+        if candidate.get("market_type") == "Pénalités supplémentaires":
+            outcome_text = label.casefold()
+            is_yes = "oui" in outcome_text or "yes" in outcome_text
+            if is_yes:
+                recent_sd = self.memory.get("overall", {}).get("recent_sudden_death_rate", 0.0)
+                if not (recent_sd and recent_sd >= 0.55):
+                    return False, "Pénalités supplémentaires 'Oui' rejeté (taux prolongation bas)"
+
+        # Règle 5 : Rentabilité historique en base négative
+        hist_roi = candidate.get("historical_roi_pct")
+        if hist_roi is not None and isinstance(hist_roi, (int, float)) and hist_roi < -10.0:
+            return False, f"Marché historiquement déficitaire (ROI {hist_roi:+.1f}%)"
+
+        # Règle 6 : En PRE-MATCH, exigence de certitude
+        if not is_live:
+            if conf_pct < 70.0 and kelly_fraction < 0.025:
+                return False, f"Confiance pre-match insuffisante ({conf_pct:.1f}%)"
+
+        return True, "Validé"
+
     def review_and_approve(
         self, parsed_game, analysis, signal_drops=None, *, unfiltered=False
     ):
@@ -3009,9 +3102,31 @@ class TerminatAI:
             return (pure_value_score, val, conf, odds)
 
         decision_candidates.sort(key=_selection_score, reverse=True)
-        decision = decision_candidates[0] if (decision_candidates and phase_eligible) else None
+
+        # DEUXIÈME FILTRE : Validation quantitative & historique approfondie
+        validated_candidates = []
+        filter2_rejections = []
+        for item in decision_candidates:
+            if unfiltered:
+                validated_candidates.append(item)
+            else:
+                passed, reason_filter = self._validate_second_filter(
+                    item, parsed_game, analysis, matchup
+                )
+                if passed:
+                    item["filter2_status"] = "PASSED"
+                    validated_candidates.append(item)
+                else:
+                    item["filter2_status"] = f"REJECTED: {reason_filter}"
+                    filter2_rejections.append((item.get("label"), reason_filter))
+
+        decision = (
+            validated_candidates[0]
+            if (validated_candidates and phase_eligible)
+            else None
+        )
         approved = decision is not None
-        top_markets = decision_candidates[:3] if phase_eligible else []
+        top_markets = validated_candidates[:3] if phase_eligible else []
         all_opportunities = sorted(
             market_candidates + exact_scores,
             key=lambda item: (item["confidence_pct"], -item["odds"]),
