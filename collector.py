@@ -1113,16 +1113,8 @@ class MatchHistoryRepository:
                 return "WON" if total < threshold else "LOST"
         if group_id == 19 and threshold is not None:
             total = score1 + score2
-            real_threshold = {
-                1: 2.5,
-                2: 4.5,
-                3: 6.5,
-                4: 7.5,
-                5: 9.5,
-                6: 11.5,
-                7: 13.5,
-                8: 15.5,
-            }.get(int(threshold), threshold)
+            th = float(threshold)
+            real_threshold = (th + 0.5) if th.is_integer() else th
             if event_type == 11273:
                 if total == real_threshold:
                     return "VOID"
