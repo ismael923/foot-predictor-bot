@@ -9,6 +9,7 @@ import unicodedata
 from collections.abc import Mapping
 from contextlib import closing
 from pathlib import Path
+from typing import Any
 
 
 def _load_env_file():
